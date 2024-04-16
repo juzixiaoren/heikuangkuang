@@ -10,12 +10,9 @@ using namespace std;
 // #include"variables.h"
 // #include"main.h"
 int main() {
-	srand(time(0));
-	FullScreen();
-	gui_size();
-	titlecout();
+	Hkk_initialize();
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE| FOREGROUND_GREEN);
-	cout << "按任意键开始游戏" << endl;
+	cout << "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始游戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cin.get();
 	system("cls");
