@@ -1,4 +1,5 @@
 #include"header.h"
+#include"initialize.h"
 using namespace std;
 // #include"main.cpp"
 // #include"functions.cpp"
@@ -10,16 +11,19 @@ using namespace std;
 // #include"main.h"
 int main() {
 	srand(time(0));
-	wchar_t title[] = L"奇怪的大冒险";
-	SetConsoleTitle(title);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-	cout << "欢迎来到奇怪的大冒险！!" << endl;
-	cout << "Press any key to continue..." << endl;
+	FullScreen();
+	gui_size();
+	titlecout();
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE| FOREGROUND_GREEN);
+	cout << "按任意键开始游戏" << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cin.get();
 	system("cls");
-	cout << "Please enter your name: ";
-	string name;
-	getline(cin, name);
+	string name="NULL";
+	while (name == "NULL") {
+		cout << "请输入名字"<<endl<<"你的名字是:";
+		getline(cin, name);
+	}
 	cout << "Hello, " << name << "!" << endl;
 	cout << "Press any key to continue..." << endl;
 	cin.get();

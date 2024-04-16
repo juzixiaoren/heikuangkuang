@@ -1,4 +1,4 @@
 ﻿  main.cpp
-F:\heikuangkuang\hkkgames\main.cpp(12,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
-F:\heikuangkuang\hkkgames\main.cpp(32,6): warning C4101: “choice”: 未引用的局部变量
+F:\heikuangkuang\hkkgames\main.cpp(13,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+F:\heikuangkuang\hkkgames\main.cpp(36,6): warning C4101: “choice”: 未引用的局部变量
   hkkgames.vcxproj -> F:\heikuangkuang\x64\Debug\hkkgames.exe

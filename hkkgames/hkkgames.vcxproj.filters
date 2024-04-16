@@ -18,10 +18,25 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="initialize.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="before start.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="initialize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="beforestart.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="title.txt" />
   </ItemGroup>
 </Project>

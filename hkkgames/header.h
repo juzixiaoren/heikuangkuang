@@ -6,6 +6,8 @@
 #include <ctime>
 #include <cstdlib>
 #include <windows.h>
+#include <fstream>
+#include <thread>
 #ifndef HEADER_H
 #define HEADER_H
 #endif
