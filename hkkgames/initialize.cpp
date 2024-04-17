@@ -40,10 +40,45 @@ void gui_size(){
 //	SetConsoleWindowInfo(Hand, 1, &rect);//设置窗口大小
 //	cout << SetConsoleScreenBufferSize(Hand, size) << endl;
 //}
+void log_cout(string a)
+{
+	for (int i = 0; i < a.size(); i++)
+	{
+		cout << a[i];
+		Sleep(50);
+	}
+}
 void Hkk_initialize() {
 	gui_size();
 	//FullScreen();
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+	log_cout("加载中 █ █ █ ");
+	system("cls");
 	titlecout();
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | FOREGROUND_GREEN);
+	string a = "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始游戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
+	cout<<a;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cin.get();
+	system("cls");
+	string name = "NULL";
+	while (name == "NULL") {
+		cout << "请输入名字" << endl << "你的名字是:";
+		getline(cin, name);
+	}
+	cout << "Hello, " << name << "!" << endl;
+	cout << "Press any key to continue..." << endl;
+	cin.get();
+	system("cls");
+	cout << "Please select a game to play:" << endl;
+	cout << "1. Tic-Tac-Toe" << endl;
+	cout << "2. Hangman" << endl;
+	cout << "3. Rock-Paper-Scissors" << endl;
+	cout << "4. Exit" << endl;
+	int choice;
+	cout << "Press any key to exit..." << endl;
+	cin.get();
+	cin.get();
 }
 #ifndef TEST_H
 #define TEST_H

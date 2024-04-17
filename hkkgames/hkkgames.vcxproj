@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="before start.cpp" />
+    <ClCompile Include="class_fight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="initialize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="beforestart.h" />
+    <ClInclude Include="class_fight.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="initialize.h" />
   </ItemGroup>

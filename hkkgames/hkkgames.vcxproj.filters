@@ -24,6 +24,9 @@
     <ClCompile Include="before start.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="class_fight.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -33,6 +36,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="beforestart.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="class_fight.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

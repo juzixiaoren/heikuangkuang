@@ -1,3 +1,12 @@
 ﻿  main.cpp
-F:\heikuangkuang\hkkgames\main.cpp(33,6): warning C4101: “choice”: 未引用的局部变量
+F:\heikuangkuang\hkkgames\class_fight.cpp(47,14): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(98,27): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(99,27): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(110,27): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(111,27): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(124,26): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(143,24): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(156,24): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\class_fight.cpp(181): warning C4715: “enemy_s::pd”: 不是所有的控件路径都返回值
+F:\heikuangkuang\hkkgames\class_fight.cpp(162): warning C4715: “enemy_s::acts”: 不是所有的控件路径都返回值
   hkkgames.vcxproj -> F:\heikuangkuang\x64\Debug\hkkgames.exe

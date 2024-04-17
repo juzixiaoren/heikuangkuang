@@ -1,5 +1,6 @@
 #include"header.h"
 #include"initialize.h"
+#include"class_fight.cpp"
 using namespace std;
 // #include"main.cpp"
 // #include"functions.cpp"
@@ -10,29 +11,14 @@ using namespace std;
 // #include"variables.h"
 // #include"main.h"
 int main() {
-	Hkk_initialize();
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE| FOREGROUND_GREEN);
-	cout << "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始游戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
-	cin.get();
-	system("cls");
-	string name="NULL";
-	while (name == "NULL") {
-		cout << "请输入名字"<<endl<<"你的名字是:";
-		getline(cin, name);
+	int i = 1;
+	enemy_s *A=new enemy_s("测试用小怪A",100,10,10,10,10,10);
+	enemy_s* B = new enemy_s("测试用小怪B", 100, 10, 10, 10, 10, 10);
+	while (i) {
+		B->Be_attacked(A->pd(A->acts()));
+		system("pause");
+		A->Be_attacked(B->pd(B->acts()));
 	}
-	cout << "Hello, " << name << "!" << endl;
-	cout << "Press any key to continue..." << endl;
-	cin.get();
-	system("cls");
-	cout << "Please select a game to play:" << endl;
-	cout << "1. Tic-Tac-Toe" << endl;
-	cout << "2. Hangman" << endl;
-	cout << "3. Rock-Paper-Scissors" << endl;
-	cout << "4. Exit" << endl;
-	int choice;
-	cout << "Press any key to exit..." << endl;
-	cin.get();
-	cin.get();
+	//Hkk_initialize();
 	return 0;
 }
