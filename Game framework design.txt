@@ -1,0 +1,5 @@
+target
+level tutorial/character dialogue,etc
+rule
+keep in the archives
+Interactive implimentation
