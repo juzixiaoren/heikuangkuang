@@ -1,23 +1,23 @@
 #include"header.h"
 using namespace std;
-class enemy_s {
+class enemy_s {//敌人类
 protected:
-	string name;
-	double hp;
-	double atk;
-	double def;
-	double atk_temp;
-	double def_temp;
-	double hp_temp;
-	double atk_b;
-	double def_b;
-	double hp_b;
-	double hp_c;
-	int actor;
-	double act_num;
-	double output_atk;
+	string name;//名字
+	double hp;//生命值
+	double atk;//攻击力
+	double def;//防御力
+	double atk_temp;//临时攻击力
+	double def_temp;//临时防御力
+	double hp_temp;//临时生命值
+	double atk_b;//暴击率
+	double def_b;//强化率
+	double hp_b;//回复率
+	double hp_c;//生命剥夺率
+	int actor;//行为
+	double act_num;//行为数值
+	double output_atk;//输出攻击力
 public:
-	enemy_s(string _name, double _hp, double _atk, double _def,double _atk_b,double _def_b,double _hp_b,double _hp_c) 
+	enemy_s(string _name, double _hp, double _atk, double _def,double _atk_b,double _def_b,double _hp_b,double _hp_c) //构造函数
 	{
 		this->name = _name;
 		this->hp = _hp;
@@ -31,23 +31,23 @@ public:
 		this->hp_b = _hp_b;
 		this->hp_c = _hp_c;
 	}
-	void show() {
+	void show() {//显示敌人信息
 		cout << "敌人名字：" << name << endl;
 		cout << "敌人生命值：" << hp << endl;
 		cout << "敌人攻击力：" << atk << endl;
 		cout << "敌人防御力：" << def << endl;
 	}
-	double op_atk() 
+	double op_atk() //输出对敌方的攻击
 	{
 		return output_atk;
 	}
-	int Ifalive() {
+	int Ifalive() {//判断是否存活
 		if (hp_temp > 0)
 			return 1;
 		else
 			return 0;
 	}
-	void Be_attacked(double be_atk) 
+	void Be_attacked(double be_atk) //被攻击函数
 	{
 		double damage;
 		if (be_atk < 0)
@@ -89,7 +89,7 @@ public:
 			return;
 		}
 	}
-	void acts() 
+	void acts() //行动函数
 	{
 		int r;
 		if (hp_temp < hp)
@@ -201,7 +201,7 @@ public:
 			}
 		}
 	}
-	void pd() 
+	void pd() //行动判断函数
 	{
 		if (actor == 1)
 		{

@@ -27,6 +27,9 @@
     <ClCompile Include="class_fight.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -41,8 +44,13 @@
     <ClInclude Include="class_fight.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="screen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="title.txt" />
+    <Text Include="单缓冲.txt" />
+    <Text Include="双缓冲.txt" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #include"header.h"
 #include"initialize.h"
 #include"beforestart.h"
+#include"screen.h"
 using namespace std;
 // #include"main.cpp"
 // #include"functions.cpp"
@@ -11,8 +12,9 @@ using namespace std;
 // #include"variables.h"
 // #include"main.h"
 int main() {
-	srand(time(0));
-	fight();
-	//Hkk_initialize();
+	Hkk_initialize();//初始化
+	screen_output();//单缓冲输出的测试,目前是死循环如果要进入下一步请注释掉
+	srand(time(0));//随机数种子
+	fight();//战斗函数测试
 	return 0;
 }

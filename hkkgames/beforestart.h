@@ -1,2 +1,2 @@
 #pragma once
-void fight();
+void fight();//Õ½¶·

@@ -1,6 +1,6 @@
 #include "header.h"
 using namespace std;
-void titlecout() {
+void titlecout() {//输出标题
 	ifstream file("title.txt");
 	string line;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE| FOREGROUND_GREEN);
@@ -10,37 +10,7 @@ void titlecout() {
 	}
 	file.close();
 }
-void gui_size(){
-	short width = 1000;//设置窗体大小
-	short height = 500;//设置窗体大小
-	HANDLE hStdOutput = GetStdHandle(STD_OUTPUT_HANDLE);//获取标准输出句柄
-	SMALL_RECT wrt = { 0, 0, width - 1, height - 1 };//设置窗体大小
-	SetConsoleWindowInfo(hStdOutput, TRUE, &wrt); // 设置窗体尺寸
-	COORD coord = { width, height };//设置缓冲区大小
-	SetConsoleScreenBufferSize(hStdOutput, coord); // 设置缓冲尺寸
-	//wchar_t title[] = L"奇怪的大冒险";
-	//SetConsoleTitle(title);
-	//SetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE, GetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE) & ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
-	HWND hwnd = GetForegroundWindow();				  /* 获取窗口句柄 */
-	int cx = GetSystemMetrics(SM_CXSCREEN);            /* 屏幕宽度 像素 */
-	int cy = GetSystemMetrics(SM_CYSCREEN);            /* 屏幕高度 像素 */
-	//SetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE, GetWindowLongPtrA(GetConsoleWindow(),GWL_STYLE)& ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
-	//LONG l_WinStyle = GetWindowLong(hwnd, GWL_STYLE);   /* 获取窗口信息 */
-	//SetWindowLong(hwnd, GWL_STYLE, l_WinStyle & ~WS_CAPTION & ~WS_THICKFRAME & ~WS_MINIMIZEBOX & ~WS_MAXIMIZEBOX & ~WS_SYSMENU); /* 设置窗口风格 */
-	SetWindowPos(hwnd, HWND_TOP, 0, 0, cx, cy, SWP_SHOWWINDOW); /* 设置窗口位置 */
-}
-//void FullScreen() {
-//	HANDLE Hand;//定义句柄
-//	CONSOLE_SCREEN_BUFFER_INFO Info;//定义缓冲区信息结构体
-//	Hand = GetStdHandle(STD_OUTPUT_HANDLE);	//获取标准输出句柄
-//	GetConsoleScreenBufferInfo(Hand, &Info);//获取缓冲区信息
-//	COORD size = {89,100};	//定义缓冲区大小，保持缓冲区大小和屏幕大小一致即可取消边框
-//	SetConsoleScreenBufferSize(Hand, size);	//设置缓冲区大小
-//	SMALL_RECT rect = { 0, 0, 89, 100};//定义窗口大小，保持窗口大小和缓冲区大小一致即可取消滚动条
-//	SetConsoleWindowInfo(Hand, 1, &rect);//设置窗口大小
-//	cout << SetConsoleScreenBufferSize(Hand, size) << endl;
-//}
-void log_cout(string a)
+void log_cout(string a)//实现一个一个字符输出
 {
 	for (int i = 0; i < a.size(); i++)
 	{
@@ -48,20 +18,36 @@ void log_cout(string a)
 		Sleep(50);
 	}
 }
-void Hkk_initialize() {
-	gui_size();
-	//FullScreen();
+void gui_size(){//设置缓冲区大小，全屏手动全屏
+	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO scr_buff;
+	COORD cd;
+	cd.X = 155;
+	cd.Y = 43;
+	if (!SetConsoleScreenBufferSize(hcon, cd)) {
+		printf("error\n");
+	}
+	if (GetConsoleScreenBufferInfo(hcon, &scr_buff)) {
+
+		printf("缓冲区设置成功：X : %d,Y : %d\n", scr_buff.dwSize.X, scr_buff.dwSize.Y);
+
+	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+	system("pause");
 	log_cout("加载中 █ █ █ ");
+}
+
+void Hkk_initialize() {//初始化
+	gui_size();
 	system("cls");
-	titlecout();
+	titlecout();//输出标题
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | FOREGROUND_GREEN);
 	string a = "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始游戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
 	cout<<a;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cin.get();
 	system("cls");
-	string name = "NULL";
+	/*string name = "NULL";
 	while (name == "NULL") {
 		cout << "请输入名字" << endl << "你的名字是:";
 		getline(cin, name);
@@ -78,7 +64,7 @@ void Hkk_initialize() {
 	int choice;
 	cout << "Press any key to exit..." << endl;
 	cin.get();
-	cin.get();
+	cin.get();*/
 }
 #ifndef TEST_H
 #define TEST_H
