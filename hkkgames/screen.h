@@ -2,7 +2,7 @@
 void gotoxy(int x, int y);//光标移动
 typedef struct{}Ball;//球结构体
 typedef struct {}Viewport;//视口结构体
-void ViewportToScreen(Viewport* viewport);
+void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer);
 void Delay();
 void gotoxy(int x, int y);
 void CleanScreen(Viewport* viewport);//清屏
