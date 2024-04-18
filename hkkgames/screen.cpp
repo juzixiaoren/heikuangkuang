@@ -32,7 +32,6 @@ void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到屏幕
 				front_buffer->m_buffer[index] = ch;//赋值
 			}
 		}
-		cout << endl;//换行
 	}
 }
 void PrintFrame(Viewport* back_buffer, int frame)
@@ -102,14 +101,14 @@ void screen_output()
 	Protagonist prot;//主角
 	prot.m_x = 5;
 	prot.m_y = 4;
-	prot.m_char ='O';
+	prot.m_char ='我';
 	for (;;)
 	{
 		CleanScreen(&buffers[back_index]);
 
 		screen_input(&buffers[back_index]);
 
-		//RenderProt(&buffers[back_index], &prot);
+		RenderProt(&buffers[back_index], &prot);
 
 		//PrintFrame(&buffers[back_index], frame);//打印帧数
 
