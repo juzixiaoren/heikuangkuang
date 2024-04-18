@@ -1,13 +1,14 @@
 #include<iostream>
 #include<Windows.h>
+#include"header.h"
 using namespace std;
 void gotoxy(int x, int y);//光标移动
-typedef struct//球的结构体
+typedef struct//主角的结构体
 {
 	int m_x;
 	int m_y;
 	char m_char;
-}Ball;
+}Protagonist;
 #define WIDTH (155)//宽度
 #define HEIGHT (43)//高度
 
@@ -46,7 +47,7 @@ void PrintFrame(Viewport* back_buffer, int frame)
 }
 void Delay()//延迟
 {
-	Sleep(15);
+	Sleep(1500);
 };
 void gotoxy(int x, int y) {
 	COORD cd = { x,y };
@@ -59,31 +60,58 @@ void CleanScreen(Viewport* back_buffer)//清屏
 	memset(back_buffer, 0, sizeof(*back_buffer));//清空缓冲区
 }
 
-void RenderBall(Viewport* back_buffer, Ball* b)//渲染球
+void RenderProt(Viewport* back_buffer, Protagonist* prot)//渲染主角位置
 {
 	/*gotoxy(b->m_x,b->m_y);
 	cout<<b->m_char;*/
-	int index = b->m_x + b->m_y * WIDTH;//索引
-	back_buffer->m_buffer[index] = b->m_char;//缓冲区赋值
+	int index = prot->m_x + prot->m_y * WIDTH;//索引
+	back_buffer->m_buffer[index] = prot->m_char;//缓冲区赋值
 }
+void screen_input(Viewport* back_buffer) 
+{
+	ifstream file("test.txt");
+	if (!file.is_open()) {
+		cerr << "无法打开文件 test.txt" << endl;
+		return;
+	}
 
-void screen_output() {
+	string line;
+	int y = 0;
+	int index = 0;
+	while (getline(file, line) && y < HEIGHT-1) 
+	{
+		for (int x = 0; x < WIDTH; x++) 
+		{
+			index = x + y * WIDTH;
+			if (x < line.length()) {
+				if (line[x] != ' ' && line[x] != '\n' && line[x] != 0)
+					back_buffer->m_buffer[index] = line[x];
+			}
+		}
+		y++;
+	}
+	file.close();
+}
+void screen_output() 
+{
 	Viewport buffers[2] = { 0 };//视口
 	int front_index, back_index;//前后索引
 	int frame = 0;//帧数
 	front_index = 0;
 	back_index = 1;
-	Ball b2;//球
-	b2.m_x = 154;
-	b2.m_y = 42;
-	b2.m_char = 'B';
+	Protagonist prot;//主角
+	prot.m_x = 5;
+	prot.m_y = 4;
+	prot.m_char ='O';
 	for (;;)
 	{
 		CleanScreen(&buffers[back_index]);
 
-		RenderBall(&buffers[back_index], &b2);
+		screen_input(&buffers[back_index]);
 
-		PrintFrame(&buffers[back_index], frame);//打印帧数
+		//RenderProt(&buffers[back_index], &prot);
+
+		//PrintFrame(&buffers[back_index], frame);//打印帧数
 
 		ViewportToScreen(&buffers[back_index], &buffers[front_index]);//视口到屏幕
 		Delay();

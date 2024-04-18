@@ -7,5 +7,6 @@ void Delay();
 void gotoxy(int x, int y);
 void CleanScreen(Viewport* viewport);//清屏
 void RenderBall(Viewport* viewport, Ball* b);//渲染球
-void screen_output(); 
+void screen_output(); //屏幕输出
+void screen_input();//屏幕输入
 //最大高度索引是42,最大宽度索引是154
