@@ -7,10 +7,11 @@ void press_any() //按任意键开始游戏
 		cout << "按任意键开始游戏" << endl;
 }
 void fight() {//战斗函数测试，用两个小怪测试
-	enemy_s* A = new enemy_s("测试用小怪A", 100, 15, 10, 10, 10, 10, 10);
-	enemy_s* B = new enemy_s("测试用小怪B", 100, 15, 10, 10, 10, 10, 10);
+	enemy_s* A = new enemy_s("测试用小怪A", 100, 20, 10, 10, 10, 10, 20);
+	enemy_s* B = new enemy_s("测试用小怪B", 100, 20, 10, 10, 10, 10, 20);
 	A->show();
 	B->show();
+	system("pause");
 	while (A->Ifalive() && B->Ifalive()) 
 	{
 		B->acts();
@@ -19,6 +20,7 @@ void fight() {//战斗函数测试，用两个小怪测试
 		A->acts();
 		A->pd();
 		B->Be_attacked(A->op_atk());
+		system("pause");
 	}
 	system("pause");
 }

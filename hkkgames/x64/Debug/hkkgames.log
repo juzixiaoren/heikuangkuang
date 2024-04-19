@@ -1,4 +1,2 @@
-﻿  main.cpp
-F:\heikuangkuang\hkkgames\initialize.h(1,1): warning C4828: 文件包含在偏移 0x9f 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-F:\heikuangkuang\hkkgames\beforestart.h(1,1): warning C4828: 文件包含在偏移 0x21 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+﻿  before start.cpp
   hkkgames.vcxproj -> F:\heikuangkuang\x64\Debug\hkkgames.exe

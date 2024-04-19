@@ -52,25 +52,21 @@ void RenderProt(Viewport* back_buffer, Protagonist* prot)//渲染主角
 }
 void screen_input(Viewport* back_buffer)
 {
-	ifstream file("test.txt");
+	wifstream file(L"test.txt");//打开文件
+	file.imbue(locale("zh_CN"));//把txt里的语言环境设置为zh_CN
 	if (!file.is_open()) {
 		cerr << "无法打开文件 test.txt" << endl;
 		return;
 	}
-	string line_;
 	wstring line;
 	int y = 0;
 	int index = 0;
 	while (y < HEIGHT)
 	{
-		getline(file, line_);
-		for (int i = 0; i < line_.size(); i++)
-		{
-			line[i] = line_[i];
-		}
-		wcout << line;
+		getline(file, line);
 		for(int x = 0; x < WIDTH; x++)
 		{
+			if(x < line.length())
 			back_buffer->m_buffer[x + y * WIDTH] = line[x];
 		}
 		y++;
