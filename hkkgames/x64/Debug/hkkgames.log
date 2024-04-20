@@ -1,2 +1,5 @@
-﻿  before start.cpp
+﻿  screen.cpp
+F:\heikuangkuang\hkkgames\screen.cpp(25,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\screen.cpp(35,15): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+F:\heikuangkuang\hkkgames\screen.cpp(35,17): warning C4838: 从“int”转换到“SHORT”需要收缩转换
   hkkgames.vcxproj -> F:\heikuangkuang\x64\Debug\hkkgames.exe

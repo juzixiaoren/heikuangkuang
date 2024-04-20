@@ -59,17 +59,17 @@ void screen_input(Viewport* back_buffer)
 		return;
 	}
 	wstring line;
-	int y = 0;
+	wchar_t ch;
 	int index = 0;
-	while (y < HEIGHT)
+	for(int y = 0; y < HEIGHT&&getline(file,line); y++)
 	{
-		getline(file, line);
-		for(int x = 0; x < WIDTH; x++)
+		for(int x = 0; x < WIDTH&& x<line.length(); x++)
 		{
-			if(x < line.length())
-			back_buffer->m_buffer[x + y * WIDTH] = line[x];
+			index= x + y * WIDTH;
+			ch = line[x];
+			back_buffer->m_buffer[index] = ch;
+			wcout << ch;
 		}
-		y++;
 	}
 	file.close();
 }
