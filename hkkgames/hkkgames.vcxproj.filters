@@ -52,8 +52,6 @@
     <Text Include="title.txt" />
     <Text Include="单缓冲.txt" />
     <Text Include="双缓冲.txt" />
-    <Text Include="test.txt">
-      <Filter>资源文件</Filter>
-    </Text>
+    <Text Include="test.txt" />
   </ItemGroup>
 </Project>

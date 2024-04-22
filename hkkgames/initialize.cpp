@@ -22,9 +22,9 @@ void gui_size(){//设置缓冲区大小，全屏手动全屏
 	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_SCREEN_BUFFER_INFO scr_buff;
 	COORD cd;
-	cd.X = 155;
+	cd.X = 310;
 	cd.Y = 43;
-	if (!SetConsoleScreenBufferSize(hcon, cd)) {
+	if (!SetConsoleScreenBufferSize(hcon, cd)) {//设置缓冲区大小
 		printf("error\n");
 	}
 	if (GetConsoleScreenBufferInfo(hcon, &scr_buff)) {

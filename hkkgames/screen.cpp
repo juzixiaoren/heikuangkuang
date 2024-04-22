@@ -9,11 +9,12 @@ void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到屏幕
 		{
 			int index = x + y * WIDTH;//索引
 			wchar_t ch = back_buffer->m_buffer[index];//字符
-			if (ch != front_buffer->m_buffer[index]) //如果字符不为空
+			if (ch != front_buffer->m_buffer[index])
 			{
-				gotoxy(x, y);//移动光标
-				wcout << ch;//输出字符
-				front_buffer->m_buffer[index] = ch;//赋值
+				wcout.imbue(locale("zh_CN"));
+				gotoxy(x, y);
+				wcout << ch;
+				front_buffer->m_buffer[index] = ch; // 使用来自back_buffer的字符更新front_buffer
 			}
 		}
 	}
@@ -32,14 +33,14 @@ void Delay()//延迟
 	Sleep(3000);
 };
 void gotoxy(int x, int y) {
-	COORD cd = { x,y };
+	COORD cd = { 2*x,y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cd);//设置光标位置
 }
 
 void CleanScreen(Viewport* back_buffer)//清屏
 {
 	//system("cls");
-	memset(back_buffer, 0, sizeof(*back_buffer));//清空缓冲区
+	memset(back_buffer,0, sizeof(*back_buffer));//清空缓冲区
 }
 
 void RenderProt(Viewport* back_buffer, Protagonist* prot)//渲染主角
@@ -60,15 +61,13 @@ void screen_input(Viewport* back_buffer)
 	}
 	wstring line;
 	wchar_t ch;
-	int index = 0;
 	for(int y = 0; y < HEIGHT&&getline(file,line); y++)
 	{
-		for(int x = 0; x < WIDTH&& x<line.length(); x++)
+		for(int x = 0; x < WIDTH && x<line.length(); x++)
 		{
-			index= x + y * WIDTH;
+			int index= x + y * WIDTH;
 			ch = line[x];
 			back_buffer->m_buffer[index] = ch;
-			wcout << ch;
 		}
 	}
 	file.close();
