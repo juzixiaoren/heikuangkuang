@@ -1,14 +1,30 @@
 #include "header.h"
 using namespace std;
 void titlecout() {//输出标题
-	ifstream file("title.txt");
+	FILE* fileptr = fopen("character.txt", "r");
+	if (fileptr == nullptr) {
+		std::cout << "error oprning file" << endl;
+		std::exit(EXIT_FAILURE);
+	}
+	const size_t buffersize = 1024;
+	char buffer[buffersize]{};
+	char* ptr = buffer;//指向buffer缓冲区的指针
+	size_t bytesRead = 0;
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {
+		buffer[bytesRead] = '\0';
+		std::cout << buffer << std::endl;
+	}
+	fclose(fileptr);
+
+
+	/*ifstream file("title.txt");
 	string line;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE| FOREGROUND_GREEN);
 	int i = 0;
 	while (getline(file, line)) {
 		cout << line << endl;
 	}
-	file.close();
+	file.close();*/
 }
 void log_cout(string a)//实现一个一个字符输出
 {
