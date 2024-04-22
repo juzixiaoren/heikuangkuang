@@ -1,49 +1,83 @@
-#include"header.h"
+ï»¿#include"header.h"
 #include"screen.h"
+#include"controller.h"
 using namespace std;
-void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//ÊÓ¿Úµ½ÆÁÄ»
+void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//è§†å£åˆ°å±å¹•
 {
-	for (int y = 0; y < HEIGHT; y++)//±éÀú¸ß¶È
+	for (int y = 0; y < HEIGHT; y++)//éå†é«˜åº¦
 	{
-		for (int x = 0; x < WIDTH; x++)//±éÀú¿í¶È
+		for (int x = 0; x < WIDTH; x++)//éå†å®½åº¦
 		{
-			int index = x + y * WIDTH;//Ë÷Òı
-			wchar_t ch = back_buffer->m_buffer[index];//×Ö·û
+			int index = x + y * WIDTH;//ç´¢å¼•
+			wchar_t ch = back_buffer->m_buffer[index];//å­—ç¬¦
 			if (ch != front_buffer->m_buffer[index])
 			{
 				wcout.imbue(locale("zh_CN"));
 				gotoxy(x, y);
 				wcout << ch;
-				front_buffer->m_buffer[index] = ch; // Ê¹ÓÃÀ´×Ôback_bufferµÄ×Ö·û¸üĞÂfront_buffer
+				front_buffer->m_buffer[index] = ch; // ä½¿ç”¨æ¥è‡ªback_bufferçš„å­—ç¬¦æ›´æ–°front_buffer
 			}
 		}
 	}
 }
 void PrintFrame(Viewport* back_buffer, int frame)
 {
-	//´òÓ¡Ö¡Êı
-	wchar_t str[255];//×Ö·û´®
-	for (int i = 0, max_i = wcslen(str); i < max_i; i++)//±éÀú×Ö·û´®
+	//æ‰“å°å¸§æ•°
+	wchar_t str[255];//å­—ç¬¦ä¸²
+	for (int i = 0, max_i = wcslen(str); i < max_i; i++)//éå†å­—ç¬¦ä¸²
 	{
-		back_buffer->m_buffer[i] = str[i];//¸³Öµ
+		back_buffer->m_buffer[i] = str[i];//èµ‹å€¼
 	}
 }
-void Delay()//ÑÓ³Ù
+bool Canmove(controller*player,Viewport* front_buffer, Protagonist* prot) {
+	if (player->IfMove== 1)
+	{
+		int index = player->x + (player->y-1) * WIDTH;
+		if (front_buffer->m_buffer[index] != prot->m_char && front_buffer->m_buffer[index] == 0||front_buffer->m_buffer[index]==' ')
+		{
+			return true;
+		}
+		else return false;
+	}
+	if (player->IfMove == 2)
+	{
+		int index = player->x + (player->y + 1) * WIDTH;
+		if (front_buffer->m_buffer[index] != prot->m_char && front_buffer->m_buffer[index] == 0 || front_buffer->m_buffer[index] == ' ')
+			return true;
+		else return false;
+	}
+	if (player->IfMove == 3)
+	{
+		int index = (player->x-1) + player->y * WIDTH;
+		if(front_buffer->m_buffer[index] != prot->m_char && front_buffer->m_buffer[index] == 0 || front_buffer->m_buffer[index] == ' ')
+			return true;
+		else return false;
+	}
+	if (player->IfMove == 4)
+	{
+		int index = (player->x+1) + player->y * WIDTH;
+		if(front_buffer->m_buffer[index] != prot->m_char && front_buffer->m_buffer[index] == 0 || front_buffer->m_buffer[index] == ' ')
+			return true;
+		else return false;
+	}
+	return true;
+}
+void Delay()//å»¶è¿Ÿ
 {
-	Sleep(3000);
+	Sleep(30);
 };
 void gotoxy(int x, int y) {
-	COORD cd = { 2*x,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cd);//ÉèÖÃ¹â±êÎ»ÖÃ
+	COORD cd = { 2 * x,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cd);//è®¾ç½®å…‰æ ‡ä½ç½®
 }
 
-void CleanScreen(Viewport* back_buffer)//ÇåÆÁ
+void CleanScreen(Viewport* back_buffer)//æ¸…å±
 {
 	//system("cls");
-	memset(back_buffer,0, sizeof(*back_buffer));//Çå¿Õ»º³åÇø
+	memset(back_buffer, 0, sizeof(*back_buffer));//æ¸…ç©ºç¼“å†²åŒº
 }
 
-void RenderProt(Viewport* back_buffer, Protagonist* prot)//äÖÈ¾Ö÷½Ç
+void RenderProt(Viewport* back_buffer, Protagonist* prot)//æ¸²æŸ“ä¸»è§’
 {
 	int index = prot->m_x + prot->m_y * WIDTH;
 	if (back_buffer->m_buffer[index] == ' ' || back_buffer->m_buffer[index] == 0)
@@ -51,49 +85,63 @@ void RenderProt(Viewport* back_buffer, Protagonist* prot)//äÖÈ¾Ö÷½Ç
 		back_buffer->m_buffer[index] = prot->m_char;
 	}
 }
+void clear_preRenderProt(Viewport* back_buffer, controller* player)//æ¸…é™¤ä¸Šä¸€æ¬¡çš„ä¸»è§’
+{
+	int index = player->prex+player->prey * WIDTH;
+		back_buffer->m_buffer[index] = ' ';
+}
 void screen_input(Viewport* back_buffer)
 {
-	wifstream file(L"test.txt");//´ò¿ªÎÄ¼ş
-	file.imbue(locale("zh_CN"));//°ÑtxtÀïµÄÓïÑÔ»·¾³ÉèÖÃÎªzh_CN
+	wifstream file(L"test.txt");//æ‰“å¼€æ–‡ä»¶
+	file.imbue(locale("zh_CN"));//æŠŠtxté‡Œçš„è¯­è¨€ç¯å¢ƒè®¾ç½®ä¸ºzh_CN
 	if (!file.is_open()) {
-		cerr << "ÎŞ·¨´ò¿ªÎÄ¼ş test.txt" << endl;
+		cerr << "æ— æ³•æ‰“å¼€æ–‡ä»¶ test.txt" << endl;
 		return;
 	}
 	wstring line;
 	wchar_t ch;
-	for(int y = 0; y < HEIGHT&&getline(file,line); y++)
+	for (int y = 0; y < HEIGHT && getline(file, line); y++)
 	{
-		for(int x = 0; x < WIDTH && x<line.length(); x++)
+		for (int x = 0; x < WIDTH && x < line.length(); x++)
 		{
-			int index= x + y * WIDTH;
+			int index = x + y * WIDTH;
 			ch = line[x];
 			back_buffer->m_buffer[index] = ch;
 		}
 	}
 	file.close();
 }
-void screen_output() 
+void screen_output()
 {
-	Viewport buffers[2] = { 0 };//ÊÓ¿Ú
-	int front_index, back_index;//Ç°ºóË÷Òı
-	int frame = 0;//Ö¡Êı
-	front_index = 0;//³õÊ¼»¯Ë÷Òı
-	back_index = 1;//³õÊ¼»¯Ë÷Òı
-	Protagonist prot;//Ö÷½Ç
-	prot.m_x = 6;
-	prot.m_y = 4;
-	prot.m_char = L'ÎÒ';
+	Viewport buffers[2] = { 0 };//è§†å£
+	int front_index, back_index;//å‰åç´¢å¼•
+	int frame = 0;//å¸§æ•°
+	front_index = 0;//åˆå§‹åŒ–ç´¢å¼•
+	back_index = 1;//åˆå§‹åŒ–ç´¢å¼•
+	controller player(6, 4);//æ§åˆ¶å™¨
+	Protagonist prot;//ä¸»è§’
+	prot.m_x = player.x;
+	prot.m_y = player.y;
+	prot.m_char = L'æˆ‘';
 	for (;;)
 	{
-		CleanScreen(&buffers[back_index]);
+		CleanScreen(&buffers[back_index]);//æ¸…å±
+		screen_input(&buffers[back_index]);//è¯»å–åœ°å›¾æ–‡ä»¶
+		RenderProt(&buffers[back_index], &prot);//æ¸²æŸ“ä¸»è§’
+		while (player.CheckIfMove()&&Canmove(&player, &buffers[front_index],&prot))//æ£€æŸ¥æ˜¯å¦ç§»åŠ¨
+		{
+			if (Timer(200,1)) {
+				player.Move();//ç§»åŠ¨
+				prot.m_x = player.x;
+				prot.m_y = player.y;
+				RenderProt(&buffers[back_index], &prot);//æ¸²æŸ“ä¸»è§’
+				clear_preRenderProt(&buffers[back_index], &player);//æ¸…é™¤ä¸Šä¸€æ¬¡çš„ä¸»è§’ä½ç½®
+			}
+			else break;
+		}
+		//PrintFrame(&buffers[back_index], frame);//æ‰“å°å¸§æ•°
 
-		screen_input(&buffers[back_index]);
-
-		RenderProt(&buffers[back_index], &prot);
-
-		//PrintFrame(&buffers[back_index], frame);//´òÓ¡Ö¡Êı
-
-		ViewportToScreen(&buffers[back_index], &buffers[front_index]);//ÊÓ¿Úµ½ÆÁÄ»
+		ViewportToScreen(&buffers[back_index], &buffers[front_index]);//è§†å£åˆ°å±å¹•
 		Delay();
 
 
@@ -103,7 +151,7 @@ void screen_output()
 			back_index = front_index;
 			front_index = temp;
 		}
-		frame++;
 	}
 }
+
 

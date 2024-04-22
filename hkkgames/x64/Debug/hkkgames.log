@@ -1,5 +1,6 @@
 ﻿  screen.cpp
-F:\heikuangkuang\hkkgames\screen.cpp(26,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\heikuangkuang\hkkgames\screen.cpp(36,16): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-F:\heikuangkuang\hkkgames\screen.cpp(36,19): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+F:\heikuangkuang\hkkgames\controller.h(1,1): warning C4828: 文件包含在偏移 0x1bf 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+F:\heikuangkuang\hkkgames\screen.cpp(27,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\heikuangkuang\hkkgames\screen.cpp(70,17): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+F:\heikuangkuang\hkkgames\screen.cpp(70,21): warning C4838: 从“int”转换到“SHORT”需要收缩转换
   hkkgames.vcxproj -> F:\heikuangkuang\x64\Debug\hkkgames.exe

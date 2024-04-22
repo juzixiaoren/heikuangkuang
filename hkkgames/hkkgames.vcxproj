@@ -132,6 +132,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="initialize.cpp" />
     <ClCompile Include="screen.cpp" />
+    <ClCompile Include="controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="beforestart.h" />
@@ -139,6 +140,7 @@
     <ClInclude Include="header.h" />
     <ClInclude Include="initialize.h" />
     <ClInclude Include="screen.h" />
+    <ClInclude Include="controller.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
