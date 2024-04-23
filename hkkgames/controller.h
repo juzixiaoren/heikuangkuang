@@ -14,7 +14,7 @@ public:
 		prex = x;
 		prey = y;
 	}
-	int IfMove;//0:不动 1:上 2:左 3:下 4:右
+	int IfMove;//0:不动 1:上W 2:下S 3:左A 4:右D
 	bool CheckKeyDown(int vKey);//检查按键是否按下
 	bool CheckIfMove();//检查是否移动
 	void Move();//移动

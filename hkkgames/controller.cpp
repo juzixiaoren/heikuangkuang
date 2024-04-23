@@ -12,22 +12,30 @@ bool controller::CheckIfMove()
 {
 	if (CheckKeyDown(KEYBOARD_W))
 	{
+		if (y - 1 < 0)
+			return false;
 		IfMove = 1;
 		return true;
 	}
 	else if (CheckKeyDown(KEYBOARD_S))
 	{
+		if (y + 1 > 42)
+			return false;
 		IfMove = 2;
 		return true;
 	}
 	else if (CheckKeyDown(KEYBOARD_A))
 	{
+		if (x - 1 < 0)
+				return false;
 		IfMove = 3;
 		return true;
 	}
 
 	else if (CheckKeyDown(KEYBOARD_D))
 	{
+		if (x + 1 > 76)
+			return false;
 		IfMove = 4;
 		return true;
 	}

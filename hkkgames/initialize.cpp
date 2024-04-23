@@ -1,30 +1,20 @@
 #include "header.h"
 using namespace std;
 void titlecout() {//输出标题
-	FILE* fileptr = fopen("character.txt", "r");
+	FILE* fileptr = fopen("title.txt", "r");
 	if (fileptr == nullptr) {
 		std::cout << "error oprning file" << endl;
 		std::exit(EXIT_FAILURE);
 	}
-	const size_t buffersize = 1024;
+	const size_t buffersize = 6665;
 	char buffer[buffersize]{};
 	char* ptr = buffer;//指向buffer缓冲区的指针
-	size_t bytesRead = 0;
-	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {
+	size_t bytesRead = 0;//读取的字节数
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//读取文件
 		buffer[bytesRead] = '\0';
 		std::cout << buffer << std::endl;
 	}
 	fclose(fileptr);
-
-
-	/*ifstream file("title.txt");
-	string line;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE| FOREGROUND_GREEN);
-	int i = 0;
-	while (getline(file, line)) {
-		cout << line << endl;
-	}
-	file.close();*/
 }
 void log_cout(string a)//实现一个一个字符输出
 {
@@ -58,7 +48,7 @@ void Hkk_initialize() {//初始化
 	system("cls");
 	titlecout();//输出标题
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | FOREGROUND_GREEN);
-	string a = "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始游戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
+	string a = "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始  戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
 	cout<<a;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cin.get();
