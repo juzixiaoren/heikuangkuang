@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 #define KEYBOARD_W 0x57
 #define KEYBOARD_A 0x41
 #define KEYBOARD_S 0x53
@@ -20,3 +22,5 @@ public:
 	void Move();//ÒÆ¶¯
 };
 bool Timer(long long ms, int id);//¼ÆÊ±Æ÷
+#endif
+// Path: hkkgames/class_fight.h

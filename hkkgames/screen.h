@@ -1,4 +1,6 @@
 #pragma once
+#ifndef SCREEN_H
+#define SCREEN_H
 #include "controller.h"
 void gotoxy(int x, int y);//光标移动
 #define WIDTH (155)//宽度
@@ -28,5 +30,5 @@ bool Canmove(controller* player, Viewport* front_buffer, Protagonist* prot);//检
 std::wstring selectMapFile(int gameLevel);//选择地图文件
 void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//加载地图文件
 
-
+#endif
 //最大高度索引是42,最大宽度索引是154
