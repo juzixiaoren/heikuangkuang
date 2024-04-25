@@ -113,15 +113,15 @@ void screen_output()
 	int front_index, back_index;//前后索引
 	front_index = 0;//初始化索引
 	back_index = 1;//初始化索引
-	controller player(40, 1);//控制器
+	controller player(0, 37);//控制器
 	Protagonist prot;//主角
 	prot.m_x = 2*player.x;
 	prot.m_y = player.y;
-	prot.m_char = L'我';
+	prot.m_char = L'开';
 	for (;;)
 	{
 		CleanScreen(&buffers[back_index]);//清屏
-		loadMapFile(&buffers[back_index], selectMapFile(1));//加载地图文件
+		loadMapFile(&buffers[back_index], selectMapFile(3));//加载地图文件
 		RenderProt(&buffers[back_index], &prot);//渲染主角
 		while (player.CheckIfMove()&&Canmove(&player, &buffers[front_index],&prot))//检查是否移动
 		{
@@ -149,7 +149,7 @@ void screen_output()
 	}
 }
 // 假设地图文件名存储在一个数组中
-const std::vector<std::wstring> mapFiles = { L"test.txt", L"title.txt", L"map3.txt" };
+const std::vector<std::wstring> mapFiles = { L"test.txt", L"title.txt", L"map3.txt",L"test2.txt"};
 
 // 根据游戏状态选择地图文件
 wstring selectMapFile(int gameLevel) {

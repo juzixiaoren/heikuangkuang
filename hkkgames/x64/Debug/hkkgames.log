@@ -1,6 +1,4 @@
-﻿  Startgame.cpp
-  main.cpp
-F:\heikuangkuang\hkkgames\beforestart.h(1,1): warning C4828: 文件包含在偏移 0x21 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-F:\heikuangkuang\hkkgames\main.cpp(21,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
-  正在生成代码...
+﻿  screen.cpp
+F:\heikuangkuang\hkkgames\screen.cpp(63,15): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+F:\heikuangkuang\hkkgames\screen.cpp(63,17): warning C4838: 从“int”转换到“SHORT”需要收缩转换
   hkkgames.vcxproj -> F:\heikuangkuang\x64\Debug\hkkgames.exe

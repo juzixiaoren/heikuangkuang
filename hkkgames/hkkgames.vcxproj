@@ -149,6 +149,8 @@
     <Text Include="title.txt" />
     <Text Include="单缓冲.txt" />
     <Text Include="双缓冲.txt" />
+    <Text Include="kobe.txt" />
+    <Text Include="test2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
