@@ -29,6 +29,7 @@ void clear_preRenderProt(Viewport* back_buffer, controller* player);//清除上一次
 bool Canmove(controller* player, Viewport* front_buffer, Protagonist* prot);//检查是否可以移动
 std::wstring selectMapFile(int gameLevel);//选择地图文件
 void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//加载地图文件
-
+void Coordinate();//坐标判断
+bool Coordinate_judgment(int coord_xy[10][2], controller* player);//坐标判断
 #endif
 //最大高度索引是42,最大宽度索引是154

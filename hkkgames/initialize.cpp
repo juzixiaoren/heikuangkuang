@@ -46,17 +46,9 @@ void gui_size(){//设置缓冲区大小，全屏手动全屏
 void Hkk_initialize() {//初始化
 	gui_size();
 	system("cls");
-	titlecout();//输出标题
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | FOREGROUND_GREEN);
-	string a = "口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口开始  戏口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口口";
-	cout<<a;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
-	cin.get();
-	system("cls");
 	/*string name = "NULL";
 	while (name == "NULL") {
-		cout << "请输入名字" << endl << "你的名字是:";
-		getline(cin, name);
 	}
 	cout << "Hello, " << name << "!" << endl;
 	cout << "Press any key to continue..." << endl;

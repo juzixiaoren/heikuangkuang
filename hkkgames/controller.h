@@ -5,10 +5,12 @@
 #define KEYBOARD_A 0x41
 #define KEYBOARD_S 0x53
 #define KEYBOARD_D 0x44
+#include "header.h"
 class controller {
 public:
 	int x, y;
 	int prex, prey;
+	wchar_t m_char;
 	controller(int a, int b)
 	{
 		x = a;

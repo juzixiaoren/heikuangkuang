@@ -11,13 +11,20 @@
 //#include"variables.h"
 
 using namespace std;
-
+int coord_xy[10][2];//坐标数组
+controller player(0, 37);//控制器
+int Status= 0;//状态
+int info = 0;//信息
+Viewport buffers[2] = { 0 };//视口
 int main() 
 {
 	wcout.imbue(locale("zh_CN"));  //设置语言环境
 	Hkk_initialize();//初始化
-	//GameStart();
-	screen_output();//单缓冲输出的测试,目前是死循环如果要进入下一步请注释掉
+	Startgame();//开始游戏
+	thread t1(screen_output);//多线程
+	thread t2(Coordinate);//多线程
+	t1.join();
+	t2.join();
 	srand(time(0));//随机数种子
 	fight();//战斗函数测试
 	return 0;

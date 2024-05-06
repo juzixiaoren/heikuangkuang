@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="资源文件\moster">
+      <UniqueIdentifier>{cd62a522-ce6f-4fc4-af2a-3f7ef6e83361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Map">
+      <UniqueIdentifier>{1e643ef9-d79d-47f1-bbab-8241015c2a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\other">
+      <UniqueIdentifier>{6c52c3b6-cc8e-416e-b7ff-c3ef69e99f2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -62,22 +71,37 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="kobe.txt">
-      <Filter>资源文件</Filter>
+      <Filter>资源文件\other</Filter>
     </Text>
     <Text Include="test.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="title.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="单缓冲.txt">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="双缓冲.txt">
-      <Filter>资源文件</Filter>
+      <Filter>资源文件\other</Filter>
     </Text>
     <Text Include="test2.txt">
-      <Filter>资源文件</Filter>
+      <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="title.txt">
+      <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="文本.txt">
+      <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="BIGEYES.txt">
+      <Filter>资源文件\moster</Filter>
+    </Text>
+    <Text Include="HELL.txt">
+      <Filter>资源文件\moster</Filter>
+    </Text>
+    <Text Include="SLIME.txt">
+      <Filter>资源文件\moster</Filter>
+    </Text>
+    <Text Include="BOOS.txt">
+      <Filter>资源文件\moster</Filter>
+    </Text>
+    <Text Include="文本1.txt">
+      <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="NULL.txt">
+      <Filter>资源文件\other</Filter>
     </Text>
   </ItemGroup>
 </Project>
