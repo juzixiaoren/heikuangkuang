@@ -4,7 +4,6 @@
 #include "Startgame.h"
 using namespace std;
 int mapid;
-mutex mtx;
 extern int coord_xy[10][2];
 extern controller player;
 extern int Status;
@@ -42,7 +41,7 @@ bool Canmove(controller*player,Viewport* front_buffer, Protagonist* prot) {
 	if (player->IfMove== 1)
 	{
 		int index = player->x*2 + (player->y-1) * WIDTH;
-		if (front_buffer->m_buffer[index] != player->m_char && (front_buffer->m_buffer[index] == 0||front_buffer->m_buffer[index]==' ')&& front_buffer->m_buffer[index+1] != player->m_char && (front_buffer->m_buffer[index+1] == 0 || front_buffer->m_buffer[index+1] == ' '))
+		if (front_buffer->m_buffer[index] != player->m_char && (front_buffer->m_buffer[index] == 0||front_buffer->m_buffer[index]==L' ')&& front_buffer->m_buffer[index+1] != player->m_char && (front_buffer->m_buffer[index+1] == 0 || front_buffer->m_buffer[index+1] == L' '))
 		{
 			return true;
 		}
@@ -52,21 +51,21 @@ bool Canmove(controller*player,Viewport* front_buffer, Protagonist* prot) {
 	if (player->IfMove == 2)
 	{
 		int index = player->x*2 + (player->y + 1) * WIDTH;
-		if (front_buffer->m_buffer[index] != player->m_char && (front_buffer->m_buffer[index] == 0 || front_buffer->m_buffer[index] == ' ')&& front_buffer->m_buffer[index + 1] != player->m_char && (front_buffer->m_buffer[index + 1] == 0 || front_buffer->m_buffer[index + 1] == ' '))
+		if (front_buffer->m_buffer[index] != player->m_char && (front_buffer->m_buffer[index] == 0 || front_buffer->m_buffer[index] == L' ')&& front_buffer->m_buffer[index + 1] != player->m_char && (front_buffer->m_buffer[index + 1] == 0 || front_buffer->m_buffer[index + 1] == L' '))
 			return true;
 		else return false;
 	}
 	if (player->IfMove == 3)
 	{
 		int index = (player->x*2) + player->y * WIDTH;
-		if(front_buffer->m_buffer[index-1] != player->m_char && (front_buffer->m_buffer[index-1] == 0 || front_buffer->m_buffer[index-1] == ' ')&& front_buffer->m_buffer[index - 2] != player->m_char && (front_buffer->m_buffer[index - 2] == 0 || front_buffer->m_buffer[index - 2] == ' '))
+		if(front_buffer->m_buffer[index-1] != player->m_char && (front_buffer->m_buffer[index-1] == 0 || front_buffer->m_buffer[index-1] == L' ')&& front_buffer->m_buffer[index - 2] != player->m_char && (front_buffer->m_buffer[index - 2] == 0 || front_buffer->m_buffer[index - 2] == L' '))
 			return true;
 		else return false;
 	}
 	if (player->IfMove == 4)
 	{
 		int index = (player->x*2) + player->y * WIDTH;
-		if(front_buffer->m_buffer[index+1] != player->m_char && (front_buffer->m_buffer[index+1] == 0 || front_buffer->m_buffer[index+1] == ' ')&& front_buffer->m_buffer[index + 2] != player->m_char && (front_buffer->m_buffer[index + 2] == 0 || front_buffer->m_buffer[index + 2] == ' '))
+		if(front_buffer->m_buffer[index+1] != player->m_char && (front_buffer->m_buffer[index+1] == 0 || front_buffer->m_buffer[index+1] == L' ')&& front_buffer->m_buffer[index + 2] != player->m_char && (front_buffer->m_buffer[index + 2] == 0 || front_buffer->m_buffer[index + 2] == L' '))
 			return true;
 		else 
 			return false;
@@ -84,14 +83,14 @@ void gotoxy(int x, int y) {
 
 void CleanScreen(Viewport* back_buffer)//清屏
 {
-	//system("cls");
-	memset(back_buffer, 0, sizeof(*back_buffer));//清空缓冲区
+	for (int i = 0; i < WIDTH * HEIGHT; i++)
+		back_buffer->m_buffer[i] = L' ';
 }
 
 void RenderProt(Viewport* back_buffer, Protagonist* prot)//渲染主角
 {
 	int index = prot->m_x + prot->m_y * WIDTH;
-	if (back_buffer->m_buffer[index] == ' ' || back_buffer->m_buffer[index] == 0)
+	if (back_buffer->m_buffer[index] == L' ' || back_buffer->m_buffer[index] == 0)
 	{
 		back_buffer->m_buffer[index] = player.m_char;
 		back_buffer->m_buffer[index + 1] = 0;
@@ -100,8 +99,8 @@ void RenderProt(Viewport* back_buffer, Protagonist* prot)//渲染主角
 void clear_preRenderProt(Viewport* back_buffer, controller* player)//清除上一次的主角
 {
 	int index = player->prex*2+player->prey * WIDTH;
-		back_buffer->m_buffer[index] = ' ';
-		back_buffer->m_buffer[index+1] = ' ';
+		back_buffer->m_buffer[index] = L' ';
+		back_buffer->m_buffer[index+1] = L' ';
 }
 void screen_input(Viewport* back_buffer)
 {
@@ -160,18 +159,22 @@ void screen_output()
 		CleanScreen(&buffers[back_index]);//清屏
 		loadMapFile(&buffers[back_index], selectMapFile(mapid));//加载地图文件
 		loadothers();//加载其他
-		RenderProt(&buffers[back_index], &prot);//渲染主角
-		while (player.CheckIfMove()&&Canmove(&player, &buffers[front_index],&prot))//检查是否移动
-		{
-			if (Timer(90,1)) {
-				player.Move();//移动
-			/*	cout << player.x << player.y << endl;*/
-				prot.m_x = 2*player.x;
-				prot.m_y = player.y;
-				RenderProt(&buffers[back_index], &prot);//渲染主角
-				clear_preRenderProt(&buffers[back_index], &player);//清除上一次的主角位置
+		loadothers();//加载其他
+		loadothers();//加载其他
+		if (player.m_char != NULL) {
+			RenderProt(&buffers[back_index], &prot);//渲染主角
+			while (player.CheckIfMove() && Canmove(&player, &buffers[front_index], &prot))//检查是否移动
+			{
+				if (Timer(90, 1)) {
+					player.Move();//移动
+					/*	cout << player.x << player.y << endl;*/
+					prot.m_x = 2 * player.x;
+					prot.m_y = player.y;
+					RenderProt(&buffers[back_index], &prot);//渲染主角
+					clear_preRenderProt(&buffers[back_index], &player);//清除上一次的主角位置
+				}
+				else break;
 			}
-			else break;
 		}
 		ViewportToScreen(&buffers[back_index], &buffers[front_index]);//视口到屏幕
 		Delay();
@@ -200,7 +203,6 @@ wstring selectMapFile(int gameLevel) {
 // 读取地图文件内容的函数
 void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile) 
 	{//加载地图文件
-	unique_lock<mutex> lck(mtx);
 	wifstream file(mapFile.c_str()); // 打开文件
 	file.imbue(locale("zh_CN")); // 设置语言环境
 	if (!file.is_open()) 
