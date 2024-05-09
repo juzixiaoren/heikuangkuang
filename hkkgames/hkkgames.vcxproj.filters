@@ -33,7 +33,7 @@
     <ClCompile Include="before start.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="class_fight.cpp">
+    <ClCompile Include="fight.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="screen.cpp">
@@ -56,7 +56,7 @@
     <ClInclude Include="beforestart.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="class_fight.h">
+    <ClInclude Include="fight.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="screen.h">
@@ -73,7 +73,7 @@
     <Text Include="kobe.txt">
       <Filter>资源文件\other</Filter>
     </Text>
-    <Text Include="test.txt">
+    <Text Include="baseinfo.txt">
       <Filter>资源文件\other</Filter>
     </Text>
     <Text Include="test2.txt">
@@ -102,6 +102,9 @@
     </Text>
     <Text Include="NULL.txt">
       <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="map1.txt">
+      <Filter>资源文件\Map</Filter>
     </Text>
   </ItemGroup>
 </Project>

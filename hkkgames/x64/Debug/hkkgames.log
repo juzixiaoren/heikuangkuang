@@ -1,11 +1,4 @@
-﻿  screen.cpp
-D:\black\hkk\heikuangkuang\hkkgames\screen.cpp(85,15): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-D:\black\hkk\heikuangkuang\hkkgames\screen.cpp(85,17): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-  Startgame.cpp
-  正在生成代码...
-  LINK : 没有找到 D:\black\hkk\heikuangkuang\x64\Debug\hkkgames.exe 或上一个增量链接没有生成它；正在执行完全链接
-screen.obj : error LNK2005: "int front_index" (?front_index@@3HA) 已经在 main.obj 中定义
-screen.obj : error LNK2005: "int back_index" (?back_index@@3HA) 已经在 main.obj 中定义
-Startgame.obj : error LNK2005: "int front_index" (?front_index@@3HA) 已经在 main.obj 中定义
-Startgame.obj : error LNK2005: "int back_index" (?back_index@@3HA) 已经在 main.obj 中定义
-D:\black\hkk\heikuangkuang\x64\Debug\hkkgames.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
+﻿  main.cpp
+F:\heikuangkuang\heikuangkuang\hkkgames\beforestart.h(1,1): warning C4828: 文件包含在偏移 0x21 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+F:\heikuangkuang\heikuangkuang\hkkgames\main.cpp(34,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  hkkgames.vcxproj -> F:\heikuangkuang\heikuangkuang\x64\Debug\hkkgames.exe

@@ -2,6 +2,7 @@
 #include"screen.h"
 #include"controller.h"
 #include "Startgame.h"
+#include "fight.h"
 using namespace std;
 int mapid;
 extern int coord_xy[10][2];
@@ -36,8 +37,7 @@ bool Coordinate_judgment(int x[][2],controller*player)
 	{
 		if (player->x == x[i][0] && player->y == x[i][1])
 		{
-			stopThread = true;
-			return stopThread;
+			return i+1;
 		}
 	}
 	return false;
@@ -139,7 +139,7 @@ void Coordinate()//判断循环
 		{
 			switch (Status)
 			{
-			case 1:
+			case 1: {
 				mapid = 0;
 				Status = 0;
 				info = 1;
@@ -147,6 +147,24 @@ void Coordinate()//判断循环
 				player.y = 0;
 				player.m_char = NULL;
 				break;
+			}
+			case 2: {
+				mapid = 0;
+				Status = 0;
+				if (Coordinate_judgment(coord_xy, &player) == 1)
+				{
+					static enemy_s Playerinfo("名字", 120, 25, 12, 20, 12, 10, 10);
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 2)
+				{
+					static enemy_s Playerinfo("名字", 90, 10, 10, 10, 40, 35, 24);
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 3)
+				{
+					static enemy_s Playerinfo("名字", 150, 10, 15, 15, 20, 9, 10);
+				}
+				break;
+			}
 			default:
 				break;
 			}
@@ -197,7 +215,7 @@ void screen_output()
 	}
 }
 // 假设地图文件名存储在一个数组中
-const std::vector<std::wstring> mapFiles = { L"NULL.txt", L"title.txt", L"kobe.txt",L"test2.txt",L"BIGEYES.txt",L"HELL.txt",L"SLIME.txt",L"BOOS.txt"};
+const std::vector<std::wstring> mapFiles = { L"NULL.txt", L"title.txt", L"map1.txt",L"test2.txt",L"BIGEYES.txt",L"HELL.txt",L"SLIME.txt",L"BOOS.txt"};
 
 // 根据游戏状态选择地图文件
 wstring selectMapFile(int gameLevel) {

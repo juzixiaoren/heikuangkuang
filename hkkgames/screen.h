@@ -33,5 +33,6 @@ std::wstring selectMapFile(int gameLevel);//选择地图文件
 void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//加载地图文件
 void Coordinate();//坐标判断
 bool Coordinate_judgment(int coord_xy[10][2], controller* player);//坐标判断
+bool Timer(long long ms, int id);//计时器
 #endif
 //最大高度索引是42,最大宽度索引是154

@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="before start.cpp" />
-    <ClCompile Include="class_fight.cpp" />
+    <ClCompile Include="fight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="initialize.cpp" />
     <ClCompile Include="screen.cpp" />
@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="beforestart.h" />
-    <ClInclude Include="class_fight.h" />
+    <ClInclude Include="fight.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="initialize.h" />
     <ClInclude Include="screen.h" />
@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="BIGEYES.txt" />
-    <Text Include="test.txt" />
+    <Text Include="baseinfo.txt" />
     <Text Include="title.txt" />
     <Text Include="kobe.txt" />
     <Text Include="test2.txt" />
@@ -156,6 +156,7 @@
     <Text Include="BOOS.txt" />
     <Text Include="文本1.txt" />
     <Text Include="NULL.txt" />
+    <Text Include="map1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
