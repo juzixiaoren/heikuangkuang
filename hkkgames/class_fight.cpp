@@ -41,11 +41,11 @@ public:
 	{
 		return output_atk;
 	}
-	int Ifalive() {//ÅĞ¶ÏÊÇ·ñ´æ»î
+	bool Ifalive() {//ÅĞ¶ÏÊÇ·ñ´æ»î
 		if (hp_temp > 0)
-			return 1;
+			return true;
 		else
-			return 0;
+			return false;
 	}
 	void Be_attacked(double be_atk) //±»¹¥»÷º¯Êı
 	{

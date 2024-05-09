@@ -6,7 +6,7 @@ void titlecout() {//输出标题
 		std::cout << "error oprning file" << endl;
 		std::exit(EXIT_FAILURE);
 	}
-	const size_t buffersize = 6665;
+	const size_t buffersize = 6665;//用中文数据的长度对应缓冲区大小
 	char buffer[buffersize]{};
 	char* ptr = buffer;//指向buffer缓冲区的指针
 	size_t bytesRead = 0;//读取的字节数
@@ -21,11 +21,11 @@ void log_cout(string a)//实现一个一个字符输出
 	for (int i = 0; i < a.size(); i++)
 	{
 		cout << a[i];
-		Sleep(50);
+		Sleep(10);
 	}
 }
 void gui_size(){//设置缓冲区大小，全屏手动全屏
-	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);//获取控制台句柄
 	CONSOLE_SCREEN_BUFFER_INFO scr_buff;
 	COORD cd;
 	cd.X = 310;
@@ -40,7 +40,7 @@ void gui_size(){//设置缓冲区大小，全屏手动全屏
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
 	system("pause");
-	log_cout("加载中 █ █ █ ");
+	log_cout("加载中 █ █ █ █ █ █");
 }
 
 void Hkk_initialize() {//初始化

@@ -9,6 +9,10 @@ extern controller player;
 extern int Status;
 extern int info;
 extern Viewport buffers[2];
+std::atomic<bool> stopThread(false); // 使用原子变量以确保线程安全
+extern int front_index;
+extern int back_index;
+
 void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到屏幕
 {
 	for (int y = 0; y < HEIGHT; y++)//遍历高度
@@ -26,13 +30,14 @@ void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到�
 		}
 	}
 }
-bool Coordinate_judgment(int x[][2],controller*player)//坐标判断
+bool Coordinate_judgment(int x[][2],controller*player)
 {
 	for (int i = 0; i < 10; i++)
 	{
 		if (player->x == x[i][0] && player->y == x[i][1])
 		{
-			return true;
+			stopThread = true;
+			return stopThread;
 		}
 	}
 	return false;
@@ -76,15 +81,17 @@ void Delay()//延迟
 {
 	Sleep(30);
 };
+
+//这段函数的作用是将光标移动到指定位置，放在循环中会使得光标在屏幕上移动
 void gotoxy(int x, int y) {
-	COORD cd = { x,y };
+	COORD cd = { x,y };//COORD是Windows.h中定义的一种结构体，表示控制台屏
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cd);//设置光标位置
 }
 
 void CleanScreen(Viewport* back_buffer)//清屏
 {
 	for (int i = 0; i < WIDTH * HEIGHT; i++)
-		back_buffer->m_buffer[i] = L' ';
+		back_buffer->m_buffer[i] = L' ';//L是宽字符的意思
 }
 
 void RenderProt(Viewport* back_buffer, Protagonist* prot)//渲染主角
@@ -113,7 +120,7 @@ void screen_input(Viewport* back_buffer)
 	}
 	wstring line;
 	wchar_t ch;
-	for (int y = 0; y < HEIGHT && getline(file, line); y++)
+	for (int y = 0; y < HEIGHT && getline(file, line); y++)//getline是读取一行
 	{
 		for (int x = 0; x < WIDTH && x < line.length(); x++)
 		{
@@ -145,22 +152,24 @@ void Coordinate()//判断循环
 			}
 		}
 	}
+	
 }
 void screen_output()
 {
-	int front_index, back_index;//前后索引
 	front_index = 0;//初始化索引
 	back_index = 1;//初始化索引
-	Protagonist prot;//主角
+	Protagonist prot{};//主角
 	prot.m_x = 2*player.x;
 	prot.m_y = player.y;
+	
 	for (;;)
 	{
 		CleanScreen(&buffers[back_index]);//清屏
 		loadMapFile(&buffers[back_index], selectMapFile(mapid));//加载地图文件
 		loadothers();//加载其他
-		loadothers();//加载其他
-		loadothers();//加载其他
+		//loadothers();//加载其他
+		//loadothers();//加载其他
+
 		if (player.m_char != NULL) {
 			RenderProt(&buffers[back_index], &prot);//渲染主角
 			while (player.CheckIfMove() && Canmove(&player, &buffers[front_index], &prot))//检查是否移动
@@ -177,8 +186,7 @@ void screen_output()
 			}
 		}
 		ViewportToScreen(&buffers[back_index], &buffers[front_index]);//视口到屏幕
-		Delay();
-
+		/*Delay();*/
 
 		//swap index
 		{
@@ -201,11 +209,11 @@ wstring selectMapFile(int gameLevel) {
 }
 
 // 读取地图文件内容的函数
-void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile) 
-	{//加载地图文件
-	wifstream file(mapFile.c_str()); // 打开文件
+void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile)
+{//加载地图文件
+	wifstream file(mapFile.c_str()); // 打开文件。c_str()函数将wstring转换为C风格的字符串
 	file.imbue(locale("zh_CN")); // 设置语言环境
-	if (!file.is_open()) 
+	if (!file.is_open())
 	{
 		cerr << "无法打开文件 " << mapFile.c_str() << endl;
 		return;
@@ -214,15 +222,15 @@ void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile)
 	wstring line;
 	wchar_t ch;
 	int index;
-	for (int y = 0; y < HEIGHT&&getline(file,line); y++) {
+	for (int y = 0; y < HEIGHT && getline(file, line); y++) {
 		index = y * WIDTH;
-		for (int x = 0; x < WIDTH;x++) {
+		for (int x = 0; x < WIDTH; x++) {
 			if (x > line.length()) {
 				ch = L' ';
 				back_buffer->m_buffer[index] = ch;
 				index++;
 			}
-			else if (line[x]>255) {//中文字符
+			else if (line[x] > 255) {//中文字符
 				ch = line[x];
 				back_buffer->m_buffer[index] = ch;
 				back_buffer->m_buffer[index + 1] = 0;
