@@ -6,8 +6,6 @@ void gotoxy(int x, int y);//光标移动
 #define WIDTH (155)//宽度
 #define HEIGHT (43)//高度
 
-int front_index=1, back_index=0;//前缓冲区和后缓冲区的索引
-
 typedef struct//主角的结构体
 {
 	int m_x;

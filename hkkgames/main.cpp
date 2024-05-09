@@ -16,6 +16,8 @@ controller player(0, 37);//控制器
 int Status= 0;//状态
 int info = 0;//信息
 Viewport buffers[2] = { 0 };//视口
+int front_index = 0;//前索引
+int back_index = 1;//后索引
 int main() 
 {
 	wcout.imbue(locale("zh_CN"));  //设置语言环境

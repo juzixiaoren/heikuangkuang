@@ -10,6 +10,8 @@ extern int Status;
 extern int info;
 extern Viewport buffers[2];
 std::atomic<bool> stopThread(false); // 使用原子变量以确保线程安全
+extern int front_index;
+extern int back_index;
 
 void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到屏幕
 {

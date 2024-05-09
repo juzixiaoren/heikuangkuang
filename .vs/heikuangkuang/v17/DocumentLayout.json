@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\black\\hkk\\heikuangkuang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hkkgames\\Startgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hkkgames\\screen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\black\\hkk\\heikuangkuang\\hkkgames\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hkkgames\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hkkgames\\screen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hkkgames\\Startgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\heikuangkuang\\heikuangkuangcpp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -25,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,26 +61,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\main.cpp",
+              "RelativeDocumentMoniker": "hkkgames\\main.cpp",
+              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\main.cpp",
+              "RelativeToolTip": "hkkgames\\main.cpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-09T03:05:57.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Startgame.cpp",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp",
               "RelativeDocumentMoniker": "hkkgames\\Startgame.cpp",
               "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp",
               "RelativeToolTip": "hkkgames\\Startgame.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-09T02:36:37.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "screen.h",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.h",
               "RelativeDocumentMoniker": "hkkgames\\screen.h",
               "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.h",
               "RelativeToolTip": "hkkgames\\screen.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-09T02:35:21.911Z",
               "EditorCaption": ""
@@ -89,14 +106,14 @@
               "RelativeDocumentMoniker": "hkkgames\\screen.cpp",
               "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.cpp",
               "RelativeToolTip": "hkkgames\\screen.cpp",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAAAJsAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-09T00:11:09.201Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "main.cpp",
               "DocumentMoniker": "F:\\heikuangkuang\\heikuangkuangcpp\\main.cpp",
               "ToolTip": "F:\\heikuangkuang\\heikuangkuangcpp\\main.cpp",
