@@ -5,6 +5,9 @@
 void gotoxy(int x, int y);//¹â±êÒÆ¶¯
 #define WIDTH (155)//¿í¶È
 #define HEIGHT (43)//¸ß¶È
+
+int front_index=1, back_index=0;//Ç°»º³åÇøºÍºó»º³åÇøµÄË÷Òı
+
 typedef struct//Ö÷½ÇµÄ½á¹¹Ìå
 {
 	int m_x;
@@ -22,6 +25,7 @@ void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer);//ÊÓ¿Úµ½ÆÁÄ
 void Delay();//ÑÓ³Ù
 void gotoxy(int x, int y);
 void CleanScreen(Viewport* viewport);//ÇåÆÁ
+
 void RenderProt(Viewport* viewport, Protagonist* prot);//äÖÈ¾Ö÷½Ç
 void screen_output(); //ÆÁÄ»Êä³ö
 void screen_input(Viewport* back_buffer);//ÆÁÄ»ÊäÈë
