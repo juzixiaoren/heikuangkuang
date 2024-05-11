@@ -24,6 +24,42 @@ void log_cout(string a)//实现一个一个字符输出
 		Sleep(10);
 	}
 }
+static void rule_out() {
+	//输出规则
+	FILE* fileptr = fopen("rule.txt", "r");
+	if (fileptr == nullptr) {
+		std::cout << "error oprning file" << endl;
+		std::exit(EXIT_FAILURE);
+	}
+	const size_t buffersize = 6665;//用中文数据的长度对应缓冲区大小
+	char buffer[buffersize]{};
+	char* ptr = buffer;//指向buffer缓冲区的指针
+	size_t bytesRead = 0;//读取的字节数
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//读取文件
+			buffer[bytesRead] = '\0';
+			std::cout << buffer << std::endl;
+		}
+	fclose(fileptr);
+
+}
+static void pic_out() {
+	//输出规则
+	FILE* fileptr = fopen("intro.txt", "r");
+	if (fileptr == nullptr) {
+		std::cout << "error oprning file" << endl;
+		std::exit(EXIT_FAILURE);
+	}
+	const size_t buffersize = 6665;//用中文数据的长度对应缓冲区大小
+	char buffer[buffersize]{};
+	char* ptr = buffer;//指向buffer缓冲区的指针
+	size_t bytesRead = 0;//读取的字节数
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//读取文件
+		buffer[bytesRead] = '\0';
+		std::cout << buffer << std::endl;
+	}
+	fclose(fileptr);
+
+}
 void gui_size(){//设置缓冲区大小，全屏手动全屏
 	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);//获取控制台句柄
 	CONSOLE_SCREEN_BUFFER_INFO scr_buff;
@@ -38,9 +74,14 @@ void gui_size(){//设置缓冲区大小，全屏手动全屏
 		printf("缓冲区设置成功：X : %d,Y : %d\n", scr_buff.dwSize.X, scr_buff.dwSize.Y);
 
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
 	system("pause");
-	log_cout("加载中 █ █ █ █ █ █");
+	pic_out();
+	system("pause");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+	rule_out();
+	system("pause");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+	log_cout("游戏加载中 █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █");
 }
 
 void Hkk_initialize() {//初始化
