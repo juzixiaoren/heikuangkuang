@@ -9,7 +9,7 @@
 //#include"functions.h"
 //#include"classes.h"
 //#include"variables.h"
-
+#include"fight.h"
 using namespace std;
 int coord_xy[10][2];//坐标数组
 controller player(0, 10);//控制器
@@ -18,6 +18,7 @@ int info = 0;//信息
 Viewport buffers[2] = { 0 };//视口
 int front_index = 0;//前索引
 int back_index = 1;//后索引
+player_s Playerinfo(L"???",10,0,0,0,0,0,0);//玩家信息
 int main() 
 {
 	wcout.imbue(locale("zh_CN"));  //设置语言环境

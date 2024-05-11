@@ -23,7 +23,6 @@ void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer);//ÊÓ¿Úµ½ÆÁÄ
 void Delay();//ÑÓ³Ù
 void gotoxy(int x, int y);
 void CleanScreen(Viewport* viewport);//ÇåÆÁ
-
 void RenderProt(Viewport* viewport, Protagonist* prot);//äÖÈ¾Ö÷½Ç
 void screen_output(); //ÆÁÄ»Êä³ö
 void screen_input(Viewport* back_buffer);//ÆÁÄ»ÊäÈë
@@ -32,7 +31,12 @@ bool Canmove(controller* player, Viewport* front_buffer, Protagonist* prot);//¼ì
 std::wstring selectMapFile(int gameLevel);//Ñ¡ÔñµØÍ¼ÎÄ¼ş
 void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//¼ÓÔØµØÍ¼ÎÄ¼ş
 void Coordinate();//×ø±êÅĞ¶Ï
-bool Coordinate_judgment(int coord_xy[10][2], controller* player);//×ø±êÅĞ¶Ï
+int Coordinate_judgment(int coord_xy[][2], controller* player);//×ø±êÅĞ¶Ï
 bool Timer(long long ms, int id);//¼ÆÊ±Æ÷
+BOOL MByteToWChar_t(LPCSTR lpcszStr, LPWSTR lpwszStr, DWORD dwSize);//¶à×Ö½Ú×ª¿í×Ö½Ú
+BOOL WCharToMByte_t(LPCWSTR lpwszStr, LPSTR lpszStr, DWORD dwSize);//¿í×Ö½Ú×ª¶à×Ö½Ú
+std::wstring to_wide_string(const std::string& input);
+std::string to_byte_string(const std::wstring& input);
+std::wstring clean_wstring(const std::wstring& w_string);
 #endif
 //×î´ó¸ß¶ÈË÷ÒıÊÇ42,×î´ó¿í¶ÈË÷ÒıÊÇ154

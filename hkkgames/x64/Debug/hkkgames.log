@@ -1,4 +1,2 @@
-﻿  main.cpp
-F:\heikuangkuang\heikuangkuang\hkkgames\beforestart.h(1,1): warning C4828: 文件包含在偏移 0x21 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-F:\heikuangkuang\heikuangkuang\hkkgames\main.cpp(34,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+﻿  fight.cpp
   hkkgames.vcxproj -> F:\heikuangkuang\heikuangkuang\x64\Debug\hkkgames.exe

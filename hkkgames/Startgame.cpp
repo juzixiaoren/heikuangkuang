@@ -2,6 +2,7 @@
 #include"Startgame.h"
 #include"controller.h"
 #include"screen.h"
+#include "fight.h"
 using namespace std;
 extern int mapid;
 extern int coord_xy[10][2];
@@ -11,6 +12,7 @@ extern int info;
 extern Viewport buffers[2];
 extern int front_index;
 extern int back_index;
+extern player_s Playerinfo;
 
 void Startgame()
 {
@@ -139,7 +141,7 @@ void loadothers() {
 	}
 	case 2: {
 		showstorys_2();
-		if (Timer(10000, 3)) {
+		if (Timer(20000, 3)) {
 			info = 3;
 			player.m_char = L'Œ“';
 			player.x = 1;
@@ -155,6 +157,7 @@ void loadothers() {
 	}
 	case 3: {
 		showbaseinfo();
+		Playerinfo.showplayerinfo();
 		break;
 	}
 	default:

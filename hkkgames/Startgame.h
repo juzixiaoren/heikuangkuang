@@ -7,4 +7,5 @@ void showstorys();//这是显示故事的函数
 void loadothers();//这是加载其他的函数
 void showstorys2();
 void showbaseifo();
+
 #endif
