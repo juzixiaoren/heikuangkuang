@@ -112,6 +112,9 @@
     <Text Include="intro.txt">
       <Filter>资源文件\other</Filter>
     </Text>
+    <Text Include="map  2.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt">
