@@ -88,7 +88,7 @@
     <Text Include="BIGEYES.txt">
       <Filter>资源文件\moster</Filter>
     </Text>
-    <Text Include="HELL.txt">
+    <Text Include="enemy1.txt">
       <Filter>资源文件\moster</Filter>
     </Text>
     <Text Include="SLIME.txt">
@@ -110,6 +110,9 @@
       <Filter>资源文件\other</Filter>
     </Text>
     <Text Include="intro.txt">
+      <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="fightinfo.txt">
       <Filter>资源文件\other</Filter>
     </Text>
   </ItemGroup>

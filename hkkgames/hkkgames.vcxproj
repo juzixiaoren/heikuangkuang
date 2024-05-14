@@ -153,12 +153,13 @@
     <Text Include="kobe.txt" />
     <Text Include="test2.txt" />
     <Text Include="文本.txt" />
-    <Text Include="HELL.txt" />
+    <Text Include="enemy1.txt" />
     <Text Include="SLIME.txt" />
     <Text Include="BOOS.txt" />
     <Text Include="文本1.txt" />
     <Text Include="NULL.txt" />
     <Text Include="map1.txt" />
+    <Text Include="fightinfo.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt" />

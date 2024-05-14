@@ -15,10 +15,14 @@ int coord_xy[10][2];//坐标数组
 controller player(0, 10);//控制器
 int Status= 0;//状态
 int info = 0;//信息
+int fightinfo = 0;//战斗信息
+int Canfight = 1;//是否可以战斗
 Viewport buffers[2] = { 0 };//视口
 int front_index = 0;//前索引
 int back_index = 1;//后索引
+int enemyid = 0;//敌人id
 player_s Playerinfo(L"???",10,0,0,0,0,0,0);//玩家信息
+vector <enemy_s> enemyinfo;//敌人信息
 int main() 
 {
 	wcout.imbue(locale("zh_CN"));  //设置语言环境

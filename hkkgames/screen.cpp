@@ -10,10 +10,14 @@ extern controller player;
 extern int Status;
 extern int info;
 extern Viewport buffers[2];
+extern int fightinfo;
 std::atomic<bool> stopThread(false); // 使用原子变量以确保线程安全
 extern int front_index;
 extern int back_index;
+extern int Canfight;
 extern player_s Playerinfo;
+extern int enemyid;
+extern vector <enemy_s> enemyinfo;
 
 void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到屏幕
 {
@@ -35,8 +39,10 @@ void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到�
 int Coordinate_judgment(int x[][2],controller*player)
 {
 	for (int i = 0; i < 10; i++)
-	{
-		if (player->x == x[i][0] && player->y == x[i][1])
+	{	
+		if (x[i][0] == NULL || x[i][1] == NULL)
+			continue;
+		else if (player->x == x[i][0] && player->y == x[i][1])
 		{
 			return i+1;
 		}
@@ -65,14 +71,14 @@ bool Canmove(controller*player,Viewport* front_buffer, Protagonist* prot)
 	if (player->IfMove == 3)
 	{
 		int index = (player->x*2) + player->y * WIDTH;
-		if(front_buffer->m_buffer[index-1] != player->m_char && (front_buffer->m_buffer[index-1] == 0 || front_buffer->m_buffer[index-1] == L' ')&& front_buffer->m_buffer[index - 2] != player->m_char && (front_buffer->m_buffer[index - 2] == 0 || front_buffer->m_buffer[index - 2] == L' '))
+		if((front_buffer->m_buffer[index-1] != player->m_char && (front_buffer->m_buffer[index-1] == 0 || front_buffer->m_buffer[index-1] == L' '))&& (front_buffer->m_buffer[index - 2] != player->m_char && (front_buffer->m_buffer[index - 2] == 0 || front_buffer->m_buffer[index - 2] == L' ')))
 			return true;
 		else return false;
 	}
 	if (player->IfMove == 4)
 	{
 		int index = (player->x*2) + player->y * WIDTH;
-		if(front_buffer->m_buffer[index+1] != player->m_char && (front_buffer->m_buffer[index+1] == 0 || front_buffer->m_buffer[index+1] == L' ')&& front_buffer->m_buffer[index + 2] != player->m_char && (front_buffer->m_buffer[index + 2] == 0 || front_buffer->m_buffer[index + 2] == L' '))
+		if((front_buffer->m_buffer[index+2] != player->m_char && (front_buffer->m_buffer[index+2] == 0 || front_buffer->m_buffer[index+2] == L' '))&& (front_buffer->m_buffer[index + 3] != player->m_char && (front_buffer->m_buffer[index + 3] == 0 || front_buffer->m_buffer[index + 3] == L' ')))
 			return true;
 		else 
 			return false;
@@ -138,7 +144,7 @@ void Coordinate()//判断循环
 {
 	while (1)
 	{
-		if (Coordinate_judgment(coord_xy, &player))
+		if (Coordinate_judgment(coord_xy, &player) && !fightinfo)
 		{
 			switch (Status)
 			{
@@ -151,9 +157,9 @@ void Coordinate()//判断循环
 				player.m_char = NULL;
 				break;
 			}
-			case 2: 
+			case 2:
 			{
-				mapid = 0;
+				mapid = 3;
 				Status = 0;
 				if (Coordinate_judgment(coord_xy, &player) == 1)
 				{
@@ -167,13 +173,131 @@ void Coordinate()//判断循环
 				{
 					Playerinfo.changeinfo(L"马恩纳", 150, 10, 15, 15, 20, 9, 10);
 				}
+				player.x = 0;
+				player.y = 0;
+				info = 4;
+				break;
+			}
+			case 3: {
+				if (Coordinate_judgment(coord_xy, &player) == 1)
+				{
+					enemyid = 1;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+					Status = 0;
+					enemyinfo.push_back(enemy_s());
+					enemyinfo[0].changeinfo(L"小怪啊", 100, 10, 5, 10, 5, 5, 5);
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 2)
+				{
+					enemyid = 2;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+					Status = 0;
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 3)
+				{
+					enemyid = 3;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+					Status = 0;
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 4)
+				{
+					enemyid = 4;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+					Status = 0;
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 5)
+				{
+					enemyid = 5;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+					Status = 0;
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 6)
+				{
+					enemyid = 6;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+				}
+				else if (Coordinate_judgment(coord_xy, &player) == 7)
+				{
+					enemyid = 7;
+					fightinfo = 1;
+					player.x = 30;
+					player.y = 36;
+					Status = 0;
+				}
 				break;
 			}
 			default:
 				break;
 			}
 		}
-	}	
+		else if (fightinfo == 1) {
+			Coordinate_judgment_fiht(&player);
+		}
+	}
+}
+void Coordinate_judgment_fiht(controller* player)
+{
+	if (enemyinfo[0].Ifalive()) {
+		if (player->y >= 38) {
+			if (player->x <= 19)
+			{
+				player->x = 30;
+				player->y = 36;
+				enemyinfo[0].acts();
+				enemyinfo[0].pd();
+				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+				Playerinfo.acts(1);
+				Playerinfo.pd();
+				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+			}
+			else if (player->x <= 29)
+			{
+				player->x = 30;
+				player->y = 36;
+				enemyinfo[0].acts();
+				enemyinfo[0].pd();
+				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+				Playerinfo.acts(2);
+				Playerinfo.pd();
+				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+			}
+			else if (player->x <= 44)
+			{
+				player->x = 30;
+				player->y = 36;
+				enemyinfo[0].acts();
+				enemyinfo[0].pd();
+				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+				Playerinfo.acts(4);
+				Playerinfo.pd();
+				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+			}
+			else if (player->x <= 60)
+			{
+				player->x = 30;
+				player->y = 36;
+				enemyinfo[0].acts();
+				enemyinfo[0].pd();
+				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+				Playerinfo.acts(3);
+				Playerinfo.pd();
+				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+			}
+			else return;
+		}
+	}
 }
 void screen_output()
 {
@@ -186,11 +310,13 @@ void screen_output()
 	for (;;)
 	{
 		CleanScreen(&buffers[back_index]);//清屏
-		loadMapFile(&buffers[back_index], selectMapFile(mapid));//加载地图文件
+		if (!fightinfo) {
+			loadMapFile(&buffers[back_index], selectMapFile(mapid));//加载地图文件
+		}
+		else {
+			loadenemy(&buffers[back_index], selectEnemyFile(enemyid));//加载敌人
+		}
 		loadothers();//加载其他
-		//loadothers();//加载其他
-		//loadothers();//加载其他
-
 		if (player.m_char != NULL) 
 		{
 			RenderProt(&buffers[back_index], &prot);//渲染主角
@@ -220,9 +346,19 @@ void screen_output()
 	}
 }
 // 假设地图文件名存储在一个数组中
-const std::vector<std::wstring> mapFiles = { L"NULL.txt", L"title.txt", L"map1.txt",L"test2.txt",L"BIGEYES.txt",L"HELL.txt",L"SLIME.txt",L"BOOS.txt"};
-
+const std::vector<std::wstring> mapFiles = { L"NULL.txt", L"title.txt", L"map1.txt",L"NULL.txt",L"BIGEYES.txt",L"HELL.txt",L"SLIME.txt",L"BOOS.txt"};
+const std::vector<std::wstring> enemyFiles = { L"NULL.txt", L"enemy1.txt", L"enemy2.txt",L"enemy3.txt",L"enemy4.txt",L"enemy5.txt",L"enemy6.txt",L"enemy7.txt"};
 // 根据游戏状态选择地图文件
+
+wstring selectEnemyFile(int enemyid)
+{
+	if (enemyid < enemyFiles.size())
+	{
+		return enemyFiles[enemyid];
+	}
+	// 如果游戏等级超出了文件列表，返回默认地图文件
+	return enemyFiles[0];
+}
 wstring selectMapFile(int gameLevel) 
 {
 	if (gameLevel < mapFiles.size()) 
@@ -270,6 +406,47 @@ void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile)
 				back_buffer->m_buffer[index] = ch;
 				index++;
 			}
+		}
+	}
+	file.close();
+}
+void loadenemy(Viewport* back_buffer, const std::wstring& enemyFile)
+{//加载地图文件
+	wifstream file(enemyFile.c_str()); // 打开文件。c_str()函数将wstring转换为C风格的字符串
+	file.imbue(locale("zh_CN")); // 设置语言环境
+	if (!file.is_open())
+	{
+		cerr << "无法打开文件 " << enemyFile.c_str() << endl;
+		return;
+	}
+
+	wstring line;
+	wchar_t ch;
+	int index;
+	for (int y = 0; y < HEIGHT && getline(file, line); y++)
+	{
+		index = y * WIDTH;
+		for (int x = 0; x < WIDTH; x++)
+		{
+			if (x > line.length())
+			{
+				ch = L' ';
+				back_buffer->m_buffer[index] = ch;
+				index++;
+			}
+			else if (line[x] > 255)
+			{//中文字符
+							ch = line[x];
+							back_buffer->m_buffer[index] = ch;
+							back_buffer->m_buffer[index + 1] = 0;
+							index += 2;//中文字符占两个字符位置
+						}
+			else
+			{//英文字符
+							ch = line[x];
+							back_buffer->m_buffer[index] = ch;
+							index++;
+						}
 		}
 	}
 	file.close();

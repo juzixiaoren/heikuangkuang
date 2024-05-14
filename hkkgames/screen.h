@@ -29,10 +29,13 @@ void screen_input(Viewport* back_buffer);//屏幕输入
 void clear_preRenderProt(Viewport* back_buffer, controller* player);//清除上一次的主角
 bool Canmove(controller* player, Viewport* front_buffer, Protagonist* prot);//检查是否可以移动
 std::wstring selectMapFile(int gameLevel);//选择地图文件
+std::wstring selectEnemyFile(int enemyid);//选择敌人文件
 void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//加载地图文件
 void Coordinate();//坐标判断
 int Coordinate_judgment(int coord_xy[][2], controller* player);//坐标判断
+void Coordinate_judgment_fiht(controller* player);//坐标判断
 bool Timer(long long ms, int id);//计时器
+void loadenemy(Viewport* back_buffer, const std::wstring& enemyid);//加载敌人
 BOOL MByteToWChar_t(LPCSTR lpcszStr, LPWSTR lpwszStr, DWORD dwSize);//多字节转宽字节
 BOOL WCharToMByte_t(LPCWSTR lpwszStr, LPSTR lpszStr, DWORD dwSize);//宽字节转多字节
 std::wstring to_wide_string(const std::string& input);

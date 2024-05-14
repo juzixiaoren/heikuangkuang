@@ -6,7 +6,6 @@ using namespace std;
 class enemy_s
 {//敌人类
 protected:
-	wstring name;//名字
 	double hp;//生命值
 	double atk;//攻击力
 	double def;//防御力
@@ -21,6 +20,11 @@ protected:
 	double act_num;//行为数值
 	double output_atk;//输出攻击力
 public:
+	wstring name;//名字
+	wstring info;//行动信息
+	wstring info2;//伤害信息
+	wstring info3;//被攻击信息
+	wstring infoall;//全部信息
 	enemy_s() {};//默认构造函数
 	enemy_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c) //构造函数
 	{
@@ -36,12 +40,13 @@ public:
 		this->hp_b = _hp_b;
 		this->hp_c = _hp_c;
 	}
-	void show();//显示敌人信息}
-	double op_atk(); //输出对敌方的攻击
-	bool Ifalive();
-	void Be_attacked(double be_atk); //被攻击函数
-	void acts(); //行动函数
-	void pd(); //行动判断函数
+	virtual double op_atk(); //输出对敌方的攻击
+	virtual bool Ifalive();//判断是否存活
+	virtual void Be_attacked(double be_atk); //被攻击函数
+	virtual void acts(); //行动函数
+	virtual void pd(); //行动判断函数
+	virtual void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c);
+	void showenemyinfo();
 };
 class player_s :enemy_s
 {
@@ -51,6 +56,9 @@ private:
 	int money;//金钱
 	int max_exp;//升级所需经验
 public:
+	wstring info;//信息
+	wstring info2;
+	wstring infoall;
 	player_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c) :enemy_s() //构造函数
 	{
 		this->name = _name;
@@ -69,8 +77,13 @@ public:
 		level = 1;
 		max_exp = 10;
 	}
+	void acts(int r);
 	void showplayerinfo();
+	void pd(); //行动判断函数
+	double op_atk(); //输出对敌方的攻击
 	void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c);
+	void Be_attacked(double be_atk); //被攻击函数
+	wstring getname();
 };
 
 #endif

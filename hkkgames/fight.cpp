@@ -6,13 +6,9 @@ using namespace std;
 extern Viewport buffers[2];
 extern int front_index;
 extern int back_index;
-void enemy_s::show() 
-{//显示敌人信息
-	wcout << "敌人名字：" << name << endl;
-	wcout << "敌人生命值：" << hp << endl;
-	wcout << "敌人攻击力：" << atk << endl;
-	wcout << "敌人防御力：" << def << endl;
-}
+extern player_s Playerinfo;
+extern vector <enemy_s> enemyinfo;
+
 double enemy_s::op_atk() //输出对敌方的攻击
 {
 	return output_atk;
@@ -24,50 +20,70 @@ bool enemy_s::Ifalive()
 	else
 		return false;
 }
-void enemy_s::Be_attacked(double be_atk) //被攻击函数
+void player_s::Be_attacked(double be_atk) //被攻击函数
 {
+	info2.clear();
 	double damage;
 	if (be_atk < 0)
-		{
+	{
 		damage = abs(be_atk) / 100 * hp;
 		hp_temp = hp_temp - damage;
-		wcout<< name << "被剥夺了" << damage << "点血量口牙" << endl;
-		if (hp_temp > 0)
-		{
-			wcout << name << "剩余生命值：" << hp_temp << endl;
-			return;
-		}
-		else
-		{
-			wcout << name << "已经死亡" << endl;
-			return;
-		}
-		return;
 	}
-	if (be_atk == 0.0)
+	else if (be_atk > 0)
 	{
-		wcout << name << "没有被影响" << endl;
-		return;
+		damage = ((be_atk > def_temp) && (be_atk - def_temp > be_atk * 0.1)) ? be_atk - def_temp : be_atk * 0.1;
+		if (damage < 1)
+			damage = 1;
+		hp_temp = hp_temp - damage;
 	}
-	damage = ((be_atk>def_temp) &&(be_atk -def_temp >be_atk *0.1)) ? be_atk - def_temp : be_atk *0.1;
-	if(damage<1)
-		damage = 1;
-	hp_temp=hp_temp-damage;
-	if (hp_temp > 0)
+	if (be_atk == 0) 
 	{
-		wcout << name << "受到了" << damage << "点伤害" << endl;
-		wcout << name << "剩余生命值：" << hp_temp << endl;
-		return;
+		info3 =name+ L"不受影响";
+	}
+	else if(be_atk<0)
+	{
+		info3 = name + L"受到魔曲剥夺";
+		info2= to_wide_string(to_string((int)damage));
+	}
+	else 
+	{
+		info3 = name +L"受到攻击";
+		info2 = to_wide_string(to_string((int)damage));
+	}
+}
+void enemy_s::Be_attacked(double be_atk) //被攻击函数
+{
+	info2.clear();
+	double damage;
+	if (be_atk < 0)
+	{
+		damage = abs(be_atk) / 100 * hp;
+		hp_temp = hp_temp - damage;
+	}
+	else if (be_atk > 0)
+	{
+		damage = ((be_atk > def_temp) && (be_atk - def_temp > be_atk * 0.1)) ? be_atk - def_temp : be_atk * 0.1;
+		if (damage < 1)
+			damage = 1;
+		hp_temp = hp_temp - damage;
+	}
+	if (be_atk == 0)
+	{
+		info3 = name + L"不受影响";
+	}
+	else if (be_atk < 0)
+	{
+		info3 = name + L"受到魔曲剥夺";
+		info2 = to_wide_string(to_string((int)damage));
 	}
 	else
 	{
-		wcout << name << "受到了" << damage << "点伤害" << endl;
-		wcout << name << "已经死亡" << endl;
-		return;
+		info3 = name + L"受到攻击";
+		info2 = to_wide_string(to_string((int)damage));
 	}
 }
 void enemy_s::acts() //行动函数
-	{
+{
 	int r;
 	if (hp_temp < hp)
 		r = rand() % 4 + 1;//生成1-4的随机数
@@ -76,33 +92,30 @@ void enemy_s::acts() //行动函数
 	actor = r;
 	if (r == 1)
 	{
-		wcout << name << "使用了普通攻击" << endl;
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= atk_b)
 		{
-			wcout << name << "暴击!" << endl;
 			act_num = atk_temp * 1.5;
 			return;
 		}
-			else if (rand_num >= 100)
+		else if (rand_num >= 100)
 		{
-			wcout << name << "攻击失误!" << endl;
+			info = L"攻击失误";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			wcout << name << "攻击成功!" << endl;
+			info = L"攻击成功";
 			act_num = atk_temp;
 			return;
 		}
 	}
 	else if (r == 2) {
-		wcout << name << "使用了强化" << endl;
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= def_b)
 		{
-			wcout << name << "防御力和攻击力大提升!" << endl;
+			info = L"强化大成功";
 			atk_temp += atk * 0.3 > 0 ? atk * 0.3 : 1;
 			def_temp += def * 0.3 > 0 ? def * 0.3 : 1;
 			act_num = 0;
@@ -110,13 +123,13 @@ void enemy_s::acts() //行动函数
 		}
 		else if (rand_num >= 100)
 		{
-			wcout << name << "强化失败!" << endl;
+			info = L"强化失败";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			wcout << name << "防御力和攻击力提升!" << endl;
+			info = L"强化成功";
 			atk_temp += atk * 0.1 > 0 ? atk * 0.1 : 1;
 			def_temp += def * 0.1 > 0 ? def * 0.1 : 1;
 			act_num = 0;
@@ -124,38 +137,36 @@ void enemy_s::acts() //行动函数
 		}
 	}
 	else if (r == 3) {
-		wcout << name << "使用生命剥夺魔法" << endl;
 		double rand_num = rand() % 100 + 1;
-		if (rand_num <= 10) 
+		if (rand_num <= 10)
 		{
-			wcout << name << "生命值剥夺大成功!" << endl;
+			info = L"魔曲大成功";
 			act_num = hp_c + 10;
 			return;
 		}
 		else if (rand_num > 10 && rand_num <= 30) {
-			wcout << name << "生命剥夺术小成功!" << endl;
+			info = L"魔曲小成功";
 			act_num = hp_c * 0.5;
 			return;
 		}
 		else if (rand_num > 30 && rand_num <= 60)
 		{
-			wcout << name << "生命值剥夺成功!" << endl;
+			info = L"魔曲成功";
 			act_num = hp_c;
 			return;
 		}
 		else
 		{
-			wcout << name << "生命值剥夺失败!" << endl;
+			info = L"魔曲失败";
 			act_num = 0;
 			return;
 		}
 	}
 	else if (r == 4) {
-		wcout << name << "使用了回复术" << endl;
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= hp_b)
 		{
-			wcout << name << "生命值大幅度回复!" << endl;
+			info = L"回复大成功";
 			hp_temp += hp * 0.4 + 1;
 			if (hp_temp > hp)
 				hp_temp = hp;
@@ -164,13 +175,13 @@ void enemy_s::acts() //行动函数
 		}
 		else if (rand_num >= 80)
 		{
-			wcout << name << "回复失败!" << endl;
+			info = L"回复失败";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			wcout << name << "生命值回复成功!" << endl;
+			info = L"回复成功";
 			hp_temp += hp * 0.2 + 1;
 			if (hp_temp > hp)
 				hp_temp = hp;
@@ -197,6 +208,139 @@ void enemy_s::pd() //行动判断函数
 		return;
 	}
 }
+void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c)
+{
+	this->name = _name;
+	this->hp = _hp;
+	this->atk = _atk;
+	this->def = _def;
+	this->atk_temp = _atk;
+	this->def_temp = _def;
+	this->hp_temp = this->hp;
+	this->atk_b = _atk_b;
+	this->def_b = _def_b;
+	this->hp_b = _hp_b;
+	this->hp_c = _hp_c;
+}
+void enemy_s::showenemyinfo() 
+{
+	for (int i = 0; i < name.length(); i++)
+	{
+		buffers[back_index].m_buffer[31*WIDTH+7+i*2]=name[i];
+		buffers[back_index].m_buffer[31*WIDTH+7+i*2+1]=0;
+	}
+	wstring hp_ = to_wide_string(to_string((int)hp_temp));
+	for (int i = 0, index = 31 * WIDTH + 50; i < hp_.length(); i++)
+	{
+		if (hp_[i] == L' ' || hp_[i] == 0)
+		{
+			continue;
+		}
+		else
+		{
+			buffers[back_index].m_buffer[index] = hp_[i];
+			index++;
+		}
+	}
+	wstring atk_ = to_wide_string(to_string((int)atk_temp));
+	for (int i = 0, index = 32 * WIDTH + 9; i < atk_.length(); i++)
+	{
+		if (atk_[i] == L' ' || atk_[i] == 0)
+		{
+			continue;
+		}
+		else
+		{
+			buffers[back_index].m_buffer[index] = atk_[i];
+			index++;
+		}
+	}
+	wstring def_ = to_wide_string(to_string((int)def_temp));
+	for (int i = 0, index = 32 * WIDTH + 54; i < def_.length(); i++)
+	{
+		if (def_[i] == L' ' || def_[i] == 0)
+		{
+			continue;
+		}
+		else
+		{
+			buffers[back_index].m_buffer[index] = def_[i];
+			index++;
+		}
+	}
+	{
+		wstring zt;
+		if (hp_temp >= 0.5 * hp) {
+			zt = L"正常";
+		}
+		else if (hp_temp < 0.5 * hp && hp_temp >= 0.2 * hp)
+		{
+			zt = L"受伤";
+		}
+		else
+		{
+			zt = L"濒死";
+		}
+		for (int i = 0, index = 33 * WIDTH + 7; i < zt.length(); i++)
+		{
+			if (zt[i] == L' ' || zt[i] == 0)
+			{
+				continue;
+			}
+			else
+			{
+				buffers[back_index].m_buffer[index] = zt[i];
+				buffers[back_index].m_buffer[index+1] = 0;
+				index+=2;
+			}
+		}
+	}
+	if (!info.empty()) {
+		if (!info2.empty()) {
+			infoall = Playerinfo.getname() + L"向上天祈祷，" + Playerinfo.info + L"，对" + info3+L"造成" + info2 + L"伤害";
+			for (int i = 0, index = 33 * WIDTH + 53; i < infoall.length(); i++)
+			{
+				if (infoall[i] == L' ' || infoall[i] == 0)
+				{
+					continue;
+				}
+				else if (infoall[i] < 255)
+				{
+					buffers[back_index].m_buffer[index] = infoall[i];
+					index++;
+				}
+				else {
+					buffers[back_index].m_buffer[index] = infoall[i];
+					buffers[back_index].m_buffer[index+1] = 0;
+					index+=2;
+				}
+			}
+		}
+		else 
+		{
+			infoall = Playerinfo.getname()+L"向上天祈祷，"+Playerinfo.info +L"，"+info3;
+			for (int i = 0, index = 33 * WIDTH + 53; i < infoall.length(); i++)
+			{
+				if (infoall[i] == L' ' || infoall[i] == 0)
+				{
+					continue;
+				}
+				else if (infoall[i] < 255)
+				{
+					buffers[back_index].m_buffer[index] = infoall[i];
+					index++;
+				}
+				else {
+					buffers[back_index].m_buffer[index] = infoall[i];
+					buffers[back_index].m_buffer[index+1] = 0;
+					index += 2;
+				}
+			}
+		}
+	}
+}
+
+
 void player_s::changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c)
 {
 	this->name = _name;
@@ -211,7 +355,9 @@ void player_s::changeinfo(wstring _name, double _hp, double _atk, double _def, d
 	this->hp_b = _hp_b;
 	this->hp_c = _hp_c;
 }
-
+wstring player_s::getname() {
+	return name;
+}
 void player_s::showplayerinfo()
 {
 	if (name == L"???")
@@ -250,7 +396,7 @@ void player_s::showplayerinfo()
 			index++;
 		}
 	}
-	wstring atk_ = to_wide_string(to_string((int)atk));
+	wstring atk_ = to_wide_string(to_string((int)atk_temp));
 	for (int i = 0, index = 27 * WIDTH + 133; i < atk_.length(); i++)
 	{
 		if (atk_[i] == L' ' || atk_[i] == 0)
@@ -263,7 +409,7 @@ void player_s::showplayerinfo()
 			index++;
 		}
 	}
-	wstring def_ = to_wide_string(to_string((int)def));
+	wstring def_ = to_wide_string(to_string((int)def_temp));
 	for (int i = 0, index = 29 * WIDTH + 133; i < def_.length(); i++)
 	{
 		if (def_[i] == L' ' || def_[i] == 0)
@@ -354,32 +500,173 @@ void player_s::showplayerinfo()
 			index++;
 		}
 	}
-
-
-
-
-
-
-
-
-
-		/*wstring name_ = to_wide_string(name);
-		int index;
-		//for (int i = 0, index = 21 * WIDTH + 132; i < name_.length(); i++)
-		//{
-		//	if (name_[i] == L' ' || name_[i] == 0) {
-		//		continue;
-		//	}
-			else if (name_[i] > 255)
+	if (!info.empty()) 
+	{
+		if (!info2.empty()) 
+		{
+			infoall = Playerinfo.getname() + L"小心移动，但还是挨了一下，" + enemyinfo[0].name+L"进行" + enemyinfo[0].info + L"，对" + info3 + L"造成" + info2 + L"伤害";
+			for (int i = 0, index = 34 * WIDTH; i < infoall.length(); i++)
 			{
-				buffers[back_index].m_buffer[index] = name_[i];
-				buffers[back_index].m_buffer[index+1] = 0;
-				index += 2;
-				continue;
+				if (infoall[i] == L' ' || infoall[i] == 0)
+				{
+					continue;
+				}
+				else if (infoall[i] < 255)
+				{
+					buffers[back_index].m_buffer[index] = infoall[i];
+					index++;
+				}
+				else {
+					buffers[back_index].m_buffer[index] = infoall[i];
+					buffers[back_index].m_buffer[index + 1] = 0;
+					index += 2;
+				}
 			}
-			else {
-				buffers[back_index].m_buffer[index] = name_[i];
-				index++;
+		}
+		else
+		{
+			infoall = Playerinfo.getname() + L"准备进行防守反击，"+L"然而"+enemyinfo[0].name +enemyinfo[0].info + L"，" + info3;
+			for (int i = 0, index = 34 * WIDTH; i < infoall.length(); i++)
+			{
+				if (infoall[i] == L' ' || infoall[i] == 0)
+				{
+					continue;
+				}
+				else if (infoall[i] < 255)
+				{
+					buffers[back_index].m_buffer[index] = infoall[i];
+					index++;
+				}
+				else {
+					buffers[back_index].m_buffer[index] = infoall[i];
+					buffers[back_index].m_buffer[index + 1] = 0;
+					index += 2;
+				}
 			}
-		}*/
+		}
+	}
+}
+
+void player_s::acts(int r) //行动函数
+{
+	actor = r;
+	if (r == 1)
+	{
+		double rand_num = rand() % 110 + 1;
+		if (rand_num <= atk_b)
+		{
+			act_num = atk_temp * 1.5;
+			return;
+		}
+		else if (rand_num >= 100)
+		{
+			info = L"攻击失误";
+			act_num = 0;
+			return;
+		}
+		else
+		{
+			info=L"攻击成功";
+			act_num = atk_temp;
+			return;
+		}
+	}
+	else if (r == 2) {
+		double rand_num = rand() % 110 + 1;
+		if (rand_num <= def_b)
+		{
+			info = L"强化大成功";
+			atk_temp += atk * 0.3 > 0 ? atk * 0.3 : 1;
+			def_temp += def * 0.3 > 0 ? def * 0.3 : 1;
+			act_num = 0;
+			return;
+		}
+		else if (rand_num >= 100)
+		{
+			info=L"强化失败";
+			act_num = 0;
+			return;
+		}
+		else
+		{
+			info=L"强化成功";
+			atk_temp += atk * 0.1 > 0 ? atk * 0.1 : 1;
+			def_temp += def * 0.1 > 0 ? def * 0.1 : 1;
+			act_num = 0;
+			return;
+		}
+	}
+	else if (r == 3) {
+		double rand_num = rand() % 100 + 1;
+		if (rand_num <= 10)
+		{
+			info=L"魔曲大成功";
+			act_num = hp_c + 10;
+			return;
+		}
+		else if (rand_num > 10 && rand_num <= 30) {
+			info = L"魔曲小成功";
+			act_num = hp_c * 0.5;
+			return;
+		}
+		else if (rand_num > 30 && rand_num <= 60)
+		{
+			info = L"魔曲成功";
+			act_num = hp_c;
+			return;
+		}
+		else
+		{
+			info = L"魔曲失败";
+			act_num = 0;
+			return;
+		}
+	}
+	else if (r == 4) {
+		double rand_num = rand() % 110 + 1;
+		if (rand_num <= hp_b)
+		{
+			info = L"回复大成功";
+			hp_temp += hp * 0.4 + 1;
+			if (hp_temp > hp)
+				hp_temp = hp;
+			act_num = 0;
+			return;
+		}
+		else if (rand_num >= 80)
+		{
+			info = L"回复失败";
+			act_num = 0;
+			return;
+		}
+		else
+		{
+			info = L"回复成功";
+			hp_temp += hp * 0.2 + 1;
+			if (hp_temp > hp)
+				hp_temp = hp;
+			act_num = 0;
+			return;
+		}
+	}
+}
+void player_s::pd() {
+		if (actor == 1)
+		{
+			output_atk = act_num;
+			return;
+		}
+		else if (actor == 2 || actor == 4)
+		{
+			output_atk = 0;
+			return;
+		}
+		else if (actor == 3)
+		{
+			output_atk = -act_num;
+			return;
+		}
+}
+double player_s::op_atk() {
+	return output_atk;
 }
