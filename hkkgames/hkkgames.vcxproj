@@ -141,35 +141,44 @@
     <ClInclude Include="fight.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="initialize.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="Startgame.h" />
     <ClInclude Include="update.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="enemy2.txt" />
+    <Text Include="enemy4.txt" />
     <Text Include="baseinfo.txt" />
     <Text Include="intro.txt" />
-    <Text Include="map 2.txt" />
-    <Text Include="map 3.txt" />
-    <Text Include="map 4.txt" />
-    <Text Include="map 5.txt" />
-    <Text Include="map 6.txt" />
+    <Text Include="map_temp1.txt" />
+    <Text Include="map_temp2.txt" />
+    <Text Include="map_temp3.txt" />
+    <Text Include="map2.txt" />
+    <Text Include="map3.txt" />
     <Text Include="rule.txt" />
     <Text Include="title.txt" />
     <Text Include="kobe.txt" />
     <Text Include="test2.txt" />
     <Text Include="文本.txt" />
+    <Text Include="enemy2.txt" />
     <Text Include="enemy1.txt" />
-    <Text Include="SLIME.txt" />
     <Text Include="BOOS.txt" />
     <Text Include="文本1.txt" />
     <Text Include="NULL.txt" />
     <Text Include="map1.txt" />
     <Text Include="fightinfo.txt" />
+    <Text Include="map4.txt" />
+    <Text Include="enemy3.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="【8-bit】春日影.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

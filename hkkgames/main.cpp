@@ -36,6 +36,7 @@ int main()
 	thread t1(screen_output);//多线程
 	thread t2(Coordinate);//多线程
 	thread t3(Update);//多线程
+	thread t4(music);//音乐线程
 	t1.join();
 	t2.join();
 	t3.join();

@@ -83,7 +83,7 @@ void gui_size(){//设置缓冲区大小，全屏手动全屏
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
 	log_cout("游戏加载中 █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █");
 }
-
+#pragma comment (lib,"winmm.lib")
 void Hkk_initialize() {//初始化
 	gui_size();
 	system("cls");
@@ -104,6 +104,12 @@ void Hkk_initialize() {//初始化
 	cout << "Press any key to exit..." << endl;
 	cin.get();
 	cin.get();*/
+}
+void music() {
+	if (0 == PlaySound(MAKEINTRESOURCE(IDR_WAVE1), NULL, SND_RESOURCE | SND_LOOP))
+	{
+		printf("playsound false");
+	}
 }
 #ifndef TEST_H
 #define TEST_H

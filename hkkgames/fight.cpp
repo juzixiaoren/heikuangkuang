@@ -679,37 +679,43 @@ double player_s::gethp() {
 }
 void player_s::ATKUP() 
 {
-	atk += 5+atk/30;
-	def += 1;
+	atk += 5+int(atk/5);
+	def += int(def/10+2);
+	atk_temp=atk;
+	def_temp=def;
 	hp += 10;
 	hp_temp+=10;
 }
 void player_s::DEFUP()
 {
-	atk += 1;
-	def += 5+def/30;
+	atk += int(atk/10+2);
+	def += 5+int(def/5);
+	atk_temp = atk;
+	def_temp = def;
 	hp += 10;
 	hp_temp += 10;
 }
 void player_s::HPUP()
 {
-	atk += 1;
-	def += 1;
-	hp += 25;
-	hp_temp += 25;
+	atk += int(def/10)+2;
+	def += int(atk/10)+2;
+	atk_temp = atk;
+	def_temp = def;
+	hp += 25+int(hp/30);
+	hp_temp =hp;
 }
 void player_s::HP_CUP()
 {
 	if (hp_c < 30) 
 	{
 		hp_c += 3;
-		hp += 15;
+		hp += 15+hp/30;
 		def += 3;
 	}
 	else if (hp_c > 30)
 	{
-		hp += 30;
-		def += 4 + def / 50;
+		hp += 30+hp/25;
+		def += 4 + def / 10;
 	}
 }
 void player_s::statusreset() 

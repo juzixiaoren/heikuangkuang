@@ -11,5 +11,6 @@
 #include <fstream>
 #include <thread>
 #include <mutex>
-
+#include <mmsystem.h>
+#include "resource.h"
 #endif

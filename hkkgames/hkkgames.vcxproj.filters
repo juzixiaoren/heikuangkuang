@@ -74,6 +74,9 @@
     <ClInclude Include="update.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="kobe.txt">
@@ -91,13 +94,13 @@
     <Text Include="文本.txt">
       <Filter>资源文件\other</Filter>
     </Text>
+    <Text Include="enemy4.txt">
+      <Filter>资源文件\moster</Filter>
+    </Text>
     <Text Include="enemy2.txt">
       <Filter>资源文件\moster</Filter>
     </Text>
     <Text Include="enemy1.txt">
-      <Filter>资源文件\moster</Filter>
-    </Text>
-    <Text Include="SLIME.txt">
       <Filter>资源文件\moster</Filter>
     </Text>
     <Text Include="BOOS.txt">
@@ -121,25 +124,41 @@
     <Text Include="fightinfo.txt">
       <Filter>资源文件\other</Filter>
     </Text>
-    <Text Include="map 2.txt">
+    <Text Include="map_temp1.txt">
       <Filter>资源文件\Map</Filter>
     </Text>
-    <Text Include="map 3.txt">
+    <Text Include="map_temp2.txt">
       <Filter>资源文件\Map</Filter>
     </Text>
-    <Text Include="map 4.txt">
+    <Text Include="map_temp3.txt">
       <Filter>资源文件\Map</Filter>
     </Text>
-    <Text Include="map 5.txt">
+    <Text Include="map2.txt">
       <Filter>资源文件\Map</Filter>
     </Text>
-    <Text Include="map 6.txt">
+    <Text Include="map3.txt">
       <Filter>资源文件\Map</Filter>
+    </Text>
+    <Text Include="map4.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
+    <Text Include="enemy3.txt">
+      <Filter>资源文件\moster</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt">
       <Filter>资源文件\other</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="【8-bit】春日影.wav">
+      <Filter>资源文件</Filter>
+    </Media>
   </ItemGroup>
 </Project>
