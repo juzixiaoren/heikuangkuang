@@ -130,6 +130,12 @@
     <Text Include="map 4.txt">
       <Filter>资源文件\Map</Filter>
     </Text>
+    <Text Include="map 5.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
+    <Text Include="map 6.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt">

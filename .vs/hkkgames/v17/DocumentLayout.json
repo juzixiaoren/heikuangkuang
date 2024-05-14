@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "D:\\black\\hkk\\heikuangkuang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\kobe.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\kobe.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hkkgames\\map 3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\initialize.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\initialize.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\Startgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\\u6587\u672C1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\\u6587\u672C1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 6.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\map 6.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 5.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\map 5.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\map 3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\map 2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\kobe.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\kobe.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\initialize.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|solutionrelative:hkkgames\\initialize.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F3050254-F0E6-47A0-AD15-CF0A75EDCB21}|hkkgames\\hkkgames.vcxproj|D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -50,8 +66,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 73,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startgame.cpp",
+              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp",
+              "RelativeDocumentMoniker": "hkkgames\\Startgame.cpp",
+              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\Startgame.cpp",
+              "RelativeToolTip": "hkkgames\\Startgame.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAADwvy8AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-14T13:48:50.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "map 2.txt",
+              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 2.txt",
+              "RelativeDocumentMoniker": "hkkgames\\map 2.txt",
+              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 2.txt",
+              "RelativeToolTip": "hkkgames\\map 2.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwwAAAB0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T13:41:29.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "map 3.txt",
+              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 3.txt",
+              "RelativeDocumentMoniker": "hkkgames\\map 3.txt",
+              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 3.txt",
+              "RelativeToolTip": "hkkgames\\map 3.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvyYAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T13:41:07.673Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -94,7 +149,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "map 6.txt",
+              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 6.txt",
+              "RelativeDocumentMoniker": "hkkgames\\map 6.txt",
+              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 6.txt",
+              "RelativeToolTip": "hkkgames\\map 6.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T12:54:52.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "map 5.txt",
+              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 5.txt",
+              "RelativeDocumentMoniker": "hkkgames\\map 5.txt",
+              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 5.txt",
+              "RelativeToolTip": "hkkgames\\map 5.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T12:42:16.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "header.h",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\header.h",
               "RelativeDocumentMoniker": "hkkgames\\header.h",
@@ -106,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "screen.h",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\screen.h",
               "RelativeDocumentMoniker": "hkkgames\\screen.h",
@@ -118,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "\u6587\u672C1.txt",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\\u6587\u672C1.txt",
               "RelativeDocumentMoniker": "hkkgames\\\u6587\u672C1.txt",
@@ -126,24 +207,24 @@
               "RelativeToolTip": "hkkgames\\\u6587\u672C1.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-08T11:54:25.495Z"
+              "WhenOpened": "2024-05-08T11:54:25.495Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "kobe.txt",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\kobe.txt",
               "RelativeDocumentMoniker": "hkkgames\\kobe.txt",
               "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\kobe.txt",
               "RelativeToolTip": "hkkgames\\kobe.txt",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAACYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAACYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-08T11:54:25.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T11:54:25.496Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "beforestart.h",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\beforestart.h",
               "RelativeDocumentMoniker": "hkkgames\\beforestart.h",
@@ -155,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "initialize.cpp",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\initialize.cpp",
               "RelativeDocumentMoniker": "hkkgames\\initialize.cpp",
@@ -167,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "test.txt",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\test.txt",
               "RelativeDocumentMoniker": "hkkgames\\test.txt",
@@ -179,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "class_fight.h",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\class_fight.h",
               "RelativeDocumentMoniker": "hkkgames\\class_fight.h",
@@ -191,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "before start.cpp",
               "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\before start.cpp",
               "RelativeDocumentMoniker": "hkkgames\\before start.cpp",
@@ -200,25 +281,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-08T11:54:25.498Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 302,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "map 3.txt",
-              "DocumentMoniker": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 3.txt",
-              "RelativeDocumentMoniker": "hkkgames\\map 3.txt",
-              "ToolTip": "D:\\black\\hkk\\heikuangkuang\\hkkgames\\map 3.txt",
-              "RelativeToolTip": "hkkgames\\map 3.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-13T16:10:58.786Z",
-              "EditorCaption": ""
             }
           ]
         }

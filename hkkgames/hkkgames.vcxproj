@@ -153,6 +153,8 @@
     <Text Include="map 2.txt" />
     <Text Include="map 3.txt" />
     <Text Include="map 4.txt" />
+    <Text Include="map 5.txt" />
+    <Text Include="map 6.txt" />
     <Text Include="rule.txt" />
     <Text Include="title.txt" />
     <Text Include="kobe.txt" />
