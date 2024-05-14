@@ -1,4 +1,2 @@
-﻿  screen.cpp
-F:\heikuangkuang\heikuangkuang\hkkgames\screen.cpp(96,15): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-F:\heikuangkuang\heikuangkuang\hkkgames\screen.cpp(96,17): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-  hkkgames.vcxproj -> F:\heikuangkuang\heikuangkuang\x64\Debug\hkkgames.exe
+﻿  Startgame.cpp
+  hkkgames.vcxproj -> D:\black\hkk\heikuangkuang\x64\Debug\hkkgames.exe
