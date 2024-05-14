@@ -134,6 +134,7 @@
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="Startgame.cpp" />
+    <ClCompile Include="update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="beforestart.h" />
@@ -143,12 +144,15 @@
     <ClInclude Include="screen.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="Startgame.h" />
+    <ClInclude Include="update.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="BIGEYES.txt" />
+    <Text Include="enemy2.txt" />
     <Text Include="baseinfo.txt" />
     <Text Include="intro.txt" />
-    <Text Include="map  2.txt" />
+    <Text Include="map 2.txt" />
+    <Text Include="map 3.txt" />
+    <Text Include="map 4.txt" />
     <Text Include="rule.txt" />
     <Text Include="title.txt" />
     <Text Include="kobe.txt" />

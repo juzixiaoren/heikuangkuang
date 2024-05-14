@@ -187,7 +187,6 @@ void loadothers() {
 			mapid = 2;
 			memset(coord_xy, NULL, sizeof(coord_xy));
 			coord_xy[0][0] = 56; coord_xy[0][1] = 22;
-			coord_xy[0][0] = 1; coord_xy[0][1] = 1;//∑Ω±„≤‚ ‘
 			coord_xy[1][0] = 6; coord_xy[1][1] =31;
 			coord_xy[2][0] = 41; coord_xy[2][1] = 35;
 			Status = 2;
@@ -200,8 +199,6 @@ void loadothers() {
 		break;
 	}
 	case 4:{
-		memset(coord_xy, NULL, sizeof(coord_xy));
-		coord_xy[0][0] = 2;coord_xy[0][1]=2;
 		Status = 3;
 		if (!fightinfo) 
 		{

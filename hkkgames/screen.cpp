@@ -18,7 +18,7 @@ extern int Canfight;
 extern player_s Playerinfo;
 extern int enemyid;
 extern vector <enemy_s> enemyinfo;
-
+extern int player_temp_coord[2];
 void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer)//视口到屏幕
 {
 	for (int y = 0; y < HEIGHT; y++)//遍历高度
@@ -163,18 +163,22 @@ void Coordinate()//判断循环
 				Status = 0;
 				if (Coordinate_judgment(coord_xy, &player) == 1)
 				{
-					Playerinfo.changeinfo(L"史尔特", 120, 25, 12, 20, 12, 10, 10);
+					Playerinfo.changeinfo(L"史尔特", 120, 30, 15, 20, 12, 10, 10);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 2)
 				{
-					Playerinfo.changeinfo(L"李狗剩", 90, 10, 10, 10, 40, 35, 24);
+					Playerinfo.changeinfo(L"李狗剩", 100, 10, 10, 10, 40, 35, 24);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
-					Playerinfo.changeinfo(L"马恩纳", 150, 10, 15, 15, 20, 9, 10);
+					Playerinfo.changeinfo(L"马恩纳", 150, 15, 25, 15, 20, 9, 10);
 				}
 				player.x = 0;
 				player.y = 0;
+				memset(coord_xy, NULL, sizeof(coord_xy));
+				coord_xy[0][0] = 2; coord_xy[0][1] = 2;
+				coord_xy[1][0] = 3; coord_xy[1][1] = 2;
+				coord_xy[2][0] = 4; coord_xy[2][1] = 2;
 				info = 4;
 				break;
 			}
@@ -183,48 +187,59 @@ void Coordinate()//判断循环
 				{
 					enemyid = 1;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
-					Status = 0;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"小怪啊", 100, 10, 5, 10, 5, 5, 5);
+					enemyinfo[0].changeinfo(L"散兵", 100, 30,10, 10, 14, 10,20,15);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 2)
 				{
 					enemyid = 2;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
-					Status = 0;
+					enemyinfo.push_back(enemy_s());
+					enemyinfo[0].changeinfo(L"克苏鲁之眼", 250, 10, 10, 13, 30, 10, 30,30);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
 					enemyid = 3;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
-					Status = 0;
+					enemyinfo.push_back(enemy_s());
+					enemyinfo[0].changeinfo(L"魔王", 300, 50, 25, 15, 16, 15, 18,50);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 4)
 				{
 					enemyid = 4;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
-					Status = 0;
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 5)
 				{
 					enemyid = 5;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
-					Status = 0;
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 6)
 				{
 					enemyid = 6;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
 				}
@@ -232,6 +247,8 @@ void Coordinate()//判断循环
 				{
 					enemyid = 7;
 					fightinfo = 1;
+					player_temp_coord[0] = player.x;
+					player_temp_coord[1] = player.y;
 					player.x = 30;
 					player.y = 36;
 					Status = 0;
@@ -298,6 +315,22 @@ void Coordinate_judgment_fiht(controller* player)
 			else return;
 		}
 	}
+	else 
+	{
+		fightinfo = 0;
+		player->x = player_temp_coord[0];
+		player->y = player_temp_coord[1];
+		Playerinfo.statusreset();
+		Playerinfo.info.clear();
+		Playerinfo.info2.clear();
+		Playerinfo.infoall.clear();
+		Playerinfo.info3.clear();
+		Playerinfo.exp += enemyinfo[0].getexp;
+		enemyinfo.pop_back();
+		int i = Coordinate_judgment(coord_xy, player);
+		coord_xy[i - 1][0] = 0;
+		coord_xy[i - 1][1] = 0;
+	}
 }
 void screen_output()
 {
@@ -347,7 +380,7 @@ void screen_output()
 }
 // 假设地图文件名存储在一个数组中
 const std::vector<std::wstring> mapFiles = { L"NULL.txt", L"title.txt", L"map1.txt",L"NULL.txt",L"BIGEYES.txt",L"HELL.txt",L"SLIME.txt",L"BOOS.txt"};
-const std::vector<std::wstring> enemyFiles = { L"NULL.txt", L"enemy1.txt", L"enemy2.txt",L"enemy3.txt",L"enemy4.txt",L"enemy5.txt",L"enemy6.txt",L"enemy7.txt"};
+const std::vector<std::wstring> enemyFiles = { L"NULL.txt", L"enemy1.txt", L"enemy2.txt",L"BOOS.txt",L"enemy4.txt",L"enemy5.txt",L"enemy6.txt",L"enemy7.txt"};
 // 根据游戏状态选择地图文件
 
 wstring selectEnemyFile(int enemyid)

@@ -45,6 +45,9 @@
     <ClCompile Include="Startgame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="update.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -68,6 +71,9 @@
     <ClInclude Include="Startgame.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="update.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="kobe.txt">
@@ -85,7 +91,7 @@
     <Text Include="文本.txt">
       <Filter>资源文件\other</Filter>
     </Text>
-    <Text Include="BIGEYES.txt">
+    <Text Include="enemy2.txt">
       <Filter>资源文件\moster</Filter>
     </Text>
     <Text Include="enemy1.txt">
@@ -114,6 +120,15 @@
     </Text>
     <Text Include="fightinfo.txt">
       <Filter>资源文件\other</Filter>
+    </Text>
+    <Text Include="map 2.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
+    <Text Include="map 3.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
+    <Text Include="map 4.txt">
+      <Filter>资源文件\Map</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

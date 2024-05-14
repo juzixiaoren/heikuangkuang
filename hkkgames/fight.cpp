@@ -95,6 +95,7 @@ void enemy_s::acts() //行动函数
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= atk_b)
 		{
+			info = L"暴击！";
 			act_num = atk_temp * 1.5;
 			return;
 		}
@@ -208,7 +209,7 @@ void enemy_s::pd() //行动判断函数
 		return;
 	}
 }
-void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c)
+void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c,double getexp)
 {
 	this->name = _name;
 	this->hp = _hp;
@@ -221,6 +222,7 @@ void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, do
 	this->def_b = _def_b;
 	this->hp_b = _hp_b;
 	this->hp_c = _hp_c;
+	this->getexp = getexp;
 }
 void enemy_s::showenemyinfo() 
 {
@@ -555,6 +557,7 @@ void player_s::acts(int r) //行动函数
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= atk_b)
 		{
+			info = L"暴击！";
 			act_num = atk_temp * 1.5;
 			return;
 		}
@@ -617,8 +620,9 @@ void player_s::acts(int r) //行动函数
 		}
 		else
 		{
-			info = L"魔曲失败";
+			info = L"魔曲失败,反噬自身";
 			act_num = 0;
+			hp_temp = hp_temp - hp_c * 0.1;
 			return;
 		}
 	}
@@ -669,4 +673,47 @@ void player_s::pd() {
 }
 double player_s::op_atk() {
 	return output_atk;
+}
+double player_s::gethp() {
+	return hp_temp;
+}
+void player_s::ATKUP() 
+{
+	atk += 5+atk/30;
+	def += 1;
+	hp += 10;
+	hp_temp+=10;
+}
+void player_s::DEFUP()
+{
+	atk += 1;
+	def += 5+def/30;
+	hp += 10;
+	hp_temp += 10;
+}
+void player_s::HPUP()
+{
+	atk += 1;
+	def += 1;
+	hp += 25;
+	hp_temp += 25;
+}
+void player_s::HP_CUP()
+{
+	if (hp_c < 30) 
+	{
+		hp_c += 3;
+		hp += 15;
+		def += 3;
+	}
+	else if (hp_c > 30)
+	{
+		hp += 30;
+		def += 4 + def / 50;
+	}
+}
+void player_s::statusreset() 
+{
+	atk_temp = atk;
+	def_temp = def;
 }
