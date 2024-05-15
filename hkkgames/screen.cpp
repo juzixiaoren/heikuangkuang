@@ -168,7 +168,7 @@ void Coordinate()//判断循环
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 2)
 				{
-					Playerinfo.changeinfo(L"李狗剩", 100, 10, 10, 10, 40, 35, 24);
+					Playerinfo.changeinfo(L"逻各斯", 100, 10, 10, 10, 40, 35, 24);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
@@ -199,7 +199,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70, 20, 14, 10, 10, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 2)
 				{
@@ -210,7 +210,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70, 20, 14, 10, 10, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
@@ -221,7 +221,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70, 20, 14, 10, 10, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 4)
 				{
@@ -232,7 +232,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70, 20, 14, 10, 10, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 5)
 				{
@@ -243,7 +243,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70, 20, 14, 10, 10, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 6)
 				{
@@ -254,7 +254,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180, 30, 20, 15, 10, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"漂浮头颅", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 14, 14, 15);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 7)
 				{
@@ -265,7 +265,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180, 30, 20, 15, 10, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"漂浮头颅", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 14, 14, 15);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 8)
 				{
@@ -276,7 +276,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180, 30, 20, 15, 10, 10, 14, 15);
+					enemyinfo[0].changeinfo(L"漂浮头颅", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 10, 14, 15);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 9)
 				{
@@ -287,7 +287,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"僵尸",300, 40, 30, 20, 15, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"僵尸",300 + Playerinfo.level ^ 2 * 2, 40, 30, 20, 30, 7, 20, 20);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 10)
 				{
@@ -341,7 +341,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180, 30, 20, 15, 10, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"精英漂浮头颅", 250 + Playerinfo.level ^ 2 * 2, 40, 25, 15, 25, 14, 14, 15);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
@@ -352,7 +352,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180, 30, 20, 15, 10, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"精英漂浮头颅", 250 + Playerinfo.level ^ 2 * 2, 40, 25, 15, 25, 14, 14, 15);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 4)
 				{
@@ -363,7 +363,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"僵尸", 300, 40, 30, 20, 15, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"精英僵尸", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 5)
 				{
@@ -374,7 +374,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"僵尸", 300, 40, 30, 20, 15, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"精英僵尸", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 6)
 				{
@@ -385,7 +385,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"僵尸", 300, 40, 30, 20, 15, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"精英僵尸", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 7)
 				{
@@ -396,7 +396,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450, 55, 40, 20, 15, 8, 25, 50);
+					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450 + Playerinfo.level ^ 2 * 2, 55, 40, 20, 30, 8, 25, 50);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 8)
 				{
@@ -407,7 +407,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450, 55, 40, 20, 15, 8, 25, 50);
+					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450 + Playerinfo.level ^ 2 * 2, 55, 40, 20, 30, 8, 25, 50);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 9)
 				{
@@ -418,7 +418,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450, 55, 40, 20, 15, 8, 25, 50);
+					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450+Playerinfo.level^2*2, 55, 40, 20, 30, 8, 25, 50);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 10)
 				{
@@ -483,7 +483,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"魔王特蕾西斯", 1000 + Playerinfo.level * 10, 60 + Playerinfo.level * 2, 60 + Playerinfo.level * 2, 20, 20, 5, 25,1000);
+					enemyinfo[0].changeinfo(L"魔王特蕾西斯", 1000 + Playerinfo.level^2 * 20, 60 + Playerinfo.level * 5, 60 + Playerinfo.level * 5, 30, 30, 5, 27,1000);
 				}
 			break;
 			}
@@ -498,7 +498,75 @@ void Coordinate()//判断循环
 }
 void Coordinate_judgment_fiht(controller* player)
 {
-	if (fightinfo == 2) {
+	if (fightinfo == 2) 
+	{
+		if (enemyinfo[0].Ifalive()) {
+			if (player->y >= 38) {
+				if (player->x <= 19)
+				{
+					player->x = 30;
+					player->y = 36;
+					enemyinfo[0].acts();
+					enemyinfo[0].pd();
+					Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+					Playerinfo.acts(1);
+					Playerinfo.pd();
+					enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+				}
+				else if (player->x <= 29)
+				{
+					player->x = 30;
+					player->y = 36;
+					enemyinfo[0].acts();
+					enemyinfo[0].pd();
+					Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+					Playerinfo.acts(2);
+					Playerinfo.pd();
+					enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+				}
+				else if (player->x <= 44)
+				{
+					player->x = 30;
+					player->y = 36;
+					enemyinfo[0].acts();
+					enemyinfo[0].pd();
+					Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+					Playerinfo.acts(4);
+					Playerinfo.pd();
+					enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+				}
+				else if (player->x <= 60)
+				{
+					player->x = 30;
+					player->y = 36;
+					enemyinfo[0].acts();
+					enemyinfo[0].pd();
+					Playerinfo.Be_attacked(enemyinfo[0].op_atk());
+					Playerinfo.acts(3);
+					Playerinfo.pd();
+					enemyinfo[0].Be_attacked(Playerinfo.op_atk());
+				}
+				else return;
+			}
+		}
+		else
+		{
+			info = 7;
+			fightinfo = 0;
+			mapid = 7;
+			Playerinfo.statusreset();
+			Playerinfo.info.clear();
+			Playerinfo.info2.clear();
+			Playerinfo.infoall.clear();
+			Playerinfo.info3.clear();
+			Playerinfo.exp += enemyinfo[0].getexp;
+			enemyinfo.pop_back();
+			player->m_char=NULL;
+			int i = Coordinate_judgment(coord_xy, player);
+			memset(coord_xy, NULL, sizeof(coord_xy));
+		}
+	}
+	else {
 		if (enemyinfo[0].Ifalive()) {
 			if (player->y >= 38) {
 				if (player->x <= 19)
@@ -551,7 +619,6 @@ void Coordinate_judgment_fiht(controller* player)
 		else
 		{
 			fightinfo = 0;
-			mapid = 6;
 			player->x = player_temp_coord[0];
 			player->y = player_temp_coord[1];
 			Playerinfo.statusreset();
@@ -562,73 +629,9 @@ void Coordinate_judgment_fiht(controller* player)
 			Playerinfo.exp += enemyinfo[0].getexp;
 			enemyinfo.pop_back();
 			int i = Coordinate_judgment(coord_xy, player);
-			memset(coord_xy, NULL, sizeof(coord_xy));
+			coord_xy[i - 1][0] = 0;
+			coord_xy[i - 1][1] = 0;
 		}
-	}
-	if (enemyinfo[0].Ifalive()) {
-		if (player->y >= 38) {
-			if (player->x <= 19)
-			{
-				player->x = 30;
-				player->y = 36;
-				enemyinfo[0].acts();
-				enemyinfo[0].pd();
-				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
-				Playerinfo.acts(1);
-				Playerinfo.pd();
-				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
-			}
-			else if (player->x <= 29)
-			{
-				player->x = 30;
-				player->y = 36;
-				enemyinfo[0].acts();
-				enemyinfo[0].pd();
-				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
-				Playerinfo.acts(2);
-				Playerinfo.pd();
-				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
-			}
-			else if (player->x <= 44)
-			{
-				player->x = 30;
-				player->y = 36;
-				enemyinfo[0].acts();
-				enemyinfo[0].pd();
-				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
-				Playerinfo.acts(4);
-				Playerinfo.pd();
-				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
-			}
-			else if (player->x <= 60)
-			{
-				player->x = 30;
-				player->y = 36;
-				enemyinfo[0].acts();
-				enemyinfo[0].pd();
-				Playerinfo.Be_attacked(enemyinfo[0].op_atk());
-				Playerinfo.acts(3);
-				Playerinfo.pd();
-				enemyinfo[0].Be_attacked(Playerinfo.op_atk());
-			}
-			else return;
-		}
-	}
-	else 
-	{
-		fightinfo = 0;
-		player->x = player_temp_coord[0];
-		player->y = player_temp_coord[1];
-		Playerinfo.statusreset();
-		Playerinfo.info.clear();
-		Playerinfo.info2.clear();
-		Playerinfo.infoall.clear();
-		Playerinfo.info3.clear();
-		Playerinfo.exp += enemyinfo[0].getexp;
-		enemyinfo.pop_back();
-		int i = Coordinate_judgment(coord_xy, player);
-		coord_xy[i - 1][0] = 0;
-		coord_xy[i - 1][1] = 0;
 	}
 }
 void screen_output()

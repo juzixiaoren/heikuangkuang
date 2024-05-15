@@ -139,18 +139,18 @@ void enemy_s::acts() //行动函数
 	}
 	else if (r == 3) {
 		double rand_num = rand() % 100 + 1;
-		if (rand_num <= 10)
+		if (rand_num <= 15)
 		{
 			info = L"魔曲大成功";
 			act_num = hp_c + 10;
 			return;
 		}
-		else if (rand_num > 10 && rand_num <= 30) {
+		else if (rand_num > 15 && rand_num <= 35) {
 			info = L"魔曲小成功";
 			act_num = hp_c * 0.5;
 			return;
 		}
-		else if (rand_num > 30 && rand_num <= 60)
+		else if (rand_num > 35 && rand_num <= 70)
 		{
 			info = L"魔曲成功";
 			act_num = hp_c;
@@ -612,7 +612,7 @@ void player_s::acts(int r) //行动函数
 			act_num = hp_c * 0.5;
 			return;
 		}
-		else if (rand_num > 30 && rand_num <= 60)
+		else if (rand_num > 30 && rand_num <= 80)
 		{
 			info = L"魔曲成功";
 			act_num = hp_c;
@@ -622,7 +622,7 @@ void player_s::acts(int r) //行动函数
 		{
 			info = L"魔曲失败,反噬自身";
 			act_num = 0;
-			hp_temp = hp_temp - hp_c * 0.1;
+			hp_temp = hp_temp - hp_c * 0.5 * hp_temp;
 			return;
 		}
 	}

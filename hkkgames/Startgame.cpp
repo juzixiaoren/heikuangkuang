@@ -173,13 +173,13 @@ void loadothers() {
 	{
 	case 1: {
 		showstorys();
-		if (Timer(10000, 2))
+		if (Timer(50000, 2))
 			info = 2;
 		break;
 	}
 	case 2: {
 		showstorys_2();
-		if (Timer(20000, 3)) {
+		if (Timer(10000, 3)) {
 			info = 3;
 			player.m_char = L'Œ“';
 			player.x = 1;
@@ -238,6 +238,10 @@ void loadothers() {
 			enemyinfo[0].showenemyinfo();
 		}
 		Playerinfo.showplayerinfo();
+		break;
+	}
+	case 7: {
+		Status = 0;
 		break;
 	}
 	default:

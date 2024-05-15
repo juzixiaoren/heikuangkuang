@@ -60,6 +60,15 @@ static void pic_out() {
 	fclose(fileptr);
 
 }
+void hide_cursor()//隐藏光标
+{
+	HANDLE h_GAME = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursor_info;
+	GetConsoleCursorInfo(h_GAME, &cursor_info);
+	cursor_info.bVisible = false;
+	SetConsoleCursorInfo(h_GAME, &cursor_info);
+}
+
 void gui_size(){//设置缓冲区大小，全屏手动全屏
 	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);//获取控制台句柄
 	CONSOLE_SCREEN_BUFFER_INFO scr_buff;
@@ -86,6 +95,7 @@ void gui_size(){//设置缓冲区大小，全屏手动全屏
 #pragma comment (lib,"winmm.lib")
 void Hkk_initialize() {//初始化
 	gui_size();
+	hide_cursor();
 	system("cls");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	/*string name = "NULL";
@@ -106,9 +116,13 @@ void Hkk_initialize() {//初始化
 	cin.get();*/
 }
 void music() {
-	if (0 == PlaySound(MAKEINTRESOURCE(IDR_WAVE1), NULL, SND_RESOURCE | SND_LOOP))
+	Sleep(100);
+	while (1)
 	{
-		printf("playsound false");
+		if (0 == PlaySound(MAKEINTRESOURCE(IDR_WAVE1), NULL, SND_RESOURCE | SND_LOOP))
+		{
+			printf("playsound false");
+		}
 	}
 }
 #ifndef TEST_H
