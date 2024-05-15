@@ -170,6 +170,8 @@
     <Text Include="fightinfo.txt" />
     <Text Include="map4.txt" />
     <Text Include="enemy3.txt" />
+    <Text Include="vectory.txt" />
+    <Text Include="文本3.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt" />

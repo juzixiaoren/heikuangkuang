@@ -145,6 +145,12 @@
     <Text Include="enemy3.txt">
       <Filter>资源文件\moster</Filter>
     </Text>
+    <Text Include="vectory.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
+    <Text Include="文本3.txt">
+      <Filter>资源文件\Map</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="sign.txt">

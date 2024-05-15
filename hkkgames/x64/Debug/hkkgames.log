@@ -1,3 +1,4 @@
-﻿  main.cpp
-F:\heikuangkuang\heikuangkuang\hkkgames\main.cpp(33,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+﻿  screen.cpp
+F:\heikuangkuang\heikuangkuang\hkkgames\screen.cpp(96,15): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+F:\heikuangkuang\heikuangkuang\hkkgames\screen.cpp(96,17): warning C4838: 从“int”转换到“SHORT”需要收缩转换
   hkkgames.vcxproj -> F:\heikuangkuang\heikuangkuang\x64\Debug\hkkgames.exe

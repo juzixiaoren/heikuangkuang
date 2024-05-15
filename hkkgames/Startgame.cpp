@@ -198,7 +198,8 @@ void loadothers() {
 		Playerinfo.showplayerinfo();
 		break;
 	}
-	case 4:{
+	case 4:
+	{
 		Status = 3;
 		if (!fightinfo) 
 		{
@@ -209,6 +210,35 @@ void loadothers() {
 			enemyinfo[0].showenemyinfo();
 		}
 		Playerinfo.showplayerinfo();
+		break;
+	}
+	case 5:
+	{
+		Status = 4;
+		if (!fightinfo)
+		{
+			showbaseinfo();
+		}
+		else {
+			showfightinfo();
+			enemyinfo[0].showenemyinfo();
+		}
+		Playerinfo.showplayerinfo();
+		break;
+	}
+	case 6:
+	{
+		Status = 5;
+		if (!fightinfo)
+		{
+			showbaseinfo();
+		}
+		else {
+			showfightinfo();
+			enemyinfo[0].showenemyinfo();
+		}
+		Playerinfo.showplayerinfo();
+		break;
 	}
 	default:
 		break;
