@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 #ifndef STARTGAME_H
 #define STARTGAME_H
 #include "screen.h"
-void Startgame();//ÕâÊÇÍ¨¹ı°´¼üÑ¡Ôñ¿ªÊ¼ÓÎÏ·µÄº¯Êı
-void showstorys();//ÕâÊÇÏÔÊ¾¹ÊÊÂµÄº¯Êı
-void loadothers();//ÕâÊÇ¼ÓÔØÆäËûµÄº¯Êı
+void Startgame();//è¿™æ˜¯é€šè¿‡æŒ‰é”®é€‰æ‹©å¼€å§‹æ¸¸æˆçš„å‡½æ•°
+void showstorys();//è¿™æ˜¯æ˜¾ç¤ºæ•…äº‹çš„å‡½æ•°
+void loadothers();//è¿™æ˜¯åŠ è½½å…¶ä»–çš„å‡½æ•°
 void showstorys2();
 void showbaseifo();
 

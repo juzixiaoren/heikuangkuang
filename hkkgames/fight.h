@@ -1,33 +1,33 @@
-#pragma once
+ï»¿#pragma once
 #ifndef FIGHT_H
 #define FIGHT_H
 #include "header.h"
 using namespace std;
 class enemy_s
-{//µÐÈËÀà
+{//æ•Œäººç±»
 protected:
-	double hp;//ÉúÃüÖµ
-	double atk;//¹¥»÷Á¦
-	double def;//·ÀÓùÁ¦
-	double atk_temp;//ÁÙÊ±¹¥»÷Á¦
-	double def_temp;//ÁÙÊ±·ÀÓùÁ¦
-	double hp_temp;//ÁÙÊ±ÉúÃüÖµ
-	double atk_b;//±©»÷ÂÊ
-	double def_b;//Ç¿»¯ÂÊ
-	double hp_b;//»Ø¸´ÂÊ
-	double hp_c;//ÉúÃü°þ¶áÂÊ
-	int actor;//ÐÐÎª
-	double act_num;//ÐÐÎªÊýÖµ
-	double output_atk;//Êä³ö¹¥»÷Á¦
+	double hp;//ç”Ÿå‘½å€¼
+	double atk;//æ”»å‡»åŠ›
+	double def;//é˜²å¾¡åŠ›
+	double atk_temp;//ä¸´æ—¶æ”»å‡»åŠ›
+	double def_temp;//ä¸´æ—¶é˜²å¾¡åŠ›
+	double hp_temp;//ä¸´æ—¶ç”Ÿå‘½å€¼
+	double atk_b;//æš´å‡»çŽ‡
+	double def_b;//å¼ºåŒ–çŽ‡
+	double hp_b;//å›žå¤çŽ‡
+	double hp_c;//ç”Ÿå‘½å‰¥å¤ºçŽ‡
+	int actor;//è¡Œä¸º
+	double act_num;//è¡Œä¸ºæ•°å€¼
+	double output_atk;//è¾“å‡ºæ”»å‡»åŠ›
 public:
-	double getexp;//»ñÈ¡¾­Ñé
-	wstring name;//Ãû×Ö
-	wstring info;//ÐÐ¶¯ÐÅÏ¢
-	wstring info2;//ÉËº¦ÐÅÏ¢
-	wstring info3;//±»¹¥»÷ÐÅÏ¢
-	wstring infoall;//È«²¿ÐÅÏ¢
-	enemy_s() {};//Ä¬ÈÏ¹¹Ôìº¯Êý
-	enemy_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp) //¹¹Ôìº¯Êý
+	double getexp;//èŽ·å–ç»éªŒ
+	wstring name;//åå­—
+	wstring info;//è¡ŒåŠ¨ä¿¡æ¯
+	wstring info2;//ä¼¤å®³ä¿¡æ¯
+	wstring info3;//è¢«æ”»å‡»ä¿¡æ¯
+	wstring infoall;//å…¨éƒ¨ä¿¡æ¯
+	enemy_s() {};//é»˜è®¤æž„é€ å‡½æ•°
+	enemy_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp) //æž„é€ å‡½æ•°
 	{
 		this->name = _name;
 		this->hp = _hp;
@@ -42,12 +42,12 @@ public:
 		this->hp_c = _hp_c;
 		this->getexp = getexp;
 	}
-	virtual double op_atk(); //Êä³ö¶ÔµÐ·½µÄ¹¥»÷
-	virtual bool Ifalive();//ÅÐ¶ÏÊÇ·ñ´æ»î
-	virtual void Be_attacked(double be_atk); //±»¹¥»÷º¯Êý
-	virtual void acts(); //ÐÐ¶¯º¯Êý
-	virtual void pd(); //ÐÐ¶¯ÅÐ¶Ïº¯Êý
-	virtual void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp);//¸Ä±äÃû×Ö£¬ÑªÁ¿£¬¹¥»÷£¬·ÀÓù£¬±©»÷ÂÊ£¬Ç¿»¯ÂÊ£¬»Ø¸´ÂÊ£¬ÉúÃü°þ¶áÂÊ
+	virtual double op_atk(); //è¾“å‡ºå¯¹æ•Œæ–¹çš„æ”»å‡»
+	virtual bool Ifalive();//åˆ¤æ–­æ˜¯å¦å­˜æ´»
+	virtual void Be_attacked(double be_atk); //è¢«æ”»å‡»å‡½æ•°
+	virtual void acts(); //è¡ŒåŠ¨å‡½æ•°
+	virtual void pd(); //è¡ŒåŠ¨åˆ¤æ–­å‡½æ•°
+	virtual void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp);//æ”¹å˜åå­—ï¼Œè¡€é‡ï¼Œæ”»å‡»ï¼Œé˜²å¾¡ï¼Œæš´å‡»çŽ‡ï¼Œå¼ºåŒ–çŽ‡ï¼Œå›žå¤çŽ‡ï¼Œç”Ÿå‘½å‰¥å¤ºçŽ‡
 	void showenemyinfo();
 };
 class player_s :enemy_s
@@ -55,15 +55,15 @@ class player_s :enemy_s
 private:
 
 public:
-	wstring info;//ÐÅÏ¢
+	wstring info;//ä¿¡æ¯
 	wstring info2;
 	wstring infoall;
 	wstring info3;
-	double max_exp;//Éý¼¶ËùÐè¾­Ñé
-	int level;//µÈ¼¶
-	double exp;//¾­Ñé
-	int money;//½ðÇ®
-	player_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c) :enemy_s() //¹¹Ôìº¯Êý
+	double max_exp;//å‡çº§æ‰€éœ€ç»éªŒ
+	int level;//ç­‰çº§
+	double exp;//ç»éªŒ
+	int money;//é‡‘é’±
+	player_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c) :enemy_s() //æž„é€ å‡½æ•°
 	{
 		this->name = _name;
 		this->hp = _hp;
@@ -83,10 +83,10 @@ public:
 	}
 	void acts(int r);
 	void showplayerinfo();
-	void pd(); //ÐÐ¶¯ÅÐ¶Ïº¯Êý
-	double op_atk(); //Êä³ö¶ÔµÐ·½µÄ¹¥»÷
+	void pd(); //è¡ŒåŠ¨åˆ¤æ–­å‡½æ•°
+	double op_atk(); //è¾“å‡ºå¯¹æ•Œæ–¹çš„æ”»å‡»
 	void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c);
-	void Be_attacked(double be_atk); //±»¹¥»÷º¯Êý
+	void Be_attacked(double be_atk); //è¢«æ”»å‡»å‡½æ•°
 	double gethp();
 	void ATKUP();
 	void DEFUP();
