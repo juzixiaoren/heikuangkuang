@@ -1,4 +1,4 @@
-#include"header.h"
+ï»¿#include"header.h"
 #include "fight.h"
 #include"controller.h"
 #include"screen.h"
@@ -9,49 +9,18 @@ extern int back_index;
 extern player_s Playerinfo;
 extern vector <enemy_s> enemyinfo;
 
-double enemy_s::op_atk() //Êä³ö¶ÔµĞ·½µÄ¹¥»÷
+double enemy_s::op_atk() //è¾“å‡ºå¯¹æ•Œæ–¹çš„æ”»å‡»
 {
 	return output_atk;
 }
-bool enemy_s::Ifalive() 
-{//ÅĞ¶ÏÊÇ·ñ´æ»î
+bool enemy_s::Ifalive()
+{//åˆ¤æ–­æ˜¯å¦å­˜æ´»
 	if (hp_temp > 0)
 		return true;
 	else
 		return false;
 }
-void player_s::Be_attacked(double be_atk) //±»¹¥»÷º¯Êı
-{
-	info2.clear();
-	double damage;
-	if (be_atk < 0)
-	{
-		damage = abs(be_atk) / 100 * hp;
-		hp_temp = hp_temp - damage;
-	}
-	else if (be_atk > 0)
-	{
-		damage = ((be_atk > def_temp) && (be_atk - def_temp > be_atk * 0.1)) ? be_atk - def_temp : be_atk * 0.1;
-		if (damage < 1)
-			damage = 1;
-		hp_temp = hp_temp - damage;
-	}
-	if (be_atk == 0) 
-	{
-		info3 =name+ L"²»ÊÜÓ°Ïì";
-	}
-	else if(be_atk<0)
-	{
-		info3 = name + L"ÊÜµ½Ä§Çú°ş¶á";
-		info2= to_wide_string(to_string((int)damage));
-	}
-	else 
-	{
-		info3 = name +L"ÊÜµ½¹¥»÷";
-		info2 = to_wide_string(to_string((int)damage));
-	}
-}
-void enemy_s::Be_attacked(double be_atk) //±»¹¥»÷º¯Êı
+void player_s::Be_attacked(double be_atk) //è¢«æ”»å‡»å‡½æ•°
 {
 	info2.clear();
 	double damage;
@@ -69,24 +38,55 @@ void enemy_s::Be_attacked(double be_atk) //±»¹¥»÷º¯Êı
 	}
 	if (be_atk == 0)
 	{
-		info3 = name + L"²»ÊÜÓ°Ïì";
+		info3 =name+ L"ä¸å—å½±å“";
+	}
+	else if(be_atk<0)
+	{
+		info3 = name + L"å—åˆ°é­”æ›²å‰¥å¤º";
+		info2= to_wide_string(to_string((int)damage));
+	}
+	else
+	{
+		info3 = name +L"å—åˆ°æ”»å‡»";
+		info2 = to_wide_string(to_string((int)damage));
+	}
+}
+void enemy_s::Be_attacked(double be_atk) //è¢«æ”»å‡»å‡½æ•°
+{
+	info2.clear();
+	double damage;
+	if (be_atk < 0)
+	{
+		damage = abs(be_atk) / 100 * hp;
+		hp_temp = hp_temp - damage;
+	}
+	else if (be_atk > 0)
+	{
+		damage = ((be_atk > def_temp) && (be_atk - def_temp > be_atk * 0.1)) ? be_atk - def_temp : be_atk * 0.1;
+		if (damage < 1)
+			damage = 1;
+		hp_temp = hp_temp - damage;
+	}
+	if (be_atk == 0)
+	{
+		info3 = name + L"ä¸å—å½±å“";
 	}
 	else if (be_atk < 0)
 	{
-		info3 = name + L"ÊÜµ½Ä§Çú°ş¶á";
+		info3 = name + L"å—åˆ°é­”æ›²å‰¥å¤º";
 		info2 = to_wide_string(to_string((int)damage));
 	}
 	else
 	{
-		info3 = name + L"ÊÜµ½¹¥»÷";
+		info3 = name + L"å—åˆ°æ”»å‡»";
 		info2 = to_wide_string(to_string((int)damage));
 	}
 }
-void enemy_s::acts() //ĞĞ¶¯º¯Êı
+void enemy_s::acts() //è¡ŒåŠ¨å‡½æ•°
 {
 	int r;
 	if (hp_temp < hp)
-		r = rand() % 4 + 1;//Éú³É1-4µÄËæ»úÊı
+		r = rand() % 4 + 1;//ç”Ÿæˆ1-4çš„éšæœºæ•°
 	else
 		r = rand() % 3 + 1;
 	actor = r;
@@ -95,19 +95,19 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= atk_b)
 		{
-			info = L"±©»÷£¡";
+			info = L"æš´å‡»ï¼";
 			act_num = atk_temp * 1.5;
 			return;
 		}
 		else if (rand_num >= 100)
 		{
-			info = L"¹¥»÷Ê§Îó";
+			info = L"æ”»å‡»å¤±è¯¯";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			info = L"¹¥»÷³É¹¦";
+			info = L"æ”»å‡»æˆåŠŸ";
 			act_num = atk_temp;
 			return;
 		}
@@ -116,7 +116,7 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= def_b)
 		{
-			info = L"Ç¿»¯´ó³É¹¦";
+			info = L"å¼ºåŒ–å¤§æˆåŠŸ";
 			atk_temp += atk * 0.3 > 0 ? atk * 0.3 : 1;
 			def_temp += def * 0.3 > 0 ? def * 0.3 : 1;
 			act_num = 0;
@@ -124,13 +124,13 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		}
 		else if (rand_num >= 100)
 		{
-			info = L"Ç¿»¯Ê§°Ü";
+			info = L"å¼ºåŒ–å¤±è´¥";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			info = L"Ç¿»¯³É¹¦";
+			info = L"å¼ºåŒ–æˆåŠŸ";
 			atk_temp += atk * 0.1 > 0 ? atk * 0.1 : 1;
 			def_temp += def * 0.1 > 0 ? def * 0.1 : 1;
 			act_num = 0;
@@ -141,24 +141,24 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 100 + 1;
 		if (rand_num <= 15)
 		{
-			info = L"Ä§Çú´ó³É¹¦";
+			info = L"é­”æ›²å¤§æˆåŠŸ";
 			act_num = hp_c + 10;
 			return;
 		}
 		else if (rand_num > 15 && rand_num <= 35) {
-			info = L"Ä§ÇúĞ¡³É¹¦";
+			info = L"é­”æ›²å°æˆåŠŸ";
 			act_num = hp_c * 0.5;
 			return;
 		}
 		else if (rand_num > 35 && rand_num <= 70)
 		{
-			info = L"Ä§Çú³É¹¦";
+			info = L"é­”æ›²æˆåŠŸ";
 			act_num = hp_c;
 			return;
 		}
 		else
 		{
-			info = L"Ä§ÇúÊ§°Ü";
+			info = L"é­”æ›²å¤±è´¥";
 			act_num = 0;
 			return;
 		}
@@ -167,7 +167,7 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= hp_b)
 		{
-			info = L"»Ø¸´´ó³É¹¦";
+			info = L"å›å¤å¤§æˆåŠŸ";
 			hp_temp += hp * 0.4 + 1;
 			if (hp_temp > hp)
 				hp_temp = hp;
@@ -176,13 +176,13 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		}
 		else if (rand_num >= 80)
 		{
-			info = L"»Ø¸´Ê§°Ü";
+			info = L"å›å¤å¤±è´¥";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			info = L"»Ø¸´³É¹¦";
+			info = L"å›å¤æˆåŠŸ";
 			hp_temp += hp * 0.2 + 1;
 			if (hp_temp > hp)
 				hp_temp = hp;
@@ -191,7 +191,7 @@ void enemy_s::acts() //ĞĞ¶¯º¯Êı
 		}
 	}
 }
-void enemy_s::pd() //ĞĞ¶¯ÅĞ¶Ïº¯Êı
+void enemy_s::pd() //è¡ŒåŠ¨åˆ¤æ–­å‡½æ•°
 {
 	if (actor == 1)
 	{
@@ -224,7 +224,7 @@ void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, do
 	this->hp_c = _hp_c;
 	this->getexp = getexp;
 }
-void enemy_s::showenemyinfo() 
+void enemy_s::showenemyinfo()
 {
 	for (int i = 0; i < name.length(); i++)
 	{
@@ -273,15 +273,15 @@ void enemy_s::showenemyinfo()
 	{
 		wstring zt;
 		if (hp_temp >= 0.5 * hp) {
-			zt = L"Õı³£";
+			zt = L"æ­£å¸¸";
 		}
 		else if (hp_temp < 0.5 * hp && hp_temp >= 0.2 * hp)
 		{
-			zt = L"ÊÜÉË";
+			zt = L"å—ä¼¤";
 		}
 		else
 		{
-			zt = L"±ôËÀ";
+			zt = L"æ¿’æ­»";
 		}
 		for (int i = 0, index = 33 * WIDTH + 7; i < zt.length(); i++)
 		{
@@ -299,7 +299,7 @@ void enemy_s::showenemyinfo()
 	}
 	if (!info.empty()) {
 		if (!info2.empty()) {
-			infoall = Playerinfo.getname() + L"ÏòÉÏÌìÆíµ»£¬" + Playerinfo.info + L"£¬¶Ô" + info3+L"Ôì³É" + info2 + L"ÉËº¦";
+			infoall = Playerinfo.getname() + L"å‘ä¸Šå¤©ç¥ˆç¥·ï¼Œ" + Playerinfo.info + L"ï¼Œå¯¹" + info3+L"é€ æˆ" + info2 + L"ä¼¤å®³";
 			for (int i = 0, index = 33 * WIDTH + 53; i < infoall.length(); i++)
 			{
 				if (infoall[i] == L' ' || infoall[i] == 0)
@@ -318,9 +318,9 @@ void enemy_s::showenemyinfo()
 				}
 			}
 		}
-		else 
+		else
 		{
-			infoall = Playerinfo.getname()+L"ÏòÉÏÌìÆíµ»£¬"+Playerinfo.info +L"£¬"+info3;
+			infoall = Playerinfo.getname()+L"å‘ä¸Šå¤©ç¥ˆç¥·ï¼Œ"+Playerinfo.info +L"ï¼Œ"+info3;
 			for (int i = 0, index = 33 * WIDTH + 53; i < infoall.length(); i++)
 			{
 				if (infoall[i] == L' ' || infoall[i] == 0)
@@ -375,11 +375,11 @@ void player_s::showplayerinfo()
 	wstring hp_ = to_wide_string(to_string((int)hp_temp));
 	for (int i = 0, index = 25 * WIDTH + 129; i < hp_.length(); i++)
 	{
-		if (hp_[i] == L' ' || hp_[i] == 0) 
+		if (hp_[i] == L' ' || hp_[i] == 0)
 		{
 			continue;
 		}
-		else 
+		else
 		{
 			buffers[back_index].m_buffer[index] = hp_[i];
 			index++;
@@ -490,7 +490,7 @@ void player_s::showplayerinfo()
 		}
 	}
 	wstring max_exp_ = to_wide_string(to_string((int)max_exp));
-	for (int i = 0, index = 41 * WIDTH + 143; i < max_exp_.length(); i++) 
+	for (int i = 0, index = 41 * WIDTH + 143; i < max_exp_.length(); i++)
 	{
 		if(max_exp_[i] == L' ' || max_exp_[i] == 0)
 		{
@@ -502,11 +502,11 @@ void player_s::showplayerinfo()
 			index++;
 		}
 	}
-	if (!info.empty()) 
+	if (!info.empty())
 	{
-		if (!info2.empty()) 
+		if (!info2.empty())
 		{
-			infoall = Playerinfo.getname() + L"Ğ¡ĞÄÒÆ¶¯£¬µ«»¹ÊÇ°¤ÁËÒ»ÏÂ£¬" + enemyinfo[0].name+L"½øĞĞ" + enemyinfo[0].info + L"£¬¶Ô" + info3 + L"Ôì³É" + info2 + L"ÉËº¦";
+			infoall = Playerinfo.getname() + L"å°å¿ƒç§»åŠ¨ï¼Œä½†è¿˜æ˜¯æŒ¨äº†ä¸€ä¸‹ï¼Œ" + enemyinfo[0].name+L"è¿›è¡Œ" + enemyinfo[0].info + L"ï¼Œå¯¹" + info3 + L"é€ æˆ" + info2 + L"ä¼¤å®³";
 			for (int i = 0, index = 34 * WIDTH; i < infoall.length(); i++)
 			{
 				if (infoall[i] == L' ' || infoall[i] == 0)
@@ -527,7 +527,7 @@ void player_s::showplayerinfo()
 		}
 		else
 		{
-			infoall = Playerinfo.getname() + L"×¼±¸½øĞĞ·ÀÊØ·´»÷£¬"+L"È»¶ø"+enemyinfo[0].name +enemyinfo[0].info + L"£¬" + info3;
+			infoall = Playerinfo.getname() + L"å‡†å¤‡è¿›è¡Œé˜²å®ˆåå‡»ï¼Œ"+L"ç„¶è€Œ"+enemyinfo[0].name +enemyinfo[0].info + L"ï¼Œ" + info3;
 			for (int i = 0, index = 34 * WIDTH; i < infoall.length(); i++)
 			{
 				if (infoall[i] == L' ' || infoall[i] == 0)
@@ -549,7 +549,7 @@ void player_s::showplayerinfo()
 	}
 }
 
-void player_s::acts(int r) //ĞĞ¶¯º¯Êı
+void player_s::acts(int r) //è¡ŒåŠ¨å‡½æ•°
 {
 	actor = r;
 	if (r == 1)
@@ -557,19 +557,19 @@ void player_s::acts(int r) //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= atk_b)
 		{
-			info = L"±©»÷£¡";
+			info = L"æš´å‡»ï¼";
 			act_num = atk_temp * 1.5;
 			return;
 		}
 		else if (rand_num >= 100)
 		{
-			info = L"¹¥»÷Ê§Îó";
+			info = L"æ”»å‡»å¤±è¯¯";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			info=L"¹¥»÷³É¹¦";
+			info=L"æ”»å‡»æˆåŠŸ";
 			act_num = atk_temp;
 			return;
 		}
@@ -578,7 +578,7 @@ void player_s::acts(int r) //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= def_b)
 		{
-			info = L"Ç¿»¯´ó³É¹¦";
+			info = L"å¼ºåŒ–å¤§æˆåŠŸ";
 			atk_temp += atk * 0.3 > 0 ? atk * 0.3 : 1;
 			def_temp += def * 0.3 > 0 ? def * 0.3 : 1;
 			act_num = 0;
@@ -586,13 +586,13 @@ void player_s::acts(int r) //ĞĞ¶¯º¯Êı
 		}
 		else if (rand_num >= 100)
 		{
-			info=L"Ç¿»¯Ê§°Ü";
+			info=L"å¼ºåŒ–å¤±è´¥";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			info=L"Ç¿»¯³É¹¦";
+			info=L"å¼ºåŒ–æˆåŠŸ";
 			atk_temp += atk * 0.1 > 0 ? atk * 0.1 : 1;
 			def_temp += def * 0.1 > 0 ? def * 0.1 : 1;
 			act_num = 0;
@@ -603,24 +603,24 @@ void player_s::acts(int r) //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 100 + 1;
 		if (rand_num <= 10)
 		{
-			info=L"Ä§Çú´ó³É¹¦";
+			info=L"é­”æ›²å¤§æˆåŠŸ";
 			act_num = hp_c + 10;
 			return;
 		}
 		else if (rand_num > 10 && rand_num <= 30) {
-			info = L"Ä§ÇúĞ¡³É¹¦";
+			info = L"é­”æ›²å°æˆåŠŸ";
 			act_num = hp_c * 0.5;
 			return;
 		}
 		else if (rand_num > 30 && rand_num <= 80)
 		{
-			info = L"Ä§Çú³É¹¦";
+			info = L"é­”æ›²æˆåŠŸ";
 			act_num = hp_c;
 			return;
 		}
 		else
 		{
-			info = L"Ä§ÇúÊ§°Ü,·´ÊÉ×ÔÉí";
+			info = L"é­”æ›²å¤±è´¥,åå™¬è‡ªèº«";
 			act_num = 0;
 			hp_temp = hp_temp - hp_c * 0.5 * hp_temp;
 			return;
@@ -630,7 +630,7 @@ void player_s::acts(int r) //ĞĞ¶¯º¯Êı
 		double rand_num = rand() % 110 + 1;
 		if (rand_num <= hp_b)
 		{
-			info = L"»Ø¸´´ó³É¹¦";
+			info = L"å›å¤å¤§æˆåŠŸ";
 			hp_temp += hp * 0.4 + 1;
 			if (hp_temp > hp)
 				hp_temp = hp;
@@ -639,13 +639,13 @@ void player_s::acts(int r) //ĞĞ¶¯º¯Êı
 		}
 		else if (rand_num >= 80)
 		{
-			info = L"»Ø¸´Ê§°Ü";
+			info = L"å›å¤å¤±è´¥";
 			act_num = 0;
 			return;
 		}
 		else
 		{
-			info = L"»Ø¸´³É¹¦";
+			info = L"å›å¤æˆåŠŸ";
 			hp_temp += hp * 0.2 + 1;
 			if (hp_temp > hp)
 				hp_temp = hp;
@@ -677,7 +677,7 @@ double player_s::op_atk() {
 double player_s::gethp() {
 	return hp_temp;
 }
-void player_s::ATKUP() 
+void player_s::ATKUP()
 {
 	atk += 5+int(atk/5);
 	def += int(def/10+2);
@@ -706,7 +706,7 @@ void player_s::HPUP()
 }
 void player_s::HP_CUP()
 {
-	if (hp_c < 30) 
+	if (hp_c < 30)
 	{
 		hp_c += 3;
 		hp += 15+hp/30;
@@ -718,7 +718,7 @@ void player_s::HP_CUP()
 		def += 4 + def / 10;
 	}
 }
-void player_s::statusreset() 
+void player_s::statusreset()
 {
 	atk_temp = atk;
 	def_temp = def;

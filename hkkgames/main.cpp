@@ -1,7 +1,7 @@
-#include"header.h"
+ï»¿#include"header.h"
 #include"initialize.h"
 #include"beforestart.h"
-#include"screen.h" 
+#include"screen.h"
 #include"Startgame.h"
 #include "update.h"
 //#include"functions.cpp"
@@ -12,34 +12,34 @@
 //#include"variables.h"
 #include"fight.h"
 using namespace std;
-int coord_xy[10][2];//×ø±êÊı×é
-controller player(0, 10);//¿ØÖÆÆ÷
-int player_temp_coord[2];//Íæ¼ÒÁÙÊ±×ø±ê
-int Status= 0;//×´Ì¬
-int info = 0;//ĞÅÏ¢
-int fightinfo = 0;//Õ½¶·ĞÅÏ¢
-int Canfight = 1;//ÊÇ·ñ¿ÉÒÔÕ½¶·
-Viewport buffers[2] = { 0 };//ÊÓ¿Ú
-int front_index = 0;//Ç°Ë÷Òı
-int back_index = 1;//ºóË÷Òı
-int enemyid = 0;//µĞÈËid
-int levelup=0;//Éı¼¶
-player_s Playerinfo(L"???",10,0,0,0,0,0,0);//Íæ¼ÒĞÅÏ¢
-vector <enemy_s> enemyinfo;//µĞÈËĞÅÏ¢
-int main() 
+int coord_xy[10][2];//åæ ‡æ•°ç»„
+controller player(0, 10);//æ§åˆ¶å™¨
+int player_temp_coord[2];//ç©å®¶ä¸´æ—¶åæ ‡
+int Status= 0;//çŠ¶æ€
+int info = 0;//ä¿¡æ¯
+int fightinfo = 0;//æˆ˜æ–—ä¿¡æ¯
+int Canfight = 1;//æ˜¯å¦å¯ä»¥æˆ˜æ–—
+Viewport buffers[2] = { 0 };//è§†å£
+int front_index = 0;//å‰ç´¢å¼•
+int back_index = 1;//åç´¢å¼•
+int enemyid = 0;//æ•Œäººid
+int levelup=0;//å‡çº§
+player_s Playerinfo(L"???",10,0,0,0,0,0,0);//ç©å®¶ä¿¡æ¯
+vector <enemy_s> enemyinfo;//æ•Œäººä¿¡æ¯
+int main()
 {
-	wcout.imbue(locale("zh_CN"));  //ÉèÖÃÓïÑÔ»·¾³
-	Hkk_initialize();//³õÊ¼»¯
-	srand(time(0));//Ëæ»úÊıÖÖ×Ó
-	Startgame();//¿ªÊ¼ÓÎÏ·
+	wcout.imbue(locale("zh_CN"));  //è®¾ç½®è¯­è¨€ç¯å¢ƒ
+	Hkk_initialize();//åˆå§‹åŒ–
+	srand(time(0));//éšæœºæ•°ç§å­
+	Startgame();//å¼€å§‹æ¸¸æˆ
 
-	thread t1(screen_output);//¶àÏß³Ì
-	thread t2(Coordinate);//¶àÏß³Ì
-	thread t3(Update);//¶àÏß³Ì
-	thread t4(music);//ÒôÀÖÏß³Ì
+	thread t1(screen_output);//å¤šçº¿ç¨‹
+	thread t2(Coordinate);//å¤šçº¿ç¨‹
+	thread t3(Update);//å¤šçº¿ç¨‹
+	thread t4(music);//éŸ³ä¹çº¿ç¨‹
 	t1.join();
 	t2.join();
 	t3.join();
-	//fight();//Õ½¶·º¯Êı²âÊÔ
+	//fight();//æˆ˜æ–—å‡½æ•°æµ‹è¯•
 	return 0;
 }

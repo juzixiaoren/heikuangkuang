@@ -1,45 +1,45 @@
-#pragma once
+ï»¿#pragma once
 #ifndef SCREEN_H
 #define SCREEN_H
 #include "controller.h"
-void gotoxy(int x, int y);//¹â±êÒÆ¶¯
-#define WIDTH (155)//¿í¶È
-#define HEIGHT (43)//¸ß¶È
+void gotoxy(int x, int y);//å…‰æ ‡ç§»åŠ¨
+#define WIDTH (155)//å®½åº¦
+#define HEIGHT (43)//é«˜åº¦
 
-typedef struct//Ö÷½ÇµÄ½á¹¹Ìå
+typedef struct//ä¸»è§’çš„ç»“æ„ä½“
 {
 	int m_x;
 	int m_y;
 	wchar_t m_char;
 }Protagonist;
 
-typedef struct //ÊÓ¿Ú½á¹¹Ìå
+typedef struct //è§†å£ç»“æ„ä½“
 {
-	wchar_t m_buffer[WIDTH * HEIGHT];//»º³åÇø
+	wchar_t m_buffer[WIDTH * HEIGHT];//ç¼“å†²åŒº
 }Viewport;
 
 
-void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer);//ÊÓ¿Úµ½ÆÁÄ»
-void Delay();//ÑÓ³Ù
+void ViewportToScreen(Viewport* back_buffer, Viewport* front_buffer);//è§†å£åˆ°å±å¹•
+void Delay();//å»¶è¿Ÿ
 void gotoxy(int x, int y);
-void CleanScreen(Viewport* viewport);//ÇåÆÁ
-void RenderProt(Viewport* viewport, Protagonist* prot);//äÖÈ¾Ö÷½Ç
-void screen_output(); //ÆÁÄ»Êä³ö
-void screen_input(Viewport* back_buffer);//ÆÁÄ»ÊäÈë
-void clear_preRenderProt(Viewport* back_buffer, controller* player);//Çå³ıÉÏÒ»´ÎµÄÖ÷½Ç
-bool Canmove(controller* player, Viewport* front_buffer, Protagonist* prot);//¼ì²éÊÇ·ñ¿ÉÒÔÒÆ¶¯
-std::wstring selectMapFile(int gameLevel);//Ñ¡ÔñµØÍ¼ÎÄ¼ş
-std::wstring selectEnemyFile(int enemyid);//Ñ¡ÔñµĞÈËÎÄ¼ş
-void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//¼ÓÔØµØÍ¼ÎÄ¼ş
-void Coordinate();//×ø±êÅĞ¶Ï
-int Coordinate_judgment(int coord_xy[][2], controller* player);//×ø±êÅĞ¶Ï
-void Coordinate_judgment_fiht(controller* player);//×ø±êÅĞ¶Ï
-bool Timer(long long ms, int id);//¼ÆÊ±Æ÷
-void loadenemy(Viewport* back_buffer, const std::wstring& enemyid);//¼ÓÔØµĞÈË
-BOOL MByteToWChar_t(LPCSTR lpcszStr, LPWSTR lpwszStr, DWORD dwSize);//¶à×Ö½Ú×ª¿í×Ö½Ú
-BOOL WCharToMByte_t(LPCWSTR lpwszStr, LPSTR lpszStr, DWORD dwSize);//¿í×Ö½Ú×ª¶à×Ö½Ú
+void CleanScreen(Viewport* viewport);//æ¸…å±
+void RenderProt(Viewport* viewport, Protagonist* prot);//æ¸²æŸ“ä¸»è§’
+void screen_output(); //å±å¹•è¾“å‡º
+void screen_input(Viewport* back_buffer);//å±å¹•è¾“å…¥
+void clear_preRenderProt(Viewport* back_buffer, controller* player);//æ¸…é™¤ä¸Šä¸€æ¬¡çš„ä¸»è§’
+bool Canmove(controller* player, Viewport* front_buffer, Protagonist* prot);//æ£€æŸ¥æ˜¯å¦å¯ä»¥ç§»åŠ¨
+std::wstring selectMapFile(int gameLevel);//é€‰æ‹©åœ°å›¾æ–‡ä»¶
+std::wstring selectEnemyFile(int enemyid);//é€‰æ‹©æ•Œäººæ–‡ä»¶
+void loadMapFile(Viewport* back_buffer, const std::wstring& mapFile);//åŠ è½½åœ°å›¾æ–‡ä»¶
+void Coordinate();//åæ ‡åˆ¤æ–­
+int Coordinate_judgment(int coord_xy[][2], controller* player);//åæ ‡åˆ¤æ–­
+void Coordinate_judgment_fiht(controller* player);//åæ ‡åˆ¤æ–­
+bool Timer(long long ms, int id);//è®¡æ—¶å™¨
+void loadenemy(Viewport* back_buffer, const std::wstring& enemyid);//åŠ è½½æ•Œäºº
+BOOL MByteToWChar_t(LPCSTR lpcszStr, LPWSTR lpwszStr, DWORD dwSize);//å¤šå­—èŠ‚è½¬å®½å­—èŠ‚
+BOOL WCharToMByte_t(LPCWSTR lpwszStr, LPSTR lpszStr, DWORD dwSize);//å®½å­—èŠ‚è½¬å¤šå­—èŠ‚
 std::wstring to_wide_string(const std::string& input);
 std::string to_byte_string(const std::wstring& input);
 std::wstring clean_wstring(const std::wstring& w_string);
 #endif
-//×î´ó¸ß¶ÈË÷ÒıÊÇ42,×î´ó¿í¶ÈË÷ÒıÊÇ154
+//æœ€å¤§é«˜åº¦ç´¢å¼•æ˜¯42,æœ€å¤§å®½åº¦ç´¢å¼•æ˜¯154

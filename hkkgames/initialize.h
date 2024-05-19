@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 #ifndef INITIALIZE_H
 #define INITIALIZE_H
-void titlecout();//Êä³ö±êÌâ
-void gui_size();//ÉèÖÃ»º³åÇø´óĞ¡£¬È«ÆÁÊÖ¶¯È«ÆÁ
-void FullScreen();//È«ÆÁ£¨ÎŞĞ§ºöÂÔ£©
-void Hkk_initialize();//³õÊ¼»¯
+void titlecout();//è¾“å‡ºæ ‡é¢˜
+void gui_size();//è®¾ç½®ç¼“å†²åŒºå¤§å°ï¼Œå…¨å±æ‰‹åŠ¨å…¨å±
+void FullScreen();//å…¨å±ï¼ˆæ— æ•ˆå¿½ç•¥ï¼‰
+void Hkk_initialize();//åˆå§‹åŒ–
 void music();
 #endif

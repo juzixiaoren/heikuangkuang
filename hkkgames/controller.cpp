@@ -1,12 +1,12 @@
-#include"controller.h"
+ï»¿#include"controller.h"
 #include"header.h"
 using namespace std;
 bool controller::CheckKeyDown(int vKey)
 {
 	//Debug(printf("Checking %d", vKey));
 	return GetAsyncKeyState(vKey) & 0x8000;
-	//GetAsyncKeyState()µÄ·µ»ØÖµ±íÊ¾Á½¸öÄÚÈİ£¬Ò»¸öÊÇ×î¸ßÎ»bitµÄÖµ£¬´ú±íÕâ¸ö¼üÊÇ·ñ±»°´ÏÂ£¬
-	// Ò»¸öÊÇ×îµÍÎ»bitµÄÖµ£¬´ú±íÔÚÉÏ´Îµ÷ÓÃGetAsyncKeyState()ºó£¬Õâ¸ö¼üÊÇ·ñ±»°´ÏÂ¡£
+	//GetAsyncKeyState()çš„è¿”å›å€¼è¡¨ç¤ºä¸¤ä¸ªå†…å®¹ï¼Œä¸€ä¸ªæ˜¯æœ€é«˜ä½bitçš„å€¼ï¼Œä»£è¡¨è¿™ä¸ªé”®æ˜¯å¦è¢«æŒ‰ä¸‹ï¼Œ
+	// ä¸€ä¸ªæ˜¯æœ€ä½ä½bitçš„å€¼ï¼Œä»£è¡¨åœ¨ä¸Šæ¬¡è°ƒç”¨GetAsyncKeyState()åï¼Œè¿™ä¸ªé”®æ˜¯å¦è¢«æŒ‰ä¸‹ã€‚
 }
 bool controller::CheckIfMove()
 {
@@ -99,7 +99,7 @@ bool Timer(long long ms, int id)
 //
 //void GameController::Update()
 //{
-//	// ´¦ÀíÊäÈë
+//	// å¤„ç†è¾“å…¥
 //	InputHandler();
 //}
 //
