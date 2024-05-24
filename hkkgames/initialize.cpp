@@ -1,22 +1,22 @@
-#include "header.h"
+ï»¿#include "header.h"
 using namespace std;
-void titlecout() {//Êä³ö±êÌâ
+void titlecout() {//è¾“å‡ºæ ‡é¢˜
 	FILE* fileptr = fopen("title.txt", "r");
 	if (fileptr == nullptr) {
 		std::cout << "error oprning file" << endl;
 		std::exit(EXIT_FAILURE);
 	}
-	const size_t buffersize = 6665;//ÓÃÖĞÎÄÊı¾İµÄ³¤¶È¶ÔÓ¦»º³åÇø´óĞ¡
+	const size_t buffersize = 6665;//ç”¨ä¸­æ–‡æ•°æ®çš„é•¿åº¦å¯¹åº”ç¼“å†²åŒºå¤§å°
 	char buffer[buffersize]{};
-	char* ptr = buffer;//Ö¸Ïòbuffer»º³åÇøµÄÖ¸Õë
-	size_t bytesRead = 0;//¶ÁÈ¡µÄ×Ö½ÚÊı
-	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//¶ÁÈ¡ÎÄ¼ş
+	char* ptr = buffer;//æŒ‡å‘bufferç¼“å†²åŒºçš„æŒ‡é’ˆ
+	size_t bytesRead = 0;//è¯»å–çš„å­—èŠ‚æ•°
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//è¯»å–æ–‡ä»¶
 		buffer[bytesRead] = '\0';
 		std::cout << buffer << std::endl;
 	}
 	fclose(fileptr);
 }
-void log_cout(string a)//ÊµÏÖÒ»¸öÒ»¸ö×Ö·ûÊä³ö
+void log_cout(string a)//å®ç°ä¸€ä¸ªä¸€ä¸ªå­—ç¬¦è¾“å‡º
 {
 	for (int i = 0; i < a.size(); i++)
 	{
@@ -25,17 +25,17 @@ void log_cout(string a)//ÊµÏÖÒ»¸öÒ»¸ö×Ö·ûÊä³ö
 	}
 }
 static void rule_out() {
-	//Êä³ö¹æÔò
+	//è¾“å‡ºè§„åˆ™
 	FILE* fileptr = fopen("rule.txt", "r");
 	if (fileptr == nullptr) {
 		std::cout << "error oprning file" << endl;
 		std::exit(EXIT_FAILURE);
 	}
-	const size_t buffersize = 6665;//ÓÃÖĞÎÄÊı¾İµÄ³¤¶È¶ÔÓ¦»º³åÇø´óĞ¡
+	const size_t buffersize = 6665;//ç”¨ä¸­æ–‡æ•°æ®çš„é•¿åº¦å¯¹åº”ç¼“å†²åŒºå¤§å°
 	char buffer[buffersize]{};
-	char* ptr = buffer;//Ö¸Ïòbuffer»º³åÇøµÄÖ¸Õë
-	size_t bytesRead = 0;//¶ÁÈ¡µÄ×Ö½ÚÊı
-	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//¶ÁÈ¡ÎÄ¼ş
+	char* ptr = buffer;//æŒ‡å‘bufferç¼“å†²åŒºçš„æŒ‡é’ˆ
+	size_t bytesRead = 0;//è¯»å–çš„å­—èŠ‚æ•°
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//è¯»å–æ–‡ä»¶
 			buffer[bytesRead] = '\0';
 			std::cout << buffer << std::endl;
 		}
@@ -43,24 +43,24 @@ static void rule_out() {
 
 }
 static void pic_out() {
-	//Êä³ö¹æÔò
+	//è¾“å‡ºè§„åˆ™
 	FILE* fileptr = fopen("intro.txt", "r");
 	if (fileptr == nullptr) {
 		std::cout << "error oprning file" << endl;
 		std::exit(EXIT_FAILURE);
 	}
-	const size_t buffersize = 6665;//ÓÃÖĞÎÄÊı¾İµÄ³¤¶È¶ÔÓ¦»º³åÇø´óĞ¡
+	const size_t buffersize = 6665;//ç”¨ä¸­æ–‡æ•°æ®çš„é•¿åº¦å¯¹åº”ç¼“å†²åŒºå¤§å°
 	char buffer[buffersize]{};
-	char* ptr = buffer;//Ö¸Ïòbuffer»º³åÇøµÄÖ¸Õë
-	size_t bytesRead = 0;//¶ÁÈ¡µÄ×Ö½ÚÊı
-	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//¶ÁÈ¡ÎÄ¼ş
+	char* ptr = buffer;//æŒ‡å‘bufferç¼“å†²åŒºçš„æŒ‡é’ˆ
+	size_t bytesRead = 0;//è¯»å–çš„å­—èŠ‚æ•°
+	while ((bytesRead = fread(ptr, sizeof(char), buffersize - 1, fileptr)) > 0) {//è¯»å–æ–‡ä»¶
 		buffer[bytesRead] = '\0';
 		std::cout << buffer << std::endl;
 	}
 	fclose(fileptr);
 
 }
-void hide_cursor()//Òş²Ø¹â±ê
+void hide_cursor()//éšè—å…‰æ ‡
 {
 	HANDLE h_GAME = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO cursor_info;
@@ -69,18 +69,18 @@ void hide_cursor()//Òş²Ø¹â±ê
 	SetConsoleCursorInfo(h_GAME, &cursor_info);
 }
 
-void gui_size(){//ÉèÖÃ»º³åÇø´óĞ¡£¬È«ÆÁÊÖ¶¯È«ÆÁ
-	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);//»ñÈ¡¿ØÖÆÌ¨¾ä±ú
+void gui_size(){//è®¾ç½®ç¼“å†²åŒºå¤§å°ï¼Œå…¨å±æ‰‹åŠ¨å…¨å±
+	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);//è·å–æ§åˆ¶å°å¥æŸ„
 	CONSOLE_SCREEN_BUFFER_INFO scr_buff;
 	COORD cd;
 	cd.X = 310;
 	cd.Y = 43;
-	if (!SetConsoleScreenBufferSize(hcon, cd)) {//ÉèÖÃ»º³åÇø´óĞ¡
+	if (!SetConsoleScreenBufferSize(hcon, cd)) {//è®¾ç½®ç¼“å†²åŒºå¤§å°
 		printf("error\n");
 	}
 	if (GetConsoleScreenBufferInfo(hcon, &scr_buff)) {
 
-		printf("»º³åÇøÉèÖÃ³É¹¦£ºX : %d,Y : %d\n", scr_buff.dwSize.X, scr_buff.dwSize.Y);
+		printf("ç¼“å†²åŒºè®¾ç½®æˆåŠŸï¼šX : %d,Y : %d\n", scr_buff.dwSize.X, scr_buff.dwSize.Y);
 
 	}
 	system("pause");
@@ -90,10 +90,10 @@ void gui_size(){//ÉèÖÃ»º³åÇø´óĞ¡£¬È«ÆÁÊÖ¶¯È«ÆÁ
 	rule_out();
 	system("pause");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
-	log_cout("ÓÎÏ·¼ÓÔØÖĞ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€ ¨€");
+	log_cout("æ¸¸æˆåŠ è½½ä¸­ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ â–ˆ");
 }
 #pragma comment (lib,"winmm.lib")
-void Hkk_initialize() {//³õÊ¼»¯
+void Hkk_initialize() {//åˆå§‹åŒ–
 	gui_size();
 	hide_cursor();
 	system("cls");

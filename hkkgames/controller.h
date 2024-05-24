@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #define KEYBOARD_W 0x57
@@ -18,11 +18,11 @@ public:
 		prex = x;
 		prey = y;
 	}
-	int IfMove;//0:²»¶¯ 1:ÉÏW 2:ÏÂS 3:×óA 4:ÓÒD
-	bool CheckKeyDown(int vKey);//¼ì²é°´¼üÊÇ·ñ°´ÏÂ
-	bool CheckIfMove();//¼ì²éÊÇ·ñÒÆ¶¯
-	void Move();//ÒÆ¶¯
+	int IfMove;//0:ä¸åŠ¨ 1:ä¸ŠW 2:ä¸‹S 3:å·¦A 4:å³D
+	bool CheckKeyDown(int vKey);//æ£€æŸ¥æŒ‰é”®æ˜¯å¦æŒ‰ä¸‹
+	bool CheckIfMove();//æ£€æŸ¥æ˜¯å¦ç§»åŠ¨
+	void Move();//ç§»åŠ¨
 };
-bool Timer(long long ms, int id);//¼ÆÊ±Æ÷
+bool Timer(long long ms, int id);//è®¡æ—¶å™¨
 #endif
 // Path: hkkgames/class_fight.h

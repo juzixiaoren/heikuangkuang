@@ -1,4 +1,4 @@
-#include"header.h"
+ï»¿#include"header.h"
 #include"Startgame.h"
 #include"controller.h"
 #include"screen.h"
@@ -17,20 +17,20 @@ extern int fightinfo;
 extern vector <enemy_s> enemyinfo;
 void Startgame()
 {
-	player.m_char = L'¿ª';
+	player.m_char = L'å¼€';
 	mapid = 1;
-	coord_xy[0][0] = 35;//±íÊ¾¹â±êµÄ»î¶¯·¶Î§
+	coord_xy[0][0] = 35;//è¡¨ç¤ºå…‰æ ‡çš„æ´»åŠ¨èŒƒå›´
 	coord_xy[0][1] = 30;
 	Status = 1;
 }
 
 void showstorys() {
-	
-	wifstream file("ÎÄ±¾1.txt");//´ò¿ªÎÄ¼ş
-	file.imbue(locale("zh_CN"));//°ÑtxtÀïµÄÓïÑÔ»·¾³ÉèÖÃÎªzh_CN
+
+	wifstream file("æ–‡æœ¬1.txt");//æ‰“å¼€æ–‡ä»¶
+	file.imbue(locale("zh_CN"));//æŠŠtxté‡Œçš„è¯­è¨€ç¯å¢ƒè®¾ç½®ä¸ºzh_CN
 	if (!file.is_open()) {
-		perror("´ò¿ªÎÄ¼şÎÄ±¾1.txtÊ§°ÜÀ²");
-		cerr << "ÎŞ·¨´ò¿ªÎÄ¼ş ÎÄ±¾1.txt" << endl;
+		perror("æ‰“å¼€æ–‡ä»¶æ–‡æœ¬1.txtå¤±è´¥å•¦");
+		cerr << "æ— æ³•æ‰“å¼€æ–‡ä»¶ æ–‡æœ¬1.txt" << endl;
 		return;
 	}
 	wstring line;
@@ -44,13 +44,13 @@ void showstorys() {
 				buffers[back_index].m_buffer[index] = ch;
 				index++;
 			}
-			else if (line[x] > 255) {//ÖĞÎÄ×Ö·û
+			else if (line[x] > 255) {//ä¸­æ–‡å­—ç¬¦
 				ch = line[x];
 				buffers[back_index].m_buffer[index] = ch;
 				buffers[back_index].m_buffer[index + 1] = 0;
-				index += 2;//ÖĞÎÄ×Ö·ûÕ¼Á½¸ö×Ö·ûÎ»ÖÃ
+				index += 2;//ä¸­æ–‡å­—ç¬¦å ä¸¤ä¸ªå­—ç¬¦ä½ç½®
 			}
-			else {//Ó¢ÎÄ×Ö·û
+			else {//è‹±æ–‡å­—ç¬¦
 				ch = line[x];
 				buffers[back_index].m_buffer[index] = ch;
 				index++;
@@ -61,11 +61,11 @@ void showstorys() {
 }
 void showstorys_2() {
 
-	wifstream file("kobe.txt");//´ò¿ªÎÄ¼ş
-	file.imbue(locale("zh_CN"));//°ÑtxtÀïµÄÓïÑÔ»·¾³ÉèÖÃÎªzh_CN
+	wifstream file("kobe.txt");//æ‰“å¼€æ–‡ä»¶
+	file.imbue(locale("zh_CN"));//æŠŠtxté‡Œçš„è¯­è¨€ç¯å¢ƒè®¾ç½®ä¸ºzh_CN
 	if (!file.is_open()) {
-		perror("´ò¿ªÎÄ¼şÎÄ±¾1.txtÊ§°ÜÀ²");
-		cerr << "ÎŞ·¨´ò¿ªÎÄ¼ş ÎÄ±¾1.txt" << endl;
+		perror("æ‰“å¼€æ–‡ä»¶æ–‡æœ¬1.txtå¤±è´¥å•¦");
+		cerr << "æ— æ³•æ‰“å¼€æ–‡ä»¶ æ–‡æœ¬1.txt" << endl;
 		return;
 	}
 	wstring line;
@@ -79,13 +79,13 @@ void showstorys_2() {
 				buffers[back_index].m_buffer[index] = ch;
 				index++;
 			}
-			else if (line[x] > 255) {//ÖĞÎÄ×Ö·û
+			else if (line[x] > 255) {//ä¸­æ–‡å­—ç¬¦
 				ch = line[x];
 				buffers[back_index].m_buffer[index] = ch;
 				buffers[back_index].m_buffer[index + 1] = 0;
-				index += 2;//ÖĞÎÄ×Ö·ûÕ¼Á½¸ö×Ö·ûÎ»ÖÃ
+				index += 2;//ä¸­æ–‡å­—ç¬¦å ä¸¤ä¸ªå­—ç¬¦ä½ç½®
 			}
-			else {//Ó¢ÎÄ×Ö·û
+			else {//è‹±æ–‡å­—ç¬¦
 				ch = line[x];
 				buffers[back_index].m_buffer[index] = ch;
 				index++;
@@ -130,11 +130,11 @@ void showstorys_3() {
 	file.close();
 }
 void showbaseinfo() {
-	wifstream file("baseinfo.txt");//´ò¿ªÎÄ¼ş
-	file.imbue(locale("zh_CN"));//°ÑtxtÀïµÄÓïÑÔ»·¾³ÉèÖÃÎªzh_CN
+	wifstream file("baseinfo.txt");//æ‰“å¼€æ–‡ä»¶
+	file.imbue(locale("zh_CN"));//æŠŠtxté‡Œçš„è¯­è¨€ç¯å¢ƒè®¾ç½®ä¸ºzh_CN
 	if (!file.is_open()) {
-		perror("´ò¿ªÎÄ¼şÎÄ±¾1.txtÊ§°ÜÀ²");
-		cerr << "ÎŞ·¨´ò¿ªÎÄ¼ş ÎÄ±¾1.txt" << endl;
+		perror("æ‰“å¼€æ–‡ä»¶æ–‡æœ¬1.txtå¤±è´¥å•¦");
+		cerr << "æ— æ³•æ‰“å¼€æ–‡ä»¶ æ–‡æœ¬1.txt" << endl;
 		return;
 	}
 	wstring line;
@@ -151,13 +151,13 @@ void showbaseinfo() {
 				index++;
 				continue;
 			}
-			else if (line[x] > 255) {//ÖĞÎÄ×Ö·û
+			else if (line[x] > 255) {//ä¸­æ–‡å­—ç¬¦
 				ch = line[x];
 				buffers[back_index].m_buffer[index] = ch;
 				buffers[back_index].m_buffer[index + 1] = 0;
-				index += 2;//ÖĞÎÄ×Ö·ûÕ¼Á½¸ö×Ö·ûÎ»ÖÃ
+				index += 2;//ä¸­æ–‡å­—ç¬¦å ä¸¤ä¸ªå­—ç¬¦ä½ç½®
 			}
-			else {//Ó¢ÎÄ×Ö·û
+			else {//è‹±æ–‡å­—ç¬¦
 				ch = line[x];
 				buffers[back_index].m_buffer[index] = ch;
 				index++;
@@ -167,11 +167,11 @@ void showbaseinfo() {
 	file.close();
 }
 void showfightinfo() {
-	wifstream file("fightinfo.txt");//´ò¿ªÎÄ¼ş
-	file.imbue(locale("zh_CN"));//°ÑtxtÀïµÄÓïÑÔ»·¾³ÉèÖÃÎªzh_CN
+	wifstream file("fightinfo.txt");//æ‰“å¼€æ–‡ä»¶
+	file.imbue(locale("zh_CN"));//æŠŠtxté‡Œçš„è¯­è¨€ç¯å¢ƒè®¾ç½®ä¸ºzh_CN
 	if (!file.is_open()) {
-		perror("´ò¿ªÎÄ¼şÎÄ±¾1.txtÊ§°ÜÀ²");
-		cerr << "ÎŞ·¨´ò¿ªÎÄ¼ş ÎÄ±¾1.txt" << endl;
+		perror("æ‰“å¼€æ–‡ä»¶æ–‡æœ¬1.txtå¤±è´¥å•¦");
+		cerr << "æ— æ³•æ‰“å¼€æ–‡ä»¶ æ–‡æœ¬1.txt" << endl;
 		return;
 	}
 	wstring line;
@@ -188,13 +188,13 @@ void showfightinfo() {
 				index++;
 				continue;
 			}
-			else if (line[x] > 255) {//ÖĞÎÄ×Ö·û
+			else if (line[x] > 255) {//ä¸­æ–‡å­—ç¬¦
 							ch = line[x];
 							buffers[back_index].m_buffer[index] = ch;
 							buffers[back_index].m_buffer[index + 1] = 0;
-							index += 2;//ÖĞÎÄ×Ö·ûÕ¼Á½¸ö×Ö·ûÎ»ÖÃ
+							index += 2;//ä¸­æ–‡å­—ç¬¦å ä¸¤ä¸ªå­—ç¬¦ä½ç½®
 						}
-			else {//Ó¢ÎÄ×Ö·û
+			else {//è‹±æ–‡å­—ç¬¦
 							ch = line[x];
 							buffers[back_index].m_buffer[index] = ch;
 							index++;
@@ -227,7 +227,7 @@ void loadothers() {
 		if (Timer(20000, 2)) 
 		{
 			info = 3;
-			player.m_char = L'ÎÒ';
+			player.m_char = L'æˆ‘';
 			player.x = 1;
 			player.y = 1;
 			mapid = 2;
@@ -247,7 +247,7 @@ void loadothers() {
 	case 4:
 	{
 		Status = 3;
-		if (!fightinfo) 
+		if (!fightinfo)
 		{
 			showbaseinfo();
 		}

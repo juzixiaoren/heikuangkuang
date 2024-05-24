@@ -1,7 +1,7 @@
-#include"header.h"
+ï»¿#include"header.h"
 #include"initialize.h"
 #include"beforestart.h"
-#include"screen.h" 
+#include"screen.h"
 #include"Startgame.h"
 #include "update.h"
 //#include"functions.cpp"
@@ -12,36 +12,36 @@
 //#include"variables.h"
 #include"fight.h"
 using namespace std;
-int coord_xy[10][2];//×ø±êÊı×é
-controller player(0, 10);//¿ØÖÆÆ÷
-int player_temp_coord[2];//Íæ¼ÒÁÙÊ±×ø±ê
+int coord_xy[10][2];//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+controller player(0, 10);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int player_temp_coord[2];//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
 int Status= 0;//×´Ì¬
-int info = 0;//ĞÅÏ¢
-int fightinfo = 0;//Õ½¶·ĞÅÏ¢
-int Canfight = 1;//ÊÇ·ñ¿ÉÒÔÕ½¶·
-Viewport buffers[2] = { 0 };//ÊÓ¿Ú
-int front_index = 0;//Ç°Ë÷Òı
-int back_index = 1;//ºóË÷Òı
-int enemyid = 0;//µĞÈËid
-int levelup=0;//Éı¼¶
-int coinskill = 0;//½ğ±ÒÄÜÁ¦
-player_s Playerinfo(L"???",10,0,0,0,0,0,0);//Íæ¼ÒĞÅÏ¢
-vector <enemy_s> enemyinfo;//µĞÈËĞÅÏ¢
+int info = 0;//ï¿½ï¿½Ï¢
+int fightinfo = 0;//Õ½ï¿½ï¿½ï¿½ï¿½Ï¢
+int Canfight = 1;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½
+Viewport buffers[2] = { 0 };//ï¿½Ó¿ï¿½
+int front_index = 0;//Ç°ï¿½ï¿½ï¿½ï¿½
+int back_index = 1;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int enemyid = 0;//ï¿½ï¿½ï¿½ï¿½id
+int levelup=0;//ï¿½ï¿½ï¿½ï¿½
+int coinskill = 0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+player_s Playerinfo(L"???",10,0,0,0,0,0,0);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+vector <enemy_s> enemyinfo;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 int main() 
 {
-	wcout.imbue(locale("zh_CN"));  //ÉèÖÃÓïÑÔ»·¾³
-	Hkk_initialize();//³õÊ¼»¯
-	srand(time(0));//Ëæ»úÊıÖÖ×Ó
-	Startgame();//¿ªÊ¼ÓÎÏ·
+	wcout.imbue(locale("zh_CN"));  //è®¾ç½®è¯­è¨€ç¯å¢ƒ
+	Hkk_initialize();//åˆå§‹åŒ–
+	srand(time(0));//éšæœºæ•°ç§å­
+	Startgame();//å¼€å§‹æ¸¸æˆ
 
-	thread t1(screen_output);//¶àÏß³Ì
-	thread t2(Coordinate);//¶àÏß³Ì
-	thread t3(Update);//¶àÏß³Ì
-	thread t4(music);//ÒôÀÖÏß³Ì
+	thread t1(screen_output);//å¤šçº¿ç¨‹
+	thread t2(Coordinate);//å¤šçº¿ç¨‹
+	thread t3(Update);//å¤šçº¿ç¨‹
+	thread t4(music);//éŸ³ä¹çº¿ç¨‹
 	t1.join();
 	t2.join();
 	t3.join();
 	t4.join();
-	//fight();//Õ½¶·º¯Êı²âÊÔ
+	//fight();//Õ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	return 0;
 }

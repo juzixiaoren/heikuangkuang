@@ -1,15 +1,15 @@
-#include "header.h"
+ï»¿#include "header.h"
 using namespace std;
-void press_any() //°´ÈÎÒâ¼ü¿ªÊ¼ÓÎÏ·
+void press_any() //æŒ‰ä»»æ„é”®å¼€å§‹æ¸¸æˆ
 {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | FOREGROUND_GREEN);
-		cout << "°´ÈÎÒâ¼ü¿ªÊ¼ÓÎÏ·" << endl;
+		cout << "æŒ‰ä»»æ„é”®å¼€å§‹æ¸¸æˆ" << endl;
 }
-//void fight() {//Õ½¶·º¯Êı²âÊÔ£¬ÓÃÁ½¸öĞ¡¹Ö²âÊÔ
+//void fight() {//æˆ˜æ–—å‡½æ•°æµ‹è¯•ï¼Œç”¨ä¸¤ä¸ªå°æ€ªæµ‹è¯•
 //	A->show();
 //	B->show();
 //	system("pause");
-//	while (A->Ifalive() && B->Ifalive()) 
+//	while (A->Ifalive() && B->Ifalive())
 //	{
 //		B->acts();
 //		B->pd();

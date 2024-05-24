@@ -1,7 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #ifndef BEFORESTART_H
 #define BEFORESTART_H
-void fight();//ս��
+void fight();//战斗
 
 #endif
