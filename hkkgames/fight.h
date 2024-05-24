@@ -20,6 +20,7 @@ protected:
 	double act_num;//行为数值
 	double output_atk;//输出攻击力
 public:
+	double getmoney;//获取金钱
 	double getexp;//获取经验
 	wstring name;//名字
 	wstring info;//行动信息
@@ -27,7 +28,7 @@ public:
 	wstring info3;//被攻击信息
 	wstring infoall;//全部信息
 	enemy_s() {};//默认构造函数
-	enemy_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp) //构造函数
+	enemy_s(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp,double getmoney) //构造函数
 	{
 		this->name = _name;
 		this->hp = _hp;
@@ -41,13 +42,14 @@ public:
 		this->hp_b = _hp_b;
 		this->hp_c = _hp_c;
 		this->getexp = getexp;
+		this->getmoney = getmoney;
 	}
 	virtual double op_atk(); //输出对敌方的攻击
 	virtual bool Ifalive();//判断是否存活
 	virtual void Be_attacked(double be_atk); //被攻击函数
 	virtual void acts(); //行动函数
 	virtual void pd(); //行动判断函数
-	virtual void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp);//改变名字，血量，攻击，防御，暴击率，强化率，回复率，生命剥夺率
+	virtual void changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c, double getexp , double getmoney);//改变名字，血量，攻击，防御，暴击率，强化率，回复率，生命剥夺率
 	void showenemyinfo();
 };
 class player_s :enemy_s

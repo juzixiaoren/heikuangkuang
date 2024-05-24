@@ -8,6 +8,7 @@ extern int front_index;
 extern int back_index;
 extern player_s Playerinfo;
 extern vector <enemy_s> enemyinfo;
+extern int coinskill;
 
 double enemy_s::op_atk() //输出对敌方的攻击
 {
@@ -209,7 +210,7 @@ void enemy_s::pd() //行动判断函数
 		return;
 	}
 }
-void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c,double getexp)
+void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, double _atk_b, double _def_b, double _hp_b, double _hp_c,double getexp,double getmoney)
 {
 	this->name = _name;
 	this->hp = _hp;
@@ -223,6 +224,7 @@ void enemy_s::changeinfo(wstring _name, double _hp, double _atk, double _def, do
 	this->hp_b = _hp_b;
 	this->hp_c = _hp_c;
 	this->getexp = getexp;
+	this->getmoney = getmoney;
 }
 void enemy_s::showenemyinfo() 
 {
@@ -554,103 +556,142 @@ void player_s::acts(int r) //行动函数
 	actor = r;
 	if (r == 1)
 	{
-		double rand_num = rand() % 110 + 1;
-		if (rand_num <= atk_b)
-		{
-			info = L"暴击！";
-			act_num = atk_temp * 1.5;
+		if (coinskill) {
+			info = L"金币暴击";
+			act_num = atk_temp * 1.6;
+			coinskill = 0;
 			return;
 		}
-		else if (rand_num >= 100)
-		{
-			info = L"攻击失误";
-			act_num = 0;
-			return;
-		}
-		else
-		{
-			info=L"攻击成功";
-			act_num = atk_temp;
-			return;
+		else {
+			double rand_num = rand() % 110 + 1;
+			if (rand_num <= atk_b)
+			{
+				info = L"暴击！";
+				act_num = atk_temp * 1.5;
+				return;
+			}
+			else if (rand_num >= 100)
+			{
+				info = L"攻击失误";
+				act_num = 0;
+				return;
+			}
+			else
+			{
+				info = L"攻击成功";
+				act_num = atk_temp;
+				return;
+			}
 		}
 	}
 	else if (r == 2) {
-		double rand_num = rand() % 110 + 1;
-		if (rand_num <= def_b)
+		if (coinskill)
 		{
-			info = L"强化大成功";
-			atk_temp += atk * 0.3 > 0 ? atk * 0.3 : 1;
-			def_temp += def * 0.3 > 0 ? def * 0.3 : 1;
+			info = L"金币强化";
+			coinskill = 0;
+			atk_temp += atk * 0.4 > 0 ? atk * 0.4 : 1;
+			def_temp += def * 0.4 > 0 ? def * 0.4 : 1;
 			act_num = 0;
 			return;
 		}
-		else if (rand_num >= 100)
-		{
-			info=L"强化失败";
-			act_num = 0;
-			return;
-		}
-		else
-		{
-			info=L"强化成功";
-			atk_temp += atk * 0.1 > 0 ? atk * 0.1 : 1;
-			def_temp += def * 0.1 > 0 ? def * 0.1 : 1;
-			act_num = 0;
-			return;
+		else {
+			double rand_num = rand() % 110 + 1;
+			if (rand_num <= def_b)
+			{
+				info = L"强化大成功";
+				atk_temp += atk * 0.3 > 0 ? atk * 0.3 : 1;
+				def_temp += def * 0.3 > 0 ? def * 0.3 : 1;
+				act_num = 0;
+				return;
+			}
+			else if (rand_num >= 100)
+			{
+				info = L"强化失败";
+				act_num = 0;
+				return;
+			}
+			else
+			{
+				info = L"强化成功";
+				atk_temp += atk * 0.1 > 0 ? atk * 0.1 : 1;
+				def_temp += def * 0.1 > 0 ? def * 0.1 : 1;
+				act_num = 0;
+				return;
+			}
 		}
 	}
 	else if (r == 3) {
-		double rand_num = rand() % 100 + 1;
-		if (rand_num <= 10)
+		if (coinskill)
 		{
-			info=L"魔曲大成功";
-			act_num = hp_c + 10;
-			return;
-		}
-		else if (rand_num > 10 && rand_num <= 30) {
-			info = L"魔曲小成功";
-			act_num = hp_c * 0.5;
-			return;
-		}
-		else if (rand_num > 30 && rand_num <= 80)
-		{
-			info = L"魔曲成功";
+			info = L"金币魔曲";
+			coinskill = 0;
+			hp_temp += hp * 0.2 + 1;
 			act_num = hp_c;
 			return;
 		}
-		else
-		{
-			info = L"魔曲失败,反噬自身";
-			act_num = 0;
-			hp_temp = hp_temp - hp_c * 0.5 * hp_temp;
-			return;
+		else {
+			double rand_num = rand() % 100 + 1;
+			if (rand_num <= 10)
+			{
+				info = L"魔曲大成功";
+				act_num = hp_c + 10;
+				return;
+			}
+			else if (rand_num > 10 && rand_num <= 30) {
+				info = L"魔曲小成功";
+				act_num = hp_c * 0.5;
+				return;
+			}
+			else if (rand_num > 30 && rand_num <= 80)
+			{
+				info = L"魔曲成功";
+				act_num = hp_c;
+				return;
+			}
+			else
+			{
+				info = L"魔曲失败,反噬自身";
+				act_num = 0;
+				hp_temp = hp_temp - int(((hp_c * 0.5) / 100) * hp);
+				return;
+			}
 		}
 	}
 	else if (r == 4) {
-		double rand_num = rand() % 110 + 1;
-		if (rand_num <= hp_b)
+		if (coinskill)
 		{
-			info = L"回复大成功";
-			hp_temp += hp * 0.4 + 1;
-			if (hp_temp > hp)
-				hp_temp = hp;
-			act_num = 0;
+			info = L"金币回复";
+			coinskill = 0;
+			hp_temp += hp * 0.4 + 20;
+			act_num = hp_b;
 			return;
 		}
-		else if (rand_num >= 80)
-		{
-			info = L"回复失败";
-			act_num = 0;
-			return;
-		}
-		else
-		{
-			info = L"回复成功";
-			hp_temp += hp * 0.2 + 1;
-			if (hp_temp > hp)
-				hp_temp = hp;
-			act_num = 0;
-			return;
+		else {
+			double rand_num = rand() % 110 + 1;
+			if (rand_num <= hp_b)
+			{
+				info = L"回复大成功";
+				hp_temp += hp * 0.4 + 1;
+				if (hp_temp > hp)
+					hp_temp = hp;
+				act_num = 0;
+				return;
+			}
+			else if (rand_num >= 80)
+			{
+				info = L"回复失败";
+				act_num = 0;
+				return;
+			}
+			else
+			{
+				info = L"回复成功";
+				hp_temp += hp * 0.2 + 1;
+				if (hp_temp > hp)
+					hp_temp = hp;
+				act_num = 0;
+				return;
+			}
 		}
 	}
 }
@@ -711,11 +752,15 @@ void player_s::HP_CUP()
 		hp_c += 3;
 		hp += 15+hp/30;
 		def += 3;
+		def_temp = def;
+		hp_temp+=15+hp/30;
 	}
-	else if (hp_c > 30)
+	else if (hp_c >= 30)
 	{
 		hp += 30+hp/25;
 		def += 4 + def / 10;
+		def_temp = def;
+		hp_temp += 30+hp/25;
 	}
 }
 void player_s::statusreset() 

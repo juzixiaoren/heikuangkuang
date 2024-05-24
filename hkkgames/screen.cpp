@@ -199,7 +199,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆(原神)", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7,4);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 2)
 				{
@@ -210,7 +210,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆(原神)", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7,4);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
@@ -221,7 +221,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆(原神)", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7,4);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 4)
 				{
@@ -232,7 +232,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆(原神)", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7,4);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 5)
 				{
@@ -243,7 +243,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"史莱姆", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7);
+					enemyinfo[0].changeinfo(L"史莱姆(原神)", 70 + Playerinfo.level ^ 2 * 2, 20, 14, 10, 20, 20, 14, 7,4);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 6)
 				{
@@ -254,7 +254,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"漂浮头颅(恶魔城）", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 14, 14, 15,7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 7)
 				{
@@ -265,7 +265,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"漂浮头颅(恶魔城）", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 14, 14, 15,7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 8)
 				{
@@ -276,7 +276,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"漂浮头颅", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 10, 14, 15);
+					enemyinfo[0].changeinfo(L"漂浮头颅(恶魔城）", 180 + Playerinfo.level ^ 2 * 2, 30, 20, 25, 50, 10, 14, 15,7);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 9)
 				{
@@ -287,7 +287,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"僵尸",300 + Playerinfo.level ^ 2 * 2, 40, 30, 20, 30, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"僵尸(七日杀）",300 + Playerinfo.level ^ 2 * 2, 40, 30, 20, 30, 7, 20, 20,8);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 10)
 				{
@@ -341,7 +341,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"精英漂浮头颅", 250 + Playerinfo.level ^ 2 * 2, 40, 25, 15, 25, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"精英漂浮头颅(恶魔城）", 250 + Playerinfo.level ^ 2 * 2, 40, 25, 15, 25, 14, 14, 15,8);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 3)
 				{
@@ -352,7 +352,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"精英漂浮头颅", 250 + Playerinfo.level ^ 2 * 2, 40, 25, 15, 25, 14, 14, 15);
+					enemyinfo[0].changeinfo(L"精英漂浮头颅(恶魔城）", 250 + Playerinfo.level ^ 2 * 2, 40, 25, 15, 25, 14, 14, 15,8);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 4)
 				{
@@ -363,7 +363,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"精英僵尸", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"精英僵尸(七日杀）", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20,9);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 5)
 				{
@@ -374,7 +374,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"精英僵尸", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"精英僵尸(七日杀）", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20,9);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 6)
 				{
@@ -385,7 +385,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"精英僵尸", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20);
+					enemyinfo[0].changeinfo(L"精英僵尸(七日杀）", 350 + Playerinfo.level ^ 2 * 2, 50, 30, 20, 25, 7, 20, 20,9);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 7)
 				{
@@ -396,7 +396,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450 + Playerinfo.level ^ 2 * 2, 55, 40, 20, 30, 8, 25, 50);
+					enemyinfo[0].changeinfo(L"克苏鲁之眼(泰拉瑞亚）", 450 + Playerinfo.level ^ 2 * 2, 55, 40, 20, 30, 8, 25, 50,10);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 8)
 				{
@@ -407,7 +407,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450 + Playerinfo.level ^ 2 * 2, 55, 40, 20, 30, 8, 25, 50);
+					enemyinfo[0].changeinfo(L"克苏鲁之眼(泰拉瑞亚）", 450 + Playerinfo.level ^ 2 * 2, 55, 40, 20, 30, 8, 25, 50,10);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 9)
 				{
@@ -418,7 +418,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"克苏鲁之眼", 450+Playerinfo.level^2*2, 55, 40, 20, 30, 8, 25, 50);
+					enemyinfo[0].changeinfo(L"克苏鲁之眼(泰拉瑞亚）", 450+Playerinfo.level^2*2, 55, 40, 20, 30, 8, 25, 50,10);
 				}
 				else if (Coordinate_judgment(coord_xy, &player) == 10)
 				{
@@ -483,7 +483,7 @@ void Coordinate()//判断循环
 					player.x = 30;
 					player.y = 36;
 					enemyinfo.push_back(enemy_s());
-					enemyinfo[0].changeinfo(L"魔王特蕾西斯", 1000 + Playerinfo.level^2 * 20, 60 + Playerinfo.level * 5, 60 + Playerinfo.level * 5, 30, 30, 5, 27,1000);
+					enemyinfo[0].changeinfo(L"魔王特蕾西斯(明日方舟）", 1000 + Playerinfo.level^2 * 10, 60 + Playerinfo.level * 5, 60 + Playerinfo.level * 5, 20, 20, 5, 22,1000,1000);
 				}
 			break;
 			}
@@ -560,6 +560,7 @@ void Coordinate_judgment_fiht(controller* player)
 			Playerinfo.infoall.clear();
 			Playerinfo.info3.clear();
 			Playerinfo.exp += enemyinfo[0].getexp;
+			Playerinfo.money+=enemyinfo[0].getmoney;
 			enemyinfo.pop_back();
 			player->m_char=NULL;
 			int i = Coordinate_judgment(coord_xy, player);
@@ -627,6 +628,7 @@ void Coordinate_judgment_fiht(controller* player)
 			Playerinfo.infoall.clear();
 			Playerinfo.info3.clear();
 			Playerinfo.exp += enemyinfo[0].getexp;
+			Playerinfo.money += enemyinfo[0].getmoney;
 			enemyinfo.pop_back();
 			int i = Coordinate_judgment(coord_xy, player);
 			coord_xy[i - 1][0] = 0;

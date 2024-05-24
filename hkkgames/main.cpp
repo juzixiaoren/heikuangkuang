@@ -24,6 +24,7 @@ int front_index = 0;//前索引
 int back_index = 1;//后索引
 int enemyid = 0;//敌人id
 int levelup=0;//升级
+int coinskill = 0;//金币能力
 player_s Playerinfo(L"???",10,0,0,0,0,0,0);//玩家信息
 vector <enemy_s> enemyinfo;//敌人信息
 int main() 
@@ -40,6 +41,7 @@ int main()
 	t1.join();
 	t2.join();
 	t3.join();
+	t4.join();
 	//fight();//战斗函数测试
 	return 0;
 }

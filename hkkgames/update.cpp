@@ -3,10 +3,12 @@
 extern player_s Playerinfo;
 extern int fightinfo;
 extern int levelup;
+extern int coinskill;
 #define VK_1 0x31
 #define VK_2 0x32
 #define VK_3 0x33
 #define VK_4 0x34
+#define VK_5 0x35
 using namespace std;
 
 bool CheckKeyDown(int vKey)
@@ -21,11 +23,15 @@ void Update()
 	while (1)
 	{
 		Sleep(30);
-		if(fightinfo)
+		if (Playerinfo.gethp() <= 0)
 		{
-			if (Playerinfo.gethp() <= 0)
-			{
-				exit(0);
+			exit(0);
+		}
+		if (CheckKeyDown(VK_5))
+		{
+			if (!coinskill&&Playerinfo.money>=20) {
+				coinskill = 1;
+				Playerinfo.money -= 20;
 			}
 		}
 		if (Playerinfo.exp >= Playerinfo.max_exp)
